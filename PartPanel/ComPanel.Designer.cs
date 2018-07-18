@@ -36,7 +36,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.bytesBox1 = new LeafSoft.LeafControl.BytesBox();
             this.SuspendLayout();
             // 
             // DataReceiver
@@ -87,22 +87,23 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(54, 218);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(41, 16);
             this.radioButton1.TabIndex = 6;
+            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Hex";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
             this.radioButton2.Location = new System.Drawing.Point(53, 243);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(53, 16);
             this.radioButton2.TabIndex = 7;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "ASCII";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
@@ -116,19 +117,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // bytesBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(253, 218);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(527, 41);
-            this.textBox1.TabIndex = 9;
+            this.bytesBox1.IsHex = LeafSoft.Lib.EnumType.CMDType.Hex;
+            this.bytesBox1.Location = new System.Drawing.Point(261, 220);
+            this.bytesBox1.Multiline = true;
+            this.bytesBox1.Name = "bytesBox1";
+            this.bytesBox1.Size = new System.Drawing.Size(525, 37);
+            this.bytesBox1.TabIndex = 9;
             // 
             // ComPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.bytesBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -154,6 +156,6 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private LeafControl.BytesBox bytesBox1;
     }
 }

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
+using LeafSoft.Lib;
 /*---------------作者：叶知秋----------------------*/
 /*---------------时间：2013年8月16日---------------*/
 /*---------------邮箱：yq@yyzq.net---------*/
@@ -46,21 +47,8 @@ namespace LeafSoft.PartPanel
         {
             try
             {
-                if (textBox1.Text.Length == 0)
-                {
-                    MessageBox.Show("请输入要发送的内容", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    textBox1.Focus();
-                    return;
-                }
-                byte[] data = null;
-                if (radioButton1.Checked)
-                {
-                    data = BitConverter.GetBytes(Convert.ToInt32(textBox1.Text));
-                }
-                else
-                {
-                    data = new ASCIIEncoding().GetBytes(textBox1.Text);
-                }
+                
+                byte[] data = bytesBox1.GetCMD().Bytes;
 
                 if (Configer.SendData(data) == true)
                 {
@@ -72,6 +60,19 @@ namespace LeafSoft.PartPanel
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                bytesBox1.IsHex = EnumType.CMDType.Hex;
+            }
+            else
+            {
+                bytesBox1.IsHex = EnumType.CMDType.ASCII;
+            }
+       
         }
     }
 }

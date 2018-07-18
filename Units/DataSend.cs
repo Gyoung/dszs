@@ -37,7 +37,7 @@ namespace LeafSoft.Units
 
         private void dgCMD_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 3 && e.RowIndex>=0)
+            if (e.ColumnIndex == 4 && e.RowIndex>=0)
             {//点击了发送按钮 
                 if (EventDataSend != null)
                 {
