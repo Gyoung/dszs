@@ -30,11 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(yyzq));
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.udpServerPanel1 = new LeafSoft.PartPanel.UDPServerPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tcpServerPanel1 = new LeafSoft.PartPanel.TCPServerPanel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comPanel1 = new LeafSoft.PartPanel.ComPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tcpClientPanel1 = new LeafSoft.PartPanel.TCPClientPanel();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.udpClientPanel1 = new LeafSoft.PartPanel.UDPClientPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.计算器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Check = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,11 +53,6 @@
             this.MS_AboutMe = new System.Windows.Forms.ToolStripMenuItem();
             this.lklQQ = new System.Windows.Forms.LinkLabel();
             this.lklEmail = new System.Windows.Forms.LinkLabel();
-            this.comPanel1 = new LeafSoft.PartPanel.ComPanel();
-            this.tcpServerPanel1 = new LeafSoft.PartPanel.TCPServerPanel();
-            this.tcpClientPanel1 = new LeafSoft.PartPanel.TCPClientPanel();
-            this.udpServerPanel1 = new LeafSoft.PartPanel.UDPServerPanel();
-            this.udpClientPanel1 = new LeafSoft.PartPanel.UDPClientPanel();
             this.tabPage4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -72,6 +72,14 @@
             this.tabPage4.Text = "UDP Server";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // udpServerPanel1
+            // 
+            this.udpServerPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.udpServerPanel1.Location = new System.Drawing.Point(0, 0);
+            this.udpServerPanel1.Name = "udpServerPanel1";
+            this.udpServerPanel1.Size = new System.Drawing.Size(710, 467);
+            this.udpServerPanel1.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tcpServerPanel1);
@@ -82,6 +90,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "TCP Server";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tcpServerPanel1
+            // 
+            this.tcpServerPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcpServerPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tcpServerPanel1.Name = "tcpServerPanel1";
+            this.tcpServerPanel1.Size = new System.Drawing.Size(704, 461);
+            this.tcpServerPanel1.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -94,11 +110,19 @@
             this.tabPage1.Text = "串口";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // comPanel1
+            // 
+            this.comPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comPanel1.Location = new System.Drawing.Point(3, 3);
+            this.comPanel1.Name = "comPanel1";
+            this.comPanel1.Size = new System.Drawing.Size(704, 461);
+            this.comPanel1.TabIndex = 0;
+            // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -120,6 +144,14 @@
             this.tabPage3.Text = "TCP Client";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // tcpClientPanel1
+            // 
+            this.tcpClientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcpClientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tcpClientPanel1.Name = "tcpClientPanel1";
+            this.tcpClientPanel1.Size = new System.Drawing.Size(710, 467);
+            this.tcpClientPanel1.TabIndex = 0;
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.udpClientPanel1);
@@ -129,6 +161,14 @@
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "UDP Client";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // udpClientPanel1
+            // 
+            this.udpClientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.udpClientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.udpClientPanel1.Name = "udpClientPanel1";
+            this.udpClientPanel1.Size = new System.Drawing.Size(710, 467);
+            this.udpClientPanel1.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -157,7 +197,7 @@
             // 
             this.MS_Check.Image = global::LeafSoft.Properties.Resources.hex;
             this.MS_Check.Name = "MS_Check";
-            this.MS_Check.Size = new System.Drawing.Size(152, 22);
+            this.MS_Check.Size = new System.Drawing.Size(148, 22);
             this.MS_Check.Text = "校验码计算器";
             this.MS_Check.Click += new System.EventHandler(this.MS_Check_Click);
             // 
@@ -165,7 +205,7 @@
             // 
             this.MS_Bytes.Image = global::LeafSoft.Properties.Resources.calculator;
             this.MS_Bytes.Name = "MS_Bytes";
-            this.MS_Bytes.Size = new System.Drawing.Size(152, 22);
+            this.MS_Bytes.Size = new System.Drawing.Size(148, 22);
             this.MS_Bytes.Text = "数值计算器";
             this.MS_Bytes.Click += new System.EventHandler(this.MS_Bytes_Click);
             // 
@@ -186,7 +226,7 @@
             // 
             this.MS_NewRs232.Image = global::LeafSoft.Properties.Resources.ucom;
             this.MS_NewRs232.Name = "MS_NewRs232";
-            this.MS_NewRs232.Size = new System.Drawing.Size(152, 22);
+            this.MS_NewRs232.Size = new System.Drawing.Size(142, 22);
             this.MS_NewRs232.Text = "串口";
             this.MS_NewRs232.Click += new System.EventHandler(this.MS_NewRs232_Click);
             // 
@@ -194,7 +234,7 @@
             // 
             this.MS_NewTCPServer.Image = global::LeafSoft.Properties.Resources.ntcp;
             this.MS_NewTCPServer.Name = "MS_NewTCPServer";
-            this.MS_NewTCPServer.Size = new System.Drawing.Size(152, 22);
+            this.MS_NewTCPServer.Size = new System.Drawing.Size(142, 22);
             this.MS_NewTCPServer.Text = "TCP Server";
             this.MS_NewTCPServer.Click += new System.EventHandler(this.MS_NewTCPServer_Click);
             // 
@@ -202,7 +242,7 @@
             // 
             this.MS_NewTCPClient.Image = global::LeafSoft.Properties.Resources.ntcp;
             this.MS_NewTCPClient.Name = "MS_NewTCPClient";
-            this.MS_NewTCPClient.Size = new System.Drawing.Size(152, 22);
+            this.MS_NewTCPClient.Size = new System.Drawing.Size(142, 22);
             this.MS_NewTCPClient.Text = "TCP Client";
             this.MS_NewTCPClient.Click += new System.EventHandler(this.MS_NewTCPClient_Click);
             // 
@@ -210,7 +250,7 @@
             // 
             this.MS_NewUDPServer.Image = global::LeafSoft.Properties.Resources.nudp;
             this.MS_NewUDPServer.Name = "MS_NewUDPServer";
-            this.MS_NewUDPServer.Size = new System.Drawing.Size(152, 22);
+            this.MS_NewUDPServer.Size = new System.Drawing.Size(142, 22);
             this.MS_NewUDPServer.Text = "UDP Server";
             this.MS_NewUDPServer.Click += new System.EventHandler(this.MS_NewUDPServer_Click);
             // 
@@ -218,7 +258,7 @@
             // 
             this.MS_NewUDPClient.Image = global::LeafSoft.Properties.Resources.nudp;
             this.MS_NewUDPClient.Name = "MS_NewUDPClient";
-            this.MS_NewUDPClient.Size = new System.Drawing.Size(152, 22);
+            this.MS_NewUDPClient.Size = new System.Drawing.Size(142, 22);
             this.MS_NewUDPClient.Text = "UDP Client";
             this.MS_NewUDPClient.Click += new System.EventHandler(this.MS_NewUDPClient_Click);
             // 
@@ -255,46 +295,6 @@
             this.lklEmail.TabStop = true;
             this.lklEmail.Text = "Email";
             this.lklEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklEmail_LinkClicked);
-            // 
-            // comPanel1
-            // 
-            this.comPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comPanel1.Location = new System.Drawing.Point(3, 3);
-            this.comPanel1.Name = "comPanel1";
-            this.comPanel1.Size = new System.Drawing.Size(704, 461);
-            this.comPanel1.TabIndex = 0;
-            // 
-            // tcpServerPanel1
-            // 
-            this.tcpServerPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcpServerPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tcpServerPanel1.Name = "tcpServerPanel1";
-            this.tcpServerPanel1.Size = new System.Drawing.Size(704, 461);
-            this.tcpServerPanel1.TabIndex = 0;
-            // 
-            // tcpClientPanel1
-            // 
-            this.tcpClientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcpClientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tcpClientPanel1.Name = "tcpClientPanel1";
-            this.tcpClientPanel1.Size = new System.Drawing.Size(710, 467);
-            this.tcpClientPanel1.TabIndex = 0;
-            // 
-            // udpServerPanel1
-            // 
-            this.udpServerPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.udpServerPanel1.Location = new System.Drawing.Point(0, 0);
-            this.udpServerPanel1.Name = "udpServerPanel1";
-            this.udpServerPanel1.Size = new System.Drawing.Size(710, 467);
-            this.udpServerPanel1.TabIndex = 0;
-            // 
-            // udpClientPanel1
-            // 
-            this.udpClientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.udpClientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.udpClientPanel1.Name = "udpClientPanel1";
-            this.udpClientPanel1.Size = new System.Drawing.Size(710, 467);
-            this.udpClientPanel1.TabIndex = 0;
             // 
             // yyzq
             // 

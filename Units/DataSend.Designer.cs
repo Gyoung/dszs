@@ -44,6 +44,7 @@
             this.IsAutoSend = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMDText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSend = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgCMD)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -55,13 +56,13 @@
             this.dgCMD.AllowUserToAddRows = false;
             this.dgCMD.AllowUserToDeleteRows = false;
             this.dgCMD.AllowUserToResizeRows = false;
-            this.dgCMD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgCMD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgCMD.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -71,13 +72,14 @@
             this.IsAutoSend,
             this.CType,
             this.CMDText,
+            this.remark,
             this.btnSend});
             this.dgCMD.ContextMenuStrip = this.contextMenuStrip1;
             this.dgCMD.Location = new System.Drawing.Point(0, 0);
             this.dgCMD.MultiSelect = false;
             this.dgCMD.Name = "dgCMD";
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -197,6 +199,11 @@
             this.CMDText.Name = "CMDText";
             this.CMDText.ReadOnly = true;
             // 
+            // remark
+            // 
+            this.remark.HeaderText = "备注";
+            this.remark.Name = "remark";
+            // 
             // btnSend
             // 
             this.btnSend.HeaderText = "发送";
@@ -237,6 +244,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAutoSend;
         private System.Windows.Forms.DataGridViewTextBoxColumn CType;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMDText;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark;
         private System.Windows.Forms.DataGridViewButtonColumn btnSend;
     }
 }

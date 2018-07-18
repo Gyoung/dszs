@@ -41,5 +41,37 @@ namespace LeafSoft.PartPanel
         {
             Configer.ClearSelf();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (textBox1.Text.Length == 0)
+                {
+                    MessageBox.Show("请输入要发送的内容", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBox1.Focus();
+                    return;
+                }
+                byte[] data = null;
+                if (radioButton1.Checked)
+                {
+                    data = BitConverter.GetBytes(Convert.ToInt32(textBox1.Text));
+                }
+                else
+                {
+                    data = new ASCIIEncoding().GetBytes(textBox1.Text);
+                }
+
+                if (Configer.SendData(data) == true)
+                {
+                    MDataCounter.PlusSend(data.Length);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
     }
 }
