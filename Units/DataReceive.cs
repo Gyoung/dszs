@@ -73,6 +73,11 @@ namespace LeafSoft.Units
         {
             this.BeginInvoke(new MethodInvoker(delegate
             {
+                if (ckTimestamp.Checked)
+                {
+                    content += " "+DateTime.Now;
+                }
+
                 if (cbxAutoLine.Checked && txtData.Text.Length > 0)
                 {
                     txtData.AppendText("\r\n");

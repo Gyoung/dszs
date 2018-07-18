@@ -38,14 +38,15 @@
             this.cbxAutoLine = new System.Windows.Forms.CheckBox();
             this.rbtnHex = new System.Windows.Forms.RadioButton();
             this.rbtnASCII = new System.Windows.Forms.RadioButton();
+            this.ckTimestamp = new System.Windows.Forms.CheckBox();
             this.CMS_Main.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtData
             // 
-            this.txtData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtData.ContextMenuStrip = this.CMS_Main;
             this.txtData.Location = new System.Drawing.Point(0, 16);
             this.txtData.MaxLength = 1;
@@ -65,7 +66,7 @@
             this.MS_ToDouble});
             this.CMS_Main.Name = "contextMenuStrip1";
             this.CMS_Main.ShowImageMargin = false;
-            this.CMS_Main.Size = new System.Drawing.Size(174, 114);
+            this.CMS_Main.Size = new System.Drawing.Size(174, 92);
             this.CMS_Main.VisibleChanged += new System.EventHandler(this.CMS_Main_VisibleChanged);
             // 
             // MS_Clear
@@ -110,7 +111,7 @@
             // 
             this.rbtnHex.AutoSize = true;
             this.rbtnHex.Checked = true;
-            this.rbtnHex.Location = new System.Drawing.Point(69, 0);
+            this.rbtnHex.Location = new System.Drawing.Point(137, 0);
             this.rbtnHex.Name = "rbtnHex";
             this.rbtnHex.Size = new System.Drawing.Size(41, 16);
             this.rbtnHex.TabIndex = 3;
@@ -121,12 +122,22 @@
             // rbtnASCII
             // 
             this.rbtnASCII.AutoSize = true;
-            this.rbtnASCII.Location = new System.Drawing.Point(116, 0);
+            this.rbtnASCII.Location = new System.Drawing.Point(183, 0);
             this.rbtnASCII.Name = "rbtnASCII";
             this.rbtnASCII.Size = new System.Drawing.Size(53, 16);
             this.rbtnASCII.TabIndex = 4;
             this.rbtnASCII.Text = "ASCII";
             this.rbtnASCII.UseVisualStyleBackColor = true;
+            // 
+            // ckTimestamp
+            // 
+            this.ckTimestamp.AutoSize = true;
+            this.ckTimestamp.Location = new System.Drawing.Point(75, 0);
+            this.ckTimestamp.Name = "ckTimestamp";
+            this.ckTimestamp.Size = new System.Drawing.Size(60, 16);
+            this.ckTimestamp.TabIndex = 2;
+            this.ckTimestamp.Text = "时间戳";
+            this.ckTimestamp.UseVisualStyleBackColor = true;
             // 
             // DataReceive
             // 
@@ -135,6 +146,7 @@
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.rbtnASCII);
             this.Controls.Add(this.rbtnHex);
+            this.Controls.Add(this.ckTimestamp);
             this.Controls.Add(this.cbxAutoLine);
             this.Name = "DataReceive";
             this.Size = new System.Drawing.Size(523, 210);
@@ -155,5 +167,6 @@
         private System.Windows.Forms.ToolStripMenuItem MS_ToInt;
         private System.Windows.Forms.ToolStripMenuItem MS_ToFloat;
         private System.Windows.Forms.ToolStripMenuItem MS_ToDouble;
+        private System.Windows.Forms.CheckBox ckTimestamp;
     }
 }
