@@ -24,18 +24,30 @@ namespace LeafSoft.PartPanel
 
         private bool DataSender_EventDataSend(byte[] data)
         {
-            if (Configer.SendData(data) == true)
+            if (this.ckLine.Checked)
             {
-                MDataCounter.PlusSend(data.Length);
-                if (this.ckLine.Checked)
+                byte[] bytes = { 0x0d, 0x0a };
+                int length = data.Length + bytes.Length;
+                byte[] bs = new byte[length];
+                for (int i = 0; i < data.Length; i++)
                 {
-                    Byte[] bytes = { 0x0d, 0x0a };
-                    if (Configer.SendData(bytes) == true)
-                    {
-                        MDataCounter.PlusSend(bytes.Length);
-                    }
+                    bs[i] = data[i];
                 }
-                return true;
+                bs[length - 2] = 0x0d;
+                bs[length - 1] = 0x0a;
+                if (Configer.SendData(bs) == true)
+                {
+                    MDataCounter.PlusSend(bs.Length);
+                    return true;
+                }
+            }
+            else
+            {
+                if (Configer.SendData(data) == true)
+                {
+                    MDataCounter.PlusSend(data.Length);
+                    return true;
+                }
             }
             return false;
         }
@@ -55,15 +67,15 @@ namespace LeafSoft.PartPanel
         {
             try
             {
-                
+
                 byte[] data = bytesBox1.GetCMD().Bytes;
                 DataSender_EventDataSend(data);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -76,7 +88,7 @@ namespace LeafSoft.PartPanel
             {
                 bytesBox1.IsHex = EnumType.CMDType.ASCII;
             }
-       
+
         }
     }
 }

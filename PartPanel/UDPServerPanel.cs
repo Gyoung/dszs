@@ -24,10 +24,30 @@ namespace LeafSoft.PartPanel
 
         private bool DataSender_EventDataSend(byte[] data)
         {
-            if (Configer.SendData(data) == true)
+            if (this.ckLine.Checked)
             {
-                MDataCounter.PlusSend(data.Length);
-                return true;
+                byte[] bytes = { 0x0d, 0x0a };
+                int length = data.Length + bytes.Length;
+                byte[] bs = new byte[length];
+                for (int i = 0; i < data.Length; i++)
+                {
+                    bs[i] = data[i];
+                }
+                bs[length - 2] = 0x0d;
+                bs[length - 1] = 0x0a;
+                if (Configer.SendData(bs) == true)
+                {
+                    MDataCounter.PlusSend(bs.Length);
+                    return true;
+                }
+            }
+            else
+            {
+                if (Configer.SendData(data) == true)
+                {
+                    MDataCounter.PlusSend(data.Length);
+                    return true;
+                }
             }
             return false;
         }

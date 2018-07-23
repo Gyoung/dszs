@@ -10,6 +10,7 @@ using System.Net;
 using System.Threading;
 using LeafSoft.Model;
 using LeafSoft.PartPanel;
+using LeafSoft.Units;
 /*---------------作者：叶知秋----------------------*/
 /*---------------时间：2013年8月16日---------------*/
 /*---------------邮箱：yq@yyzq.net---------*/
@@ -155,6 +156,38 @@ namespace LeafSoft
         {
 
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            TabPage tabPage= this.tabControl1.SelectedTab;
+            //tabPage.Controls.Count;
+            
+            //tabPage.Controls
+        }
+
+        //private Control findDataReciver(Control control)
+        //{
+        //    if (control is DataSend)
+        //    {
+        //        return control;
+        //    }
+        //    else
+        //    {
+
+        //    }
+        //    if (control.Controls.Count > 0)
+        //    {
+        //        for (int i = 0; i < control.Controls.Count; i++)
+        //        {
+        //            Control cl = control.Controls[i];
+        //            Control clt=findDataReciver(cl);
+        //        }
+        //    }
+        //}
+
+
+
+
         //博客
 /*        private void lklBlog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
