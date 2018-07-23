@@ -100,7 +100,7 @@
             // cbxAutoLine
             // 
             this.cbxAutoLine.AutoSize = true;
-            this.cbxAutoLine.Location = new System.Drawing.Point(0, 0);
+            this.cbxAutoLine.Location = new System.Drawing.Point(65, 0);
             this.cbxAutoLine.Name = "cbxAutoLine";
             this.cbxAutoLine.Size = new System.Drawing.Size(72, 16);
             this.cbxAutoLine.TabIndex = 2;
@@ -132,7 +132,7 @@
             // ckTimestamp
             // 
             this.ckTimestamp.AutoSize = true;
-            this.ckTimestamp.Location = new System.Drawing.Point(75, 0);
+            this.ckTimestamp.Location = new System.Drawing.Point(3, 0);
             this.ckTimestamp.Name = "ckTimestamp";
             this.ckTimestamp.Size = new System.Drawing.Size(60, 16);
             this.ckTimestamp.TabIndex = 2;

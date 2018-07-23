@@ -37,6 +37,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.bytesBox1 = new LeafSoft.LeafControl.BytesBox();
+            this.ckLine = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // DataReceiver
@@ -126,10 +127,21 @@
             this.bytesBox1.Size = new System.Drawing.Size(525, 37);
             this.bytesBox1.TabIndex = 9;
             // 
+            // ckLine
+            // 
+            this.ckLine.AutoSize = true;
+            this.ckLine.Location = new System.Drawing.Point(53, 183);
+            this.ckLine.Name = "ckLine";
+            this.ckLine.Size = new System.Drawing.Size(72, 16);
+            this.ckLine.TabIndex = 10;
+            this.ckLine.Text = "自动换行";
+            this.ckLine.UseVisualStyleBackColor = true;
+            // 
             // ComPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ckLine);
             this.Controls.Add(this.bytesBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.radioButton2);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button button1;
         private LeafControl.BytesBox bytesBox1;
+        private System.Windows.Forms.CheckBox ckLine;
     }
 }

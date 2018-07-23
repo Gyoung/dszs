@@ -27,6 +27,14 @@ namespace LeafSoft.PartPanel
             if (Configer.SendData(data) == true)
             {
                 MDataCounter.PlusSend(data.Length);
+                if (this.ckLine.Checked)
+                {
+                    Byte[] bytes = { 0x0d, 0x0a };
+                    if (Configer.SendData(bytes) == true)
+                    {
+                        MDataCounter.PlusSend(bytes.Length);
+                    }
+                }
                 return true;
             }
             return false;
@@ -49,11 +57,7 @@ namespace LeafSoft.PartPanel
             {
                 
                 byte[] data = bytesBox1.GetCMD().Bytes;
-
-                if (Configer.SendData(data) == true)
-                {
-                    MDataCounter.PlusSend(data.Length);
-                }
+                DataSender_EventDataSend(data);
             }
             catch(Exception ex)
             {

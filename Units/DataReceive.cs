@@ -75,7 +75,7 @@ namespace LeafSoft.Units
             {
                 if (ckTimestamp.Checked)
                 {
-                    content += " "+DateTime.Now;
+                    content =DateTime.Now+" "+content;
                 }
 
                 if (cbxAutoLine.Checked && txtData.Text.Length > 0)
