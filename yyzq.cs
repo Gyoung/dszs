@@ -31,11 +31,11 @@ namespace LeafSoft
             InitializeComponent();
             fc.TopMost = true;
             fb.TopMost = true;
-//            this.Text = Lib.AppInfor.AssemblyTitle + "[v" + Lib.AppInfor.AssemblyVersion +"]["+ Lib.AppInfor.AssemblyCopyright + "][常州-Maximus]";
-            this.Text = Lib.AppInfor.AssemblyTitle + "[V" + Lib.AppInfor.AssemblyVersion +"]["+ Lib.AppInfor.AssemblyCopyright + "]";
+            //            this.Text = Lib.AppInfor.AssemblyTitle + "[v" + Lib.AppInfor.AssemblyVersion +"]["+ Lib.AppInfor.AssemblyCopyright + "][常州-Maximus]";
+            this.Text = Lib.AppInfor.AssemblyTitle + "[V" + Lib.AppInfor.AssemblyVersion + "][" + Lib.AppInfor.AssemblyCopyright + "]";
         }
 
-        private void CreateNewTest(object p,string title,Icon icon)
+        private void CreateNewTest(object p, string title, Icon icon)
         {
             Form frm = new Form();
             frm.StartPosition = FormStartPosition.CenterScreen;
@@ -51,7 +51,7 @@ namespace LeafSoft
 
         void frm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Form frm=(Form)sender;
+            Form frm = (Form)sender;
             PartPanel.BasePanel bp = (PartPanel.BasePanel)frm.Controls[0];
             bp.ClearSelf();
         }
@@ -59,7 +59,7 @@ namespace LeafSoft
         {
             TCPServerPanel tp = new TCPServerPanel();
             tp.Dock = DockStyle.Fill;
-            CreateNewTest(tp, "TCP Server[" + DateTime.Now.ToString("HHmmss") + "]",Properties.Resources.tcp);
+            CreateNewTest(tp, "TCP Server[" + DateTime.Now.ToString("HHmmss") + "]", Properties.Resources.tcp);
         }
 
         private void MS_NewTCPClient_Click(object sender, EventArgs e)
@@ -102,7 +102,7 @@ namespace LeafSoft
 
         private void MS_Bytes_Click(object sender, EventArgs e)
         {
-            if (fb.IsDisposed==true)
+            if (fb.IsDisposed == true)
             {
                 fb = new frmBytes();
                 fb.TopMost = true;
@@ -159,46 +159,50 @@ namespace LeafSoft
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            TabPage tabPage= this.tabControl1.SelectedTab;
+            TabPage tabPage = this.tabControl1.SelectedTab;
             //tabPage.Controls.Count;
-            
-            //tabPage.Controls
+            Control dataSend = findDataReciver(tabPage);
+            if (dataSend != null)
+            {
+                DataSend send = (DataSend)dataSend;
+                Control[] controls = send.Controls.Find("dgCMD", true);
+            }
         }
 
-        //private Control findDataReciver(Control control)
-        //{
-        //    if (control is DataSend)
-        //    {
-        //        return control;
-        //    }
-        //    else
-        //    {
+        private Control findDataReciver(Control control)
+        {
+            if (control is DataGridView)
+            {
+                return control;
+            }
 
-        //    }
-        //    if (control.Controls.Count > 0)
-        //    {
-        //        for (int i = 0; i < control.Controls.Count; i++)
-        //        {
-        //            Control cl = control.Controls[i];
-        //            Control clt=findDataReciver(cl);
-        //        }
-        //    }
-        //}
+            for (int i = 0; i < control.Controls.Count; i++)
+            {
+                Control cl = control.Controls[i];
+                Control clt = findDataReciver(cl);
+                if (clt != null)
+                {
+                    return clt;
+                }
+            }
+            return null;
+
+        }
 
 
 
 
         //博客
-/*        private void lklBlog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start("http://blog.csdn.net/sqqyq");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }*/
+        /*        private void lklBlog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+                {
+                    try
+                    {
+                        System.Diagnostics.Process.Start("http://blog.csdn.net/sqqyq");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }*/
     }
 }
