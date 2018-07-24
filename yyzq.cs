@@ -162,16 +162,70 @@ namespace LeafSoft
             TabPage tabPage = this.tabControl1.SelectedTab;
             //tabPage.Controls.Count;
             Control dataGrid = findDataReciver(tabPage);
+            BindingList<Model.CMD> dataSource = null;
+            Command command = null;
             if (dataGrid != null)
             {
                 Object gridView = ((DataGridView)dataGrid).DataSource;
-                BindingList<Model.CMD> dataSource = gridView as BindingList<Model.CMD>;
-                if (dataSource != null)
-                {
-                    XmlUnits.saveXml(dataSource);
-                }
-                
+                dataSource = gridView as BindingList<Model.CMD>;
             }
+            Control netRs = findNetRs(tabPage);
+            if (netRs != null)
+            {
+                NetRs232 netRs32 = (NetRs232)netRs;
+                command = new Command();
+                for (int i = 0; i < netRs32.Controls.Count; i++)
+                {
+                    Control cl = netRs32.Controls[i];
+                    if(cl is ComboBox)
+                    {
+                        ComboBox cb = (ComboBox)cl;
+                        if (cb.Name == "drpComList")
+                        {
+                            command.Com = cb.Text;
+                        }else if (cb.Name == "drpBaudRate")
+                        {
+                            command.Ptl = cb.Text;
+                        }
+                        else if (cb.Name == "drpParity")
+                        {
+                            command.Xjw = cb.Text;
+                        }
+                        else if (cb.Name == "drpDataBits")
+                        {
+                            command.Sjw = cb.Text;
+                        }
+                        else if (cb.Name == "drpStopBits")
+                        {
+                            command.Tzw = cb.Text;
+                        }
+                    }
+                }
+            }
+            if (dataSource != null)
+            {
+                XmlUnits.saveXml(dataSource,command,tabPage.Name);
+            }
+        }
+
+
+        private Control findNetRs(Control control)
+        {
+            if (control is NetRs232)
+            {
+                return control;
+            }
+
+            for (int i = 0; i < control.Controls.Count; i++)
+            {
+                Control cl = control.Controls[i];
+                Control clt = findNetRs(cl);
+                if (clt != null)
+                {
+                    return clt;
+                }
+            }
+            return null;
 
         }
 
