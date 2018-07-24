@@ -31,8 +31,16 @@ namespace LeafSoft.Units
         {
             InitializeComponent();
             dgCMD.AutoGenerateColumns = false;
-            lstCMD.Add(new Model.CMD(EnumType.CMDType.ASCII, new ASCIIEncoding().GetBytes("www.zonewu.com"),"备注"));
-            dgCMD.DataSource = lstCMD;
+            //lstCMD.Add(new Model.CMD(EnumType.CMDType.ASCII, new ASCIIEncoding().GetBytes("www.zonewu.com"),"备注"));
+            //dgCMD.DataSource = lstCMD;
+            if (dgCMD.DataSource != null)
+            {
+                lstCMD = dgCMD.DataSource as BindingList<Model.CMD>;
+            }
+            else
+            {
+                dgCMD.DataSource = lstCMD;
+            }
         }
 
         private void dgCMD_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -41,6 +49,7 @@ namespace LeafSoft.Units
             {//点击了发送按钮 
                 if (EventDataSend != null)
                 {
+                    lstCMD = dgCMD.DataSource as BindingList<Model.CMD>;
                     EventDataSend(lstCMD[e.RowIndex].Bytes);
                 }
             }
