@@ -29,7 +29,7 @@ namespace LeafSoft.Units
                 drpComList.SelectedIndex = 0;
                 btnCom.Enabled = true;
             }
-            drpBaudRate.SelectedIndex = 5;
+            drpBaudRate.SelectedIndex = 11;
             drpParity.SelectedIndex = 0;
             drpDataBits.SelectedIndex = 0;
             drpStopBits.SelectedIndex = 0;

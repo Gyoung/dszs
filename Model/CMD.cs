@@ -12,9 +12,15 @@ namespace LeafSoft.Model
     {
         EnumType.CMDType _cmdtype = EnumType.CMDType.Hex;
         string _strCMD = "";
+        string _remark = "";
         byte[] _byteCMD = null;
 
         public CMD(EnumType.CMDType cmdtype, byte[] data)
+        {
+            setCmd(cmdtype, data);
+        }
+
+        private void setCmd(EnumType.CMDType cmdtype, byte[] data)
         {
             _cmdtype = cmdtype;
             _byteCMD = data;
@@ -30,10 +36,16 @@ namespace LeafSoft.Model
                 case EnumType.CMDType.ASCII:
                     _strCMD = new ASCIIEncoding().GetString(_byteCMD);
                     break;
-                //case EnumType.CMDType.UTF8:
-                //    _strCMD = new UTF8Encoding().GetString(_byteCMD);
-                //    break;
+                    //case EnumType.CMDType.UTF8:
+                    //    _strCMD = new UTF8Encoding().GetString(_byteCMD);
+                    //    break;
             }
+        }
+
+        public CMD(EnumType.CMDType cmdtype, byte[] data,string remark)
+        {
+            _remark = remark;
+            setCmd(cmdtype, data);
         }
 
         /// <summary>
@@ -65,6 +77,18 @@ namespace LeafSoft.Model
         {
             get {
                 return _strCMD;
+            }
+        }
+
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark
+        {
+            get
+            {
+                return _remark;
             }
         }
 

@@ -161,12 +161,18 @@ namespace LeafSoft
         {
             TabPage tabPage = this.tabControl1.SelectedTab;
             //tabPage.Controls.Count;
-            Control dataSend = findDataReciver(tabPage);
-            if (dataSend != null)
+            Control dataGrid = findDataReciver(tabPage);
+            if (dataGrid != null)
             {
-                DataSend send = (DataSend)dataSend;
-                Control[] controls = send.Controls.Find("dgCMD", true);
+                Object gridView = ((DataGridView)dataGrid).DataSource;
+                BindingList<Model.CMD> dataSource = gridView as BindingList<Model.CMD>;
+                if (dataSource != null)
+                {
+                    XmlUnits.saveXml(dataSource);
+                }
+                
             }
+
         }
 
         private Control findDataReciver(Control control)

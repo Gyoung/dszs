@@ -31,7 +31,7 @@ namespace LeafSoft.Units
         {
             InitializeComponent();
             dgCMD.AutoGenerateColumns = false;
-            lstCMD.Add(new Model.CMD(EnumType.CMDType.ASCII, new ASCIIEncoding().GetBytes("www.zonewu.com")));
+            lstCMD.Add(new Model.CMD(EnumType.CMDType.ASCII, new ASCIIEncoding().GetBytes("www.zonewu.com"),"备注"));
             dgCMD.DataSource = lstCMD;
         }
 

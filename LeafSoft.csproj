@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="Lib\BytesCheck.cs" />
     <Compile Include="Lib\HotKey.cs" />
+    <Compile Include="Model\Command.cs" />
     <Compile Include="Model\LeafUDPClient.cs" />
     <Compile Include="PartPanel\BasePanel.cs">
       <SubType>UserControl</SubType>
@@ -98,6 +99,7 @@
     <Compile Include="Units\TabDataReceive.Designer.cs">
       <DependentUpon>TabDataReceive.cs</DependentUpon>
     </Compile>
+    <Compile Include="Units\XmlUnits.cs" />
     <Compile Include="yyzq.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,8 +285,12 @@
     <None Include="Resources\redlight.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="File\data.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="leafsoft.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
