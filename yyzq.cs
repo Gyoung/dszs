@@ -177,13 +177,14 @@ namespace LeafSoft
                 for (int i = 0; i < netRs32.Controls.Count; i++)
                 {
                     Control cl = netRs32.Controls[i];
-                    if(cl is ComboBox)
+                    if (cl is ComboBox)
                     {
                         ComboBox cb = (ComboBox)cl;
                         if (cb.Name == "drpComList")
                         {
                             command.Com = cb.Text;
-                        }else if (cb.Name == "drpBaudRate")
+                        }
+                        else if (cb.Name == "drpBaudRate")
                         {
                             command.Ptl = cb.Text;
                         }
@@ -204,7 +205,8 @@ namespace LeafSoft
             }
             if (dataSource != null)
             {
-                XmlUnits.saveXml(dataSource,command,tabPage.Name);
+                string fileName = XmlUnits.saveXml(dataSource, command, tabPage.Name);
+                MessageBox.Show("保存成功");
             }
         }
 
@@ -247,6 +249,51 @@ namespace LeafSoft
             }
             return null;
 
+        }
+
+        private void yyzq_Load(object sender, EventArgs e)
+        {
+            TabPage tabPage = this.tabControl1.SelectedTab;
+            //tabPage.Controls.Count;
+            Control dataGrid = findDataReciver(tabPage);
+            if (dataGrid != null)
+            {
+                ((DataGridView)dataGrid).DataSource = XmlUnits.getXmlData(tabPage.Name);
+            }
+            Control netRs = findNetRs(tabPage);
+            if (netRs != null)
+            {
+                NetRs232 netRs32 = (NetRs232)netRs;
+                Command command = XmlUnits.getCommandData(tabPage.Name);
+                for (int i = 0; i < netRs32.Controls.Count; i++)
+                {
+                    Control cl = netRs32.Controls[i];
+                    if (cl is ComboBox)
+                    {
+                        ComboBox cb = (ComboBox)cl;
+                        if (cb.Name == "drpComList")
+                        {
+                            cb.Text = command.Com;
+                        }
+                        else if (cb.Name == "drpBaudRate")
+                        {
+                            cb.Text = command.Ptl;
+                        }
+                        else if (cb.Name == "drpParity")
+                        {
+                            cb.Text = command.Xjw;
+                        }
+                        else if (cb.Name == "drpDataBits")
+                        {
+                            cb.Text = command.Sjw;
+                        }
+                        else if (cb.Name == "drpStopBits")
+                        {
+                            cb.Text = command.Tzw;
+                        }
+                    }
+                }
+            }
         }
 
 

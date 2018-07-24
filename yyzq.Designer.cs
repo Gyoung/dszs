@@ -51,9 +51,9 @@
             this.MS_NewUDPServer = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_NewUDPClient = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_AboutMe = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.lklQQ = new System.Windows.Forms.LinkLabel();
             this.lklEmail = new System.Windows.Forms.LinkLabel();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -199,7 +199,7 @@
             // 
             this.MS_Check.Image = global::LeafSoft.Properties.Resources.hex;
             this.MS_Check.Name = "MS_Check";
-            this.MS_Check.Size = new System.Drawing.Size(152, 22);
+            this.MS_Check.Size = new System.Drawing.Size(148, 22);
             this.MS_Check.Text = "校验码计算器";
             this.MS_Check.Click += new System.EventHandler(this.MS_Check_Click);
             // 
@@ -207,7 +207,7 @@
             // 
             this.MS_Bytes.Image = global::LeafSoft.Properties.Resources.calculator;
             this.MS_Bytes.Name = "MS_Bytes";
-            this.MS_Bytes.Size = new System.Drawing.Size(152, 22);
+            this.MS_Bytes.Size = new System.Drawing.Size(148, 22);
             this.MS_Bytes.Text = "数值计算器";
             this.MS_Bytes.Click += new System.EventHandler(this.MS_Bytes_Click);
             // 
@@ -272,6 +272,13 @@
             this.MS_AboutMe.Text = "联系我们";
             this.MS_AboutMe.Click += new System.EventHandler(this.MS_AboutMe_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(44, 21);
+            this.toolStripMenuItem1.Text = "保存";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // lklQQ
             // 
             this.lklQQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -298,13 +305,6 @@
             this.lklEmail.Text = "Email";
             this.lklEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklEmail_LinkClicked);
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(44, 21);
-            this.toolStripMenuItem1.Text = "保存";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
             // yyzq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -319,6 +319,7 @@
             this.Name = "yyzq";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.yyzq_Load);
             this.tabPage4.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
