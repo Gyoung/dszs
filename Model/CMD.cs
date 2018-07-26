@@ -90,6 +90,10 @@ namespace LeafSoft.Model
             {
                 return _remark;
             }
+            set
+            {
+                _remark = value;
+            }
         }
 
         /// <summary>

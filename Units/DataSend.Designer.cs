@@ -90,7 +90,9 @@
             this.dgCMD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgCMD.Size = new System.Drawing.Size(471, 151);
             this.dgCMD.TabIndex = 0;
+            this.dgCMD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCMD_CellClick);
             this.dgCMD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCMD_CellContentClick);
+            this.dgCMD.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCMD_CellEndEdit);
             this.dgCMD.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgCMD_RowsAdded);
             // 
             // contextMenuStrip1
@@ -186,7 +188,6 @@
             this.CType.DefaultCellStyle = dataGridViewCellStyle2;
             this.CType.HeaderText = "类型";
             this.CType.Name = "CType";
-            this.CType.ReadOnly = true;
             this.CType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.CType.Width = 60;
@@ -197,7 +198,6 @@
             this.CMDText.DataPropertyName = "Text";
             this.CMDText.HeaderText = "命令";
             this.CMDText.Name = "CMDText";
-            this.CMDText.ReadOnly = true;
             // 
             // remark
             // 
@@ -210,7 +210,6 @@
             // 
             this.btnSend.HeaderText = "发送";
             this.btnSend.Name = "btnSend";
-            this.btnSend.ReadOnly = true;
             this.btnSend.Text = "发送";
             // 
             // DataSend

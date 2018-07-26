@@ -33,19 +33,22 @@ namespace LeafSoft.Units
             dgCMD.AutoGenerateColumns = false;
             //lstCMD.Add(new Model.CMD(EnumType.CMDType.ASCII, new ASCIIEncoding().GetBytes("www.zonewu.com"),"备注"));
             //dgCMD.DataSource = lstCMD;
+
+            dgCMD.DataSource = lstCMD;
+        }
+
+        private BindingList<Model.CMD> getListCmd()
+        {
             if (dgCMD.DataSource != null)
             {
                 lstCMD = dgCMD.DataSource as BindingList<Model.CMD>;
             }
-            else
-            {
-                dgCMD.DataSource = lstCMD;
-            }
+            return lstCMD;
         }
 
         private void dgCMD_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4 && e.RowIndex>=0)
+            if (e.ColumnIndex == 4 && e.RowIndex >= 0)
             {//点击了发送按钮 
                 if (EventDataSend != null)
                 {
@@ -70,7 +73,7 @@ namespace LeafSoft.Units
             frmCMD fCmd = new frmCMD();
             if (fCmd.ShowDialog() == DialogResult.OK)
             {
-                lstCMD.Add(fCmd.NewCMD);
+                getListCmd().Add(fCmd.NewCMD);
             }
         }
 
@@ -83,10 +86,10 @@ namespace LeafSoft.Units
         {
             if (dgCMD.SelectedRows.Count > 0)
             {
-                frmCMD fCmd = new frmCMD(lstCMD[dgCMD.SelectedRows[0].Index]);
+                frmCMD fCmd = new frmCMD(getListCmd()[dgCMD.SelectedRows[0].Index]);
                 if (fCmd.ShowDialog() == DialogResult.OK)
                 {
-                    lstCMD[dgCMD.SelectedRows[0].Index] = fCmd.NewCMD;
+                    getListCmd()[dgCMD.SelectedRows[0].Index] = fCmd.NewCMD;
                 }
             }
         }
@@ -100,7 +103,7 @@ namespace LeafSoft.Units
         {
             if (dgCMD.SelectedRows.Count > 0)
             {
-                lstCMD.RemoveAt(dgCMD.SelectedRows[0].Index);
+                getListCmd().RemoveAt(dgCMD.SelectedRows[0].Index);
             }
         }
 
@@ -133,7 +136,7 @@ namespace LeafSoft.Units
                 int SendInterval = Convert.ToInt32(Interval);
                 while (AutoSend)
                 {
-                    for (int i = 0; i < lstCMD.Count; i++)
+                    for (int i = 0; i < getListCmd().Count; i++)
                     {
                         if (AutoSend)
                         {
@@ -144,7 +147,7 @@ namespace LeafSoft.Units
                                 {
                                     if (EventDataSend != null)
                                     {
-                                        if (EventDataSend(lstCMD[i].Bytes) == false)
+                                        if (EventDataSend(getListCmd()[i].Bytes) == false)
                                         {
                                             StopAutoSend();
                                         }
@@ -172,6 +175,26 @@ namespace LeafSoft.Units
             btnAutoSend.Text = "循环发送";
             dgCMD.Enabled = true;
             nmDelay.Enabled = true;
+        }
+
+        private void dgCMD_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (this.dgCMD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                (this.dgCMD.DataSource as BindingList<Model.CMD>)[e.RowIndex].Remark = this.dgCMD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            }
+        }
+
+        private void dgCMD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == 3)
+            {
+                this.dgCMD.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = false;//将当前单元格设为可读
+
+                this.dgCMD.CurrentCell = this.dgCMD.Rows[e.RowIndex].Cells[e.ColumnIndex];//获取当前单元格
+                this.dgCMD.BeginEdit(true);//将单元格设为编辑状态
+            }
         }
     }
 }
