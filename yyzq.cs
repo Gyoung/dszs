@@ -258,7 +258,12 @@ namespace LeafSoft
             Control dataGrid = findDataReciver(tabPage);
             if (dataGrid != null)
             {
-                ((DataGridView)dataGrid).DataSource = XmlUnits.getXmlData(tabPage.Name);
+                DataGridView gv = (DataGridView)dataGrid;
+                gv.DataSource = XmlUnits.getXmlData(tabPage.Name);
+                for(int i = 0; i < gv.Rows.Count; i++)
+                {
+                    gv.Rows[i].Cells[4].Value= "发送";
+                }
             }
             Control netRs = findNetRs(tabPage);
             if (netRs != null)
