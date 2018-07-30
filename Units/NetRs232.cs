@@ -43,6 +43,7 @@ namespace LeafSoft.Units
         /// <param name="e"></param>
         private void Com_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            System.Threading.Thread.Sleep(200);
             byte[] ReDatas = new byte[ComDevice.BytesToRead];
             ComDevice.Read(ReDatas, 0, ReDatas.Length);//读取数据
             DataReceived(this,ReDatas);//输出数据
