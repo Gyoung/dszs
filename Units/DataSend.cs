@@ -86,9 +86,11 @@ namespace LeafSoft.Units
         {
             if (dgCMD.SelectedRows.Count > 0)
             {
-                frmCMD fCmd = new frmCMD(getListCmd()[dgCMD.SelectedRows[0].Index]);
+                LeafSoft.Model.CMD cmd = getListCmd()[dgCMD.SelectedRows[0].Index];
+                frmCMD fCmd = new frmCMD(cmd);
                 if (fCmd.ShowDialog() == DialogResult.OK)
                 {
+                    fCmd.NewCMD.Remark = cmd.Remark;
                     getListCmd()[dgCMD.SelectedRows[0].Index] = fCmd.NewCMD;
                 }
             }
