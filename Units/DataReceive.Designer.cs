@@ -35,7 +35,6 @@
             this.MS_ToInt = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_ToFloat = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_ToDouble = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbxAutoLine = new System.Windows.Forms.CheckBox();
             this.rbtnHex = new System.Windows.Forms.RadioButton();
             this.rbtnASCII = new System.Windows.Forms.RadioButton();
             this.ckTimestamp = new System.Windows.Forms.CheckBox();
@@ -97,21 +96,11 @@
             this.MS_ToDouble.Text = "转换为浮点数(Double)";
             this.MS_ToDouble.Click += new System.EventHandler(this.MS_ToDouble_Click);
             // 
-            // cbxAutoLine
-            // 
-            this.cbxAutoLine.AutoSize = true;
-            this.cbxAutoLine.Location = new System.Drawing.Point(65, 0);
-            this.cbxAutoLine.Name = "cbxAutoLine";
-            this.cbxAutoLine.Size = new System.Drawing.Size(72, 16);
-            this.cbxAutoLine.TabIndex = 2;
-            this.cbxAutoLine.Text = "自动换行";
-            this.cbxAutoLine.UseVisualStyleBackColor = true;
-            // 
             // rbtnHex
             // 
             this.rbtnHex.AutoSize = true;
             this.rbtnHex.Checked = true;
-            this.rbtnHex.Location = new System.Drawing.Point(137, 0);
+            this.rbtnHex.Location = new System.Drawing.Point(70, 0);
             this.rbtnHex.Name = "rbtnHex";
             this.rbtnHex.Size = new System.Drawing.Size(41, 16);
             this.rbtnHex.TabIndex = 3;
@@ -122,7 +111,7 @@
             // rbtnASCII
             // 
             this.rbtnASCII.AutoSize = true;
-            this.rbtnASCII.Location = new System.Drawing.Point(183, 0);
+            this.rbtnASCII.Location = new System.Drawing.Point(116, 0);
             this.rbtnASCII.Name = "rbtnASCII";
             this.rbtnASCII.Size = new System.Drawing.Size(53, 16);
             this.rbtnASCII.TabIndex = 4;
@@ -147,7 +136,6 @@
             this.Controls.Add(this.rbtnASCII);
             this.Controls.Add(this.rbtnHex);
             this.Controls.Add(this.ckTimestamp);
-            this.Controls.Add(this.cbxAutoLine);
             this.Name = "DataReceive";
             this.Size = new System.Drawing.Size(523, 210);
             this.CMS_Main.ResumeLayout(false);
@@ -159,7 +147,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtData;
-        private System.Windows.Forms.CheckBox cbxAutoLine;
         private System.Windows.Forms.RadioButton rbtnHex;
         private System.Windows.Forms.RadioButton rbtnASCII;
         private System.Windows.Forms.ContextMenuStrip CMS_Main;

@@ -77,11 +77,6 @@ namespace LeafSoft.Units
                 {
                     content =DateTime.Now+" "+content;
                 }
-
-                if (cbxAutoLine.Checked && txtData.Text.Length > 0)
-                {
-                    txtData.AppendText("\r\n");
-                }
                 txtData.AppendText(content);
                 if (txtData.Text.Length > 60000)
                 {

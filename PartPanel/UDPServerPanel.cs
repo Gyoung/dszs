@@ -20,6 +20,7 @@ namespace LeafSoft.PartPanel
         public UDPServerPanel()
         {
             InitializeComponent();
+            bytesBox1.IsHex = EnumType.CMDType.ASCII;
         }
 
         private bool DataSender_EventDataSend(byte[] data)
