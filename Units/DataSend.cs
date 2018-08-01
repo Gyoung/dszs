@@ -182,7 +182,7 @@ namespace LeafSoft.Units
         private void dgCMD_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (this.dgCMD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            if (this.dgCMD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && e.ColumnIndex==3)
             {
                 (this.dgCMD.DataSource as BindingList<Model.CMD>)[e.RowIndex].Remark = this.dgCMD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             }
