@@ -30,15 +30,15 @@ namespace LeafSoft.Units
         /// 添加数据
         /// </summary>
         /// <param name="data">单个字节数据</param>
-        public void AddData(byte data)
+        public void AddData(byte data,bool isSend)
         {
             if (rbtnHex.Checked)
             { //16进制显示
-                AddContent(data.ToString("X").ToUpper() + " ");
+                AddContent(data.ToString("X").ToUpper() + " ", isSend);
             }
             else
             { //ASCII码显示
-                AddContent(new ASCIIEncoding().GetString(new byte[1] { data }));
+                AddContent(new ASCIIEncoding().GetString(new byte[1] { data }), isSend);
             }
         }
 
@@ -46,7 +46,7 @@ namespace LeafSoft.Units
         /// 添加数据
         /// </summary>
         /// <param name="data">字节数组</param>
-        public void AddData(byte[] data)
+        public void AddData(byte[] data, bool isSend)
         {
             if (rbtnHex.Checked)
             { //16进制显示
@@ -55,11 +55,11 @@ namespace LeafSoft.Units
                 {
                     sb.AppendFormat("{0:x2}" + " ", data[i]);
                 }
-                AddContent(sb.ToString().ToUpper());
+                AddContent(sb.ToString().ToUpper(),isSend);
             }
             else
             { //ASCII码显示
-                AddContent(new ASCIIEncoding().GetString(data));
+                AddContent(new ASCIIEncoding().GetString(data),isSend);
             }
         }
         #endregion
@@ -69,10 +69,19 @@ namespace LeafSoft.Units
         /// 添加文本内容
         /// </summary>
         /// <param name="content"></param>
-        private void AddContent(string content)
+        private void AddContent(string content,bool isSend)
         {
             this.BeginInvoke(new MethodInvoker(delegate
             {
+                if (isSend)
+                {
+                    content = "发-> " + content;
+                }
+                else
+                {
+                    content = "收-> " + content;
+                }
+
                 if (ckTimestamp.Checked)
                 {
                     content =DateTime.Now+" "+content;

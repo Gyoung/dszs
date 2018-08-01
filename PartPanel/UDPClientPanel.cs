@@ -25,6 +25,7 @@ namespace LeafSoft.PartPanel
 
         private bool DataSender_EventDataSend(byte[] data)
         {
+            DataReceiver.AddData(data, true);
             if (this.ckLine.Checked)
             {
                 byte[] bytes = { 0x0d, 0x0a };
@@ -55,7 +56,7 @@ namespace LeafSoft.PartPanel
 
         private void Configer_DataReceived(object sender, byte[] data)
         {
-            DataReceiver.AddData( data);
+            DataReceiver.AddData(data, false);
             MDataCounter.PlusReceive(data.Length);
         }
 

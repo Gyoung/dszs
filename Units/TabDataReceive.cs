@@ -60,7 +60,7 @@ namespace LeafSoft.Units
             {
                UDataReceive = AddNewDataReceive(SourceName);
             }
-            UDataReceive.AddData(data);
+            UDataReceive.AddData(data, false);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace LeafSoft.Units
             {
                 UDataReceive = AddNewDataReceive(SourceName);
             }
-            UDataReceive.AddData(data);
+            UDataReceive.AddData(data, false);
         }
         #endregion
 
