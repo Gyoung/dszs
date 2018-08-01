@@ -260,9 +260,9 @@ namespace LeafSoft
             {
                 DataGridView gv = (DataGridView)dataGrid;
                 gv.DataSource = XmlUnits.getXmlData(tabPage.Name);
-                for(int i = 0; i < gv.Rows.Count; i++)
+                for (int i = 0; i < gv.Rows.Count; i++)
                 {
-                    gv.Rows[i].Cells[4].Value= "发送";
+                    gv.Rows[i].Cells[4].Value = "发送";
                 }
             }
             Control netRs = findNetRs(tabPage);
@@ -297,6 +297,34 @@ namespace LeafSoft
                             cb.Text = command.Tzw;
                         }
                     }
+                }
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loadFile_Click(object sender, EventArgs e)
+        {
+            TabPage tabPage = this.tabControl1.SelectedTab;
+            //tabPage.Controls.Count;
+            Control dataGrid = findDataReciver(tabPage);
+            if (dataGrid != null)
+            {
+                DataGridView gv = (DataGridView)dataGrid;
+
+                BindingList<CMD> list = XmlUnits.getXmlData(tabPage.Name);
+                if (list.Count == 0)
+                {
+                    MessageBox.Show("无数据!");
+                    return;
+                }
+                gv.DataSource = list;
+                for (int i = 0; i < gv.Rows.Count; i++)
+                {
+                    gv.Rows[i].Cells[4].Value = "发送";
                 }
             }
         }

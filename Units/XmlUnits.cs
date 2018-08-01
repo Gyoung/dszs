@@ -3,6 +3,7 @@ using LeafSoft.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Text;
 using System.Xml;
 
@@ -44,7 +45,12 @@ namespace LeafSoft.Units
         {
             BindingList<CMD> dataSource = new BindingList<CMD>();
             XmlDocument doc = new XmlDocument();
-            doc.Load(fileName + "data_" + tabName + ".xml");
+            string fullName = fileName + "data_" + tabName + ".xml";
+            if (!File.Exists(fullName))
+            {
+                return dataSource;
+            }
+            doc.Load(fullName);
             XmlElement root = doc.DocumentElement;
             XmlNodeList nodeList = root.ChildNodes;
             foreach (XmlElement node in nodeList)

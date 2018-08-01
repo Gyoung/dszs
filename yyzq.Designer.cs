@@ -52,8 +52,10 @@
             this.MS_NewUDPClient = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_AboutMe = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.加载ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lklQQ = new System.Windows.Forms.LinkLabel();
             this.lklEmail = new System.Windows.Forms.LinkLabel();
+            this.loadFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -134,6 +136,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(718, 493);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -178,7 +181,8 @@
             this.计算器ToolStripMenuItem,
             this.关于ToolStripMenuItem,
             this.MS_AboutMe,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.loadFile});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(718, 25);
@@ -274,10 +278,18 @@
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.加载ToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(44, 21);
             this.toolStripMenuItem1.Text = "保存";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // 加载ToolStripMenuItem
+            // 
+            this.加载ToolStripMenuItem.Name = "加载ToolStripMenuItem";
+            this.加载ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.加载ToolStripMenuItem.Text = "加载";
             // 
             // lklQQ
             // 
@@ -304,6 +316,13 @@
             this.lklEmail.TabStop = true;
             this.lklEmail.Text = "Email";
             this.lklEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklEmail_LinkClicked);
+            // 
+            // loadFile
+            // 
+            this.loadFile.Name = "loadFile";
+            this.loadFile.Size = new System.Drawing.Size(44, 21);
+            this.loadFile.Text = "加载";
+            this.loadFile.Click += new System.EventHandler(this.loadFile_Click);
             // 
             // yyzq
             // 
@@ -360,6 +379,8 @@
         private System.Windows.Forms.LinkLabel lklEmail;
         private System.Windows.Forms.ToolStripMenuItem MS_Bytes;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 加载ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadFile;
 
 
 
