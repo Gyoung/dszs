@@ -43,9 +43,9 @@
             // 
             // txtData
             // 
-            this.txtData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtData.ContextMenuStrip = this.CMS_Main;
             this.txtData.Location = new System.Drawing.Point(0, 16);
             this.txtData.MaxLength = 1;
@@ -99,22 +99,22 @@
             // rbtnHex
             // 
             this.rbtnHex.AutoSize = true;
-            this.rbtnHex.Checked = true;
             this.rbtnHex.Location = new System.Drawing.Point(70, 0);
             this.rbtnHex.Name = "rbtnHex";
             this.rbtnHex.Size = new System.Drawing.Size(41, 16);
             this.rbtnHex.TabIndex = 3;
-            this.rbtnHex.TabStop = true;
             this.rbtnHex.Text = "Hex";
             this.rbtnHex.UseVisualStyleBackColor = true;
             // 
             // rbtnASCII
             // 
             this.rbtnASCII.AutoSize = true;
+            this.rbtnASCII.Checked = true;
             this.rbtnASCII.Location = new System.Drawing.Point(116, 0);
             this.rbtnASCII.Name = "rbtnASCII";
             this.rbtnASCII.Size = new System.Drawing.Size(53, 16);
             this.rbtnASCII.TabIndex = 4;
+            this.rbtnASCII.TabStop = true;
             this.rbtnASCII.Text = "ASCII";
             this.rbtnASCII.UseVisualStyleBackColor = true;
             // 

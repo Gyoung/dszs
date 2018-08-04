@@ -75,16 +75,16 @@ namespace LeafSoft.Units
             {
                 if (isSend)
                 {
-                    content = "发-> " + content;
+                    content = "发-> " + content + "\r\n";
                 }
                 else
                 {
-                    content = "收-> " + content;
+                    content = "收<- " + content + "\r\n";
                 }
 
                 if (ckTimestamp.Checked)
                 {
-                    content =DateTime.Now+" "+content;
+                    content ="["+DateTime.Now+"]"+" "+content;
                 }
                 txtData.AppendText(content);
                 if (txtData.Text.Length > 60000)
