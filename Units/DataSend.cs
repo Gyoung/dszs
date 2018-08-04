@@ -46,6 +46,22 @@ namespace LeafSoft.Units
             return lstCMD;
         }
 
+
+        private BindingList<Model.CMD> getCheckedCmd()
+        {
+            BindingList<Model.CMD> lstCmd = getListCmd();
+            BindingList<Model.CMD> cmds = new BindingList<Model.CMD>();
+            for (int i = 0; i < lstCmd.Count; i++)
+            {
+                object cbxValue = dgCMD.Rows[i].Cells[0].Value;
+                if (cbxValue is bool && cbxValue.Equals(true))
+                {
+                    cmds.Add(lstCmd[i]);
+                } 
+            }
+            return cmds;
+        }
+
         private void dgCMD_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 4 && e.RowIndex >= 0)
@@ -138,23 +154,20 @@ namespace LeafSoft.Units
                 int SendInterval = Convert.ToInt32(Interval);
                 while (AutoSend)
                 {
-                    for (int i = 0; i < getListCmd().Count; i++)
+                    BindingList<Model.CMD> checkedCmds = getCheckedCmd();
+                    for (int i = 0; i < checkedCmds.Count; i++)
                     {
                         if (AutoSend)
                         {
                             this.Invoke(new MethodInvoker(delegate
                             {
-                                object cbxValue = dgCMD.Rows[i].Cells[0].Value;
-                                if (cbxValue is bool && cbxValue.Equals(true))
-                                {
-                                    if (EventDataSend != null)
+                                if (EventDataSend != null)
                                     {
-                                        if (EventDataSend(getListCmd()[i].Bytes) == false)
+                                        if (EventDataSend(checkedCmds[i].Bytes) == false)
                                         {
                                             StopAutoSend();
                                         }
                                     }
-                                }
                             }));
                             Thread.Sleep(SendInterval);
                         }
