@@ -68,7 +68,7 @@ namespace LeafSoft
             tp.Dock = DockStyle.Fill;
             CreateNewTest(tp, "TCP Client[" + DateTime.Now.ToString("HHmmss") + "]", Properties.Resources.tcp);
         }
-
+          
         private void MS_NewUDPServer_Click(object sender, EventArgs e)
         {
             UDPServerPanel tp = new UDPServerPanel();
@@ -328,6 +328,14 @@ namespace LeafSoft
                 }
             }
         }
+
+        private void FaxtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFast tp = new frmFast();
+            tp.Show();
+        }
+
+        
 
 
 

@@ -53,9 +53,10 @@
             this.MS_AboutMe = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.加载ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.FaxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lklQQ = new System.Windows.Forms.LinkLabel();
             this.lklEmail = new System.Windows.Forms.LinkLabel();
-            this.loadFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -123,9 +124,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -182,7 +183,8 @@
             this.关于ToolStripMenuItem,
             this.MS_AboutMe,
             this.toolStripMenuItem1,
-            this.loadFile});
+            this.loadFile,
+            this.FaxtToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(718, 25);
@@ -288,8 +290,22 @@
             // 加载ToolStripMenuItem
             // 
             this.加载ToolStripMenuItem.Name = "加载ToolStripMenuItem";
-            this.加载ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.加载ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.加载ToolStripMenuItem.Text = "加载";
+            // 
+            // loadFile
+            // 
+            this.loadFile.Name = "loadFile";
+            this.loadFile.Size = new System.Drawing.Size(44, 21);
+            this.loadFile.Text = "加载";
+            this.loadFile.Click += new System.EventHandler(this.loadFile_Click);
+            // 
+            // FaxtToolStripMenuItem
+            // 
+            this.FaxtToolStripMenuItem.Name = "FaxtToolStripMenuItem";
+            this.FaxtToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.FaxtToolStripMenuItem.Text = "串口快速配置";
+            this.FaxtToolStripMenuItem.Click += new System.EventHandler(this.FaxtToolStripMenuItem_Click);
             // 
             // lklQQ
             // 
@@ -316,13 +332,6 @@
             this.lklEmail.TabStop = true;
             this.lklEmail.Text = "Email";
             this.lklEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklEmail_LinkClicked);
-            // 
-            // loadFile
-            // 
-            this.loadFile.Name = "loadFile";
-            this.loadFile.Size = new System.Drawing.Size(44, 21);
-            this.loadFile.Text = "加载";
-            this.loadFile.Click += new System.EventHandler(this.loadFile_Click);
             // 
             // yyzq
             // 
@@ -381,6 +390,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 加载ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFile;
+        private System.Windows.Forms.ToolStripMenuItem FaxtToolStripMenuItem;
 
 
 
