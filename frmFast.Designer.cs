@@ -46,14 +46,17 @@
             this.comboBox10 = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtNetNumber = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtFsgl = new System.Windows.Forms.TextBox();
+            this.txtZJId = new System.Windows.Forms.TextBox();
+            this.txtPl = new System.Windows.Forms.TextBox();
+            this.txtTCId = new System.Windows.Forms.TextBox();
+            this.txtLocalId = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox12 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.comboBox11 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
@@ -76,10 +79,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBox12 = new System.Windows.Forms.ComboBox();
+            this.cbSpeed = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -291,15 +291,15 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.cbSpeed);
+            this.groupBox3.Controls.Add(this.txtNetNumber);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.textBox8);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtFsgl);
+            this.groupBox3.Controls.Add(this.txtZJId);
+            this.groupBox3.Controls.Add(this.txtPl);
+            this.groupBox3.Controls.Add(this.txtTCId);
+            this.groupBox3.Controls.Add(this.txtLocalId);
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label5);
@@ -313,12 +313,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "配置项";
             // 
-            // textBox8
+            // txtNetNumber
             // 
-            this.textBox8.Location = new System.Drawing.Point(56, 222);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(88, 21);
-            this.textBox8.TabIndex = 14;
+            this.txtNetNumber.Location = new System.Drawing.Point(56, 11);
+            this.txtNetNumber.Name = "txtNetNumber";
+            this.txtNetNumber.Size = new System.Drawing.Size(86, 21);
+            this.txtNetNumber.TabIndex = 16;
+            this.txtNetNumber.Tag = "AT+NSID=";
+            this.txtNetNumber.Text = "1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(10, 17);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "网络号";
             // 
             // label6
             // 
@@ -329,40 +340,50 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "速度";
             // 
-            // textBox6
+            // txtFsgl
             // 
-            this.textBox6.Location = new System.Drawing.Point(56, 190);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(86, 21);
-            this.textBox6.TabIndex = 12;
+            this.txtFsgl.Location = new System.Drawing.Point(56, 190);
+            this.txtFsgl.Name = "txtFsgl";
+            this.txtFsgl.Size = new System.Drawing.Size(86, 21);
+            this.txtFsgl.TabIndex = 12;
+            this.txtFsgl.Tag = "AT+TPWR=";
+            this.txtFsgl.Text = "20";
             // 
-            // textBox5
+            // txtZJId
             // 
-            this.textBox5.Location = new System.Drawing.Point(55, 125);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(88, 21);
-            this.textBox5.TabIndex = 11;
+            this.txtZJId.Location = new System.Drawing.Point(55, 125);
+            this.txtZJId.Name = "txtZJId";
+            this.txtZJId.Size = new System.Drawing.Size(88, 21);
+            this.txtZJId.TabIndex = 11;
+            this.txtZJId.Tag = "AT+RYID=";
+            this.txtZJId.Text = "200";
             // 
-            // textBox4
+            // txtPl
             // 
-            this.textBox4.Location = new System.Drawing.Point(54, 163);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(88, 21);
-            this.textBox4.TabIndex = 10;
+            this.txtPl.Location = new System.Drawing.Point(54, 163);
+            this.txtPl.Name = "txtPl";
+            this.txtPl.Size = new System.Drawing.Size(88, 21);
+            this.txtPl.TabIndex = 10;
+            this.txtPl.Tag = "AT+FREQ=";
+            this.txtPl.Text = "434";
             // 
-            // textBox3
+            // txtTCId
             // 
-            this.textBox3.Location = new System.Drawing.Point(54, 86);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(88, 21);
-            this.textBox3.TabIndex = 9;
+            this.txtTCId.Location = new System.Drawing.Point(54, 86);
+            this.txtTCId.Name = "txtTCId";
+            this.txtTCId.Size = new System.Drawing.Size(88, 21);
+            this.txtTCId.TabIndex = 9;
+            this.txtTCId.Tag = "AT+TSID=";
+            this.txtTCId.Text = "100";
             // 
-            // textBox2
+            // txtLocalId
             // 
-            this.textBox2.Location = new System.Drawing.Point(58, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(88, 21);
-            this.textBox2.TabIndex = 8;
+            this.txtLocalId.Location = new System.Drawing.Point(58, 45);
+            this.txtLocalId.Name = "txtLocalId";
+            this.txtLocalId.Size = new System.Drawing.Size(88, 21);
+            this.txtLocalId.TabIndex = 8;
+            this.txtLocalId.Tag = "AT+DVID=";
+            this.txtLocalId.Text = "1";
             // 
             // panel1
             // 
@@ -384,6 +405,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(197, 267);
             this.panel1.TabIndex = 6;
+            // 
+            // comboBox12
+            // 
+            this.comboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox12.FormattingEnabled = true;
+            this.comboBox12.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2"});
+            this.comboBox12.Location = new System.Drawing.Point(67, 8);
+            this.comboBox12.Name = "comboBox12";
+            this.comboBox12.Size = new System.Drawing.Size(104, 20);
+            this.comboBox12.TabIndex = 18;
+            this.comboBox12.Tag = "AT+MODE=";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 48);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 12);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "设备类型";
             // 
             // comboBox11
             // 
@@ -415,6 +459,7 @@
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(104, 20);
             this.comboBox5.TabIndex = 11;
+            this.comboBox5.Tag = "AT+SLEP=";
             // 
             // comboBox4
             // 
@@ -427,6 +472,7 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(104, 20);
             this.comboBox4.TabIndex = 10;
+            this.comboBox4.Tag = "AT+STOP=";
             // 
             // comboBox3
             // 
@@ -442,6 +488,7 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(104, 20);
             this.comboBox3.TabIndex = 9;
+            this.comboBox3.Tag = "AT+PARY=";
             // 
             // comboBox2
             // 
@@ -464,6 +511,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(104, 20);
             this.comboBox2.TabIndex = 8;
+            this.comboBox2.Tag = "AT+BAUD=";
             // 
             // label15
             // 
@@ -522,6 +570,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(104, 20);
             this.comboBox1.TabIndex = 7;
+            this.comboBox1.Tag = "AT+TYPE=";
             // 
             // label11
             // 
@@ -594,6 +643,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "加载配置";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -618,43 +668,22 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "操作";
             // 
-            // label8
+            // cbSpeed
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 17);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 12);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "网络号";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(56, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(86, 21);
-            this.textBox1.TabIndex = 16;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 48);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 12);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "设备类型";
-            // 
-            // comboBox12
-            // 
-            this.comboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Items.AddRange(new object[] {
-            "0",
+            this.cbSpeed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSpeed.FormattingEnabled = true;
+            this.cbSpeed.Items.AddRange(new object[] {
             "1",
-            "2"});
-            this.comboBox12.Location = new System.Drawing.Point(67, 8);
-            this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(104, 20);
-            this.comboBox12.TabIndex = 18;
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.cbSpeed.Location = new System.Drawing.Point(56, 224);
+            this.cbSpeed.Name = "cbSpeed";
+            this.cbSpeed.Size = new System.Drawing.Size(86, 20);
+            this.cbSpeed.TabIndex = 19;
+            this.cbSpeed.Tag = "AT+RFDR=";
             // 
             // frmFast
             // 
@@ -685,7 +714,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox comboBox6;
@@ -700,13 +728,12 @@
         private System.Windows.Forms.ComboBox comboBox10;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtFsgl;
+        private System.Windows.Forms.TextBox txtZJId;
+        private System.Windows.Forms.TextBox txtPl;
+        private System.Windows.Forms.TextBox txtTCId;
+        private System.Windows.Forms.TextBox txtLocalId;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox comboBox11;
         private System.Windows.Forms.Label label7;
@@ -730,9 +757,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNetNumber;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox12;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox cbSpeed;
     }
 }
