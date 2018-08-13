@@ -24,6 +24,11 @@ namespace LeafSoft
                 ValidateNumber(txtTCId);
                 ValidateNumber(txtZJId);
                 ValidateNumber(txtPl,1);
+                Control.ControlCollection controls= groupBox3.Controls;
+                foreach (Control item in controls)
+                {
+                    
+                }
 
 
             }
