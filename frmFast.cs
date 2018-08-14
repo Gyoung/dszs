@@ -27,7 +27,11 @@ namespace LeafSoft
                 List<string> commands = GetCommand();
                 foreach (string cmd in commands)
                 {
-                    SendData(cmd);
+                    bool result= SendData(cmd);
+                    if (!result)
+                    {
+                        break;
+                    }
                 }
 
 
@@ -36,20 +40,14 @@ namespace LeafSoft
             {
                 MessageBox.Show(ex.Message);
             }
-            
-           
-            if (txtNetNumber.Text.Length > 0)
-            {
-                
-            }
         }
 
 
-        private void SendData(string cmd)
+        private bool SendData(string cmd)
         {
             string line = cmd + "\r\n"; //增加换行
             byte[] data = new ASCIIEncoding().GetBytes(line);
-            Configer.SendData(data);
+            return Configer.SendData(data);
         }
 
 
