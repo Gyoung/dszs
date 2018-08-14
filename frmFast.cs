@@ -49,10 +49,7 @@ namespace LeafSoft
         {
             string line = cmd + "\r\n"; //增加换行
             byte[] data = new ASCIIEncoding().GetBytes(line);
-            if (Configer.SendData(data) == true)
-            {
-
-            }
+            Configer.SendData(data);
         }
 
 
@@ -128,7 +125,28 @@ namespace LeafSoft
 
         private void Configer_DataReceived(object sender, byte[] data)
         {
+            DataReceiver.AddData(data, false);
+        }
 
+        //保存配置
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SendData("AT+SAVE");
+        }
+
+        //重启
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SendData("AT+RSET");
+            SendData("+ATM");
+            SendData("AT+SHOW");
+
+        }
+
+        //恢复出厂设置
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SendData("AT+FACT");
         }
     }
 }

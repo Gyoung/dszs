@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.DataReceiver = new LeafSoft.Units.DataReceive();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox12 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -74,9 +72,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.DataReceiver);
             this.groupBox1.Location = new System.Drawing.Point(426, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(276, 429);
@@ -84,38 +80,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "配置结果显示";
             // 
-            // radioButton4
+            // DataReceiver
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(151, 407);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(41, 16);
-            this.radioButton4.TabIndex = 2;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Hex";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
-            this.radioButton3.Location = new System.Drawing.Point(43, 407);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(53, 16);
-            this.radioButton3.TabIndex = 1;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "ASCII";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox7.Location = new System.Drawing.Point(25, 20);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(232, 378);
-            this.textBox7.TabIndex = 0;
+            this.DataReceiver.Location = new System.Drawing.Point(15, 20);
+            this.DataReceiver.Name = "DataReceiver";
+            this.DataReceiver.Size = new System.Drawing.Size(255, 397);
+            this.DataReceiver.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -462,6 +432,7 @@
             this.button5.TabIndex = 3;
             this.button5.Text = "恢复出厂设置";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -471,6 +442,7 @@
             this.button4.TabIndex = 2;
             this.button4.Text = "重启设备";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -490,6 +462,7 @@
             this.button3.TabIndex = 1;
             this.button3.Text = "保存配置";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox5
             // 
@@ -525,7 +498,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "          ";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -536,8 +508,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtFsgl;
@@ -557,7 +527,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtNetNumber;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.ComboBox cbSpeed;
         private System.Windows.Forms.ComboBox comboBox12;
         private System.Windows.Forms.Label label9;
@@ -574,5 +543,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private Units.NetRs232 Configer;
+        private Units.DataReceive DataReceiver;
     }
 }
