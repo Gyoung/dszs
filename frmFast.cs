@@ -24,18 +24,17 @@ namespace LeafSoft
                 ValidateNumber(txtTCId);
                 ValidateNumber(txtZJId);
                 ValidateNumber(txtPl,1);
-                Control.ControlCollection controls= groupBox3.Controls;
-                foreach (Control item in controls)
+                List<string> commands = GetCommand();
+                foreach (string cmd in commands)
                 {
-                    
+                    SendData(cmd);
                 }
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                MessageBox.Show(ex.Message);
             }
             
            
@@ -43,6 +42,47 @@ namespace LeafSoft
             {
                 
             }
+        }
+
+
+        private void SendData(string cmd)
+        {
+            string line = cmd + "\r\n"; //增加换行
+            byte[] data = new ASCIIEncoding().GetBytes(line);
+            if (Configer.SendData(data) == true)
+            {
+
+            }
+        }
+
+
+        private List<string> GetCommand()
+        {
+            List<string> commands = new List<string>();
+            commands.Add("+ATM");
+            Control.ControlCollection controls = groupBox3.Controls;
+            foreach (Control item in controls)
+            {
+                if (item is TextBox)
+                {
+                    TextBox textbox = item as TextBox;
+                    if (textbox.Text.Length > 0 && textbox.Tag!=null)
+                    {
+                        commands.Add(textbox.Tag + textbox.Text);
+                    }
+                }
+                else if (item is ComboBox)
+                {
+                    ComboBox combobox = item as ComboBox;
+                    if (combobox.SelectedValue != null&&combobox.Tag!=null)
+                    {
+                        commands.Add(combobox.Tag + combobox.SelectedValue.ToString());
+                    }
+                }
+
+            }
+            return commands;
+
         }
 
 
@@ -84,6 +124,11 @@ namespace LeafSoft
                 throw new Exception("请输入数值类型");
             }
               
+        }
+
+        private void Configer_DataReceived(object sender, byte[] data)
+        {
+
         }
     }
 }
