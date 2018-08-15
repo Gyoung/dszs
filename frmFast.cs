@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace LeafSoft
 {
@@ -13,6 +14,15 @@ namespace LeafSoft
         public frmFast()
         {
             InitializeComponent();
+
+            //this.comboBox12.SelectedValue = "";
+            this.cbSpeed.SelectedItem = "3";//速度
+            this.comboBox1.SelectedItem = "2";//设备类型
+            this.comboBox2.SelectedItem = "115200";//波特率
+            this.comboBox3.SelectedItem = "None";//检验位
+            this.comboBox11.SelectedItem = "";//数据位
+            this.comboBox4.SelectedItem = "1";//停止位
+            this.comboBox5.SelectedItem = "0";//休眠模式
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,28 +43,33 @@ namespace LeafSoft
                         break;
                     }
                 }
-
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
         private bool SendData(string cmd)
         {
-            string line = cmd + "\r\n"; //增加换行
-            byte[] data = new ASCIIEncoding().GetBytes(line);
-            return Configer.SendData(data);
+           
+            if (cbLine.Checked)
+            {
+                cmd= cmd + "\r\n"; //增加换行
+            }
+            byte[] data = new ASCIIEncoding().GetBytes(cmd);
+            DataReceiver.AddData(data, true);
+            bool result= Configer.SendData(data);
+            Thread.Sleep(TimeSpan.FromMilliseconds(500));
+            return result;
         }
 
 
         private List<string> GetCommand()
         {
             List<string> commands = new List<string>();
-            commands.Add("+ATM");
+           // commands.Add("+ATM");
             Control.ControlCollection controls = groupBox3.Controls;
             foreach (Control item in controls)
             {
@@ -69,9 +84,9 @@ namespace LeafSoft
                 else if (item is ComboBox)
                 {
                     ComboBox combobox = item as ComboBox;
-                    if (combobox.SelectedValue != null&&combobox.Tag!=null)
+                    if (combobox.SelectedItem != null && combobox.Tag != null)
                     {
-                        commands.Add(combobox.Tag + combobox.SelectedValue.ToString());
+                        commands.Add(combobox.Tag + combobox.SelectedItem.ToString());
                     }
                 }
 
@@ -84,6 +99,8 @@ namespace LeafSoft
         private void ValidateNumber(TextBox textbox,int type=0)
         {
             int number=0;
+            if (textbox.Text.Length == 0)
+                return;
             try
             {
                 number = int.Parse(textbox.Text);
@@ -116,7 +133,7 @@ namespace LeafSoft
             catch (Exception ex)
             {
                 textbox.Focus();
-                throw new Exception("请输入数值类型");
+                throw new Exception(ex.Message);
             }
               
         }
@@ -136,8 +153,7 @@ namespace LeafSoft
         private void button4_Click(object sender, EventArgs e)
         {
             SendData("AT+RSET");
-            SendData("+ATM");
-            SendData("AT+SHOW");
+            
 
         }
 
@@ -145,6 +161,23 @@ namespace LeafSoft
         private void button5_Click(object sender, EventArgs e)
         {
             SendData("AT+FACT");
+        }
+
+        private void frmFast_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Configer.ClearSelf();
+        }
+
+        //进入 AT命令
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SendData("+ATM");
+            this.cbLine.Checked = true;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            SendData("AT+SHOW");
         }
     }
 }
