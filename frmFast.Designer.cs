@@ -190,6 +190,7 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.Cursor = System.Windows.Forms.Cursors.Default;
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {

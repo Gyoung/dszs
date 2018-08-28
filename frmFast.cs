@@ -140,7 +140,87 @@ namespace LeafSoft
 
         private void Configer_DataReceived(object sender, byte[] data)
         {
+
+            string receiveData = new ASCIIEncoding().GetString(data);
+            if (receiveData != null && receiveData.StartsWith("Device"))
+            {
+                setValue(receiveData);
+            }
             DataReceiver.AddData(data, false);
+        }
+
+
+        private void setValue(string input)
+        {
+            string[] list = input.Split(new char[] { '\r', '\n' });
+            if (list != null && list.Length > 0)
+            {
+                for (int i = 0; i < list.Length; i++)
+                {
+                    string ls = list[i];
+                    if (ls.StartsWith("COM1 Baud"))
+                    {
+                        this.comboBox2.SelectedItem = ls.Split(':')[1];
+                    }
+                    else if (ls.StartsWith("COM1 Params"))
+                    {
+                        string values = ls.Split(':')[1].Trim();
+                        if (values.Length == 3)
+                        {
+                            //数据位
+                            comboBox11.SelectedItem = values[0].ToString();
+                            //检验位
+                            comboBox3.SelectedItem = GetFullValue(values[1].ToString());
+                            //停止位
+                            comboBox4.SelectedItem = values[2].ToString();
+                        }
+                    }
+                    else if (ls.StartsWith("Radio Speed"))
+                    {
+                        this.cbSpeed.SelectedItem = ls.Split(':')[1];
+                    }
+                    else if (ls.StartsWith("Sleep mode"))
+                    {
+                        this.comboBox5.SelectedItem = ls.Split(':')[1];
+                    }
+                    else if (ls.StartsWith("NSID"))
+                    {
+                        txtNetNumber.Text = ls.Split(':')[1];
+                    }
+                    else if (ls.StartsWith("Device ID"))
+                    {
+                        txtLocalId.Text = ls.Split(':')[1];
+                    }
+                    else if (ls.StartsWith("RF transmit Power"))
+                    {
+                        txtFsgl.Text = ls.Split(':')[1];
+                    }
+                    else if (ls.StartsWith("Trans Addr"))
+                    {
+                        txtTCId.Text = ls.Split(':')[1];
+                    }
+                    else if (ls.StartsWith("Relay Addr"))
+                    {
+                        txtZJId.Text = ls.Split(':')[1];
+                    }
+                }
+            }
+        }
+
+        private string GetFullValue(string s)
+        {
+            string value = "";
+            switch (s)
+            {
+                case "N": value = "None"; break;
+                case "O": value = "Odd"; break;
+                case "E": value = "Even"; break;
+                case "M": value = "Mark"; break;
+                case "S": value = "Space"; break;
+                default: value = "None"; break;
+
+            }
+            return value;
         }
 
         //保存配置
