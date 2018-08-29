@@ -27,27 +27,8 @@ namespace LeafSoft
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ValidateNumber(txtNetNumber);
-                ValidateNumber(txtLocalId);
-                ValidateNumber(txtTCId);
-                ValidateNumber(txtZJId);
-                ValidateNumber(txtPl,1);
-                List<string> commands = GetCommand();
-                foreach (string cmd in commands)
-                {
-                    bool result= SendData(cmd);
-                    if (!result)
-                    {
-                        break;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            SendData("AT+SHOW");
+          
         }
 
 
@@ -226,7 +207,28 @@ namespace LeafSoft
         //保存配置
         private void button3_Click(object sender, EventArgs e)
         {
-            SendData("AT+SAVE");
+            try
+            {
+                ValidateNumber(txtNetNumber);
+                ValidateNumber(txtLocalId);
+                ValidateNumber(txtTCId);
+                ValidateNumber(txtZJId);
+                ValidateNumber(txtPl, 1);
+                List<string> commands = GetCommand();
+                foreach (string cmd in commands)
+                {
+                    bool result = SendData(cmd);
+                    if (!result)
+                    {
+                        break;
+                    }
+                }
+                SendData("AT+SAVE");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //重启
