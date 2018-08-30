@@ -16,13 +16,13 @@ namespace LeafSoft
             InitializeComponent();
 
             //this.comboBox12.SelectedValue = "";
-            this.cbSpeed.SelectedItem = "3";//速度
-            this.comboBox1.SelectedItem = "2";//设备类型
-            this.comboBox2.SelectedItem = "115200";//波特率
-            this.comboBox3.SelectedItem = "None";//检验位
-            this.comboBox11.SelectedItem = "";//数据位
-            this.comboBox4.SelectedItem = "1";//停止位
-            this.comboBox5.SelectedItem = "0";//休眠模式
+            //this.cbSpeed.SelectedItem = "3";//速度
+            //this.comboBox1.SelectedItem = "2";//设备类型
+            //this.comboBox2.SelectedItem = "115200";//波特率
+            //this.comboBox3.SelectedItem = "None";//检验位
+            //this.comboBox11.SelectedItem = "";//数据位
+            //this.comboBox4.SelectedItem = "1";//停止位
+            //this.comboBox5.SelectedItem = "0";//休眠模式
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -141,7 +141,7 @@ namespace LeafSoft
                     string ls = list[i];
                     if (ls.StartsWith("COM1 Baud"))
                     {
-                        this.comboBox2.SelectedItem = ls.Split(':')[1];
+                        this.comboBox2.SelectedItem = ls.Split(':')[1].Trim();
                     }
                     else if (ls.StartsWith("COM1 Params"))
                     {
@@ -158,31 +158,35 @@ namespace LeafSoft
                     }
                     else if (ls.StartsWith("Radio Speed"))
                     {
-                        this.cbSpeed.SelectedItem = ls.Split(':')[1];
+                        this.cbSpeed.SelectedItem = ls.Split(':')[1].Trim();
                     }
                     else if (ls.StartsWith("Sleep mode"))
                     {
-                        this.comboBox5.SelectedItem = ls.Split(':')[1];
+                        this.comboBox5.SelectedItem = ls.Split(':')[1].Trim();
                     }
                     else if (ls.StartsWith("NSID"))
                     {
-                        txtNetNumber.Text = ls.Split(':')[1];
+                        txtNetNumber.Text = ls.Split(':')[1].Trim();
                     }
                     else if (ls.StartsWith("Device ID"))
                     {
-                        txtLocalId.Text = ls.Split(':')[1];
+                        txtLocalId.Text = ls.Split(':')[1].Trim();
                     }
                     else if (ls.StartsWith("RF transmit Power"))
                     {
-                        txtFsgl.Text = ls.Split(':')[1];
+                        txtFsgl.Text = ls.Split(':')[1].Trim();
                     }
                     else if (ls.StartsWith("Trans Addr"))
                     {
-                        txtTCId.Text = ls.Split(':')[1];
+                        txtTCId.Text = ls.Split(':')[1].Trim();
                     }
                     else if (ls.StartsWith("Relay Addr"))
                     {
-                        txtZJId.Text = ls.Split(':')[1];
+                        txtZJId.Text = ls.Split(':')[1].Trim();
+                    }
+                    else if (ls.StartsWith("Frequency"))
+                    {
+                        txtPl.Text = ls.Split(':')[1].Trim();
                     }
                 }
             }

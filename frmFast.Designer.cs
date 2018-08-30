@@ -302,7 +302,6 @@
             this.txtNetNumber.Size = new System.Drawing.Size(55, 21);
             this.txtNetNumber.TabIndex = 16;
             this.txtNetNumber.Tag = "AT+NSID=";
-            this.txtNetNumber.Text = "1";
             // 
             // label8
             // 
@@ -329,7 +328,6 @@
             this.txtFsgl.Size = new System.Drawing.Size(51, 21);
             this.txtFsgl.TabIndex = 12;
             this.txtFsgl.Tag = "AT+TPWR=";
-            this.txtFsgl.Text = "20";
             // 
             // txtZJId
             // 
@@ -338,7 +336,6 @@
             this.txtZJId.Size = new System.Drawing.Size(56, 21);
             this.txtZJId.TabIndex = 11;
             this.txtZJId.Tag = "AT+RYID=";
-            this.txtZJId.Text = "200";
             // 
             // txtPl
             // 
@@ -347,7 +344,6 @@
             this.txtPl.Size = new System.Drawing.Size(57, 21);
             this.txtPl.TabIndex = 10;
             this.txtPl.Tag = "AT+FREQ=";
-            this.txtPl.Text = "434";
             // 
             // txtTCId
             // 
@@ -356,7 +352,6 @@
             this.txtTCId.Size = new System.Drawing.Size(57, 21);
             this.txtTCId.TabIndex = 9;
             this.txtTCId.Tag = "AT+TSID=";
-            this.txtTCId.Text = "100";
             // 
             // txtLocalId
             // 
@@ -365,7 +360,6 @@
             this.txtLocalId.Size = new System.Drawing.Size(53, 21);
             this.txtLocalId.TabIndex = 8;
             this.txtLocalId.Tag = "AT+DVID=";
-            this.txtLocalId.Text = "1";
             // 
             // label11
             // 
