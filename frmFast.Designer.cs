@@ -196,9 +196,7 @@
             this.comboBox3.Items.AddRange(new object[] {
             "None",
             "Odd",
-            "Even",
-            "Mark",
-            "Space"});
+            "Even"});
             this.comboBox3.Location = new System.Drawing.Point(200, 132);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(81, 20);

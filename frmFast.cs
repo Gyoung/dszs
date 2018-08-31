@@ -67,13 +67,62 @@ namespace LeafSoft
                     ComboBox combobox = item as ComboBox;
                     if (combobox.SelectedItem != null && combobox.Tag != null)
                     {
-                        commands.Add(combobox.Tag + combobox.SelectedItem.ToString());
+                        if (combobox.Tag.ToString().StartsWith("AT+BAUD"))
+                        {
+                            commands.Add(combobox.Tag + ChangeBotli(combobox.SelectedItem.ToString()));
+                        }
+                        else if (combobox.Tag.ToString().StartsWith("AT+PARY"))
+                        {
+                            commands.Add(combobox.Tag + GetJyValue(combobox.SelectedItem.ToString()));
+                        }
+                        else
+                        {
+                            commands.Add(combobox.Tag + combobox.SelectedItem.ToString());
+                        }
                     }
                 }
 
             }
             return commands;
 
+        }
+
+        private string ChangeBotli(string input)
+        {
+            string returnValue = "";
+            switch (input)
+            {
+                case "600": returnValue = "1"; break;
+                case "1200": returnValue = "2"; break;
+                case "2400": returnValue = "3"; break;
+                case "4800": returnValue = "4"; break;
+                case "9600": returnValue = "5"; break;
+                case "19200": returnValue = "6"; break;
+                case "38400": returnValue = "7"; break;
+                case "57600": returnValue = "8"; break;
+                case "115200": returnValue = "9"; break;
+                default: returnValue = "9"; break;
+            }
+            return returnValue;
+        }
+
+        private string RevertBotli(string input)
+        {
+            string returnValue = "";
+            switch (input)
+            {
+                case "1": returnValue = "600"; break;
+                case "2": returnValue ="1200"; break;
+                case "3": returnValue ="2400"; break;
+                case "4": returnValue ="4800"; break;
+                case "5": returnValue ="9600"; break;
+                case "6": returnValue ="19200"; break;
+                case "7": returnValue= "38400"; break;
+                case "8": returnValue ="57600"; break;
+                case "9": returnValue="115200"; break;
+                default: returnValue = "115200"; break;
+            }
+            return returnValue;
         }
 
 
@@ -108,8 +157,6 @@ namespace LeafSoft
                         throw new Exception("范围需要在5-20之间");
                     }
                 }
-                
-               
             }
             catch (Exception ex)
             {
@@ -141,7 +188,7 @@ namespace LeafSoft
                     string ls = list[i];
                     if (ls.StartsWith("COM1 Baud"))
                     {
-                        this.comboBox2.SelectedItem = ls.Split(':')[1].Trim();
+                        this.comboBox2.SelectedItem =(ls.Split(':')[1].Trim());
                     }
                     else if (ls.StartsWith("COM1 Params"))
                     {
@@ -151,7 +198,7 @@ namespace LeafSoft
                             //数据位
                             comboBox11.SelectedItem = values[0].ToString();
                             //检验位
-                            comboBox3.SelectedItem = GetFullValue(values[1].ToString());
+                            comboBox3.SelectedItem = RevertJyValue(values[1].ToString());
                             //停止位
                             comboBox4.SelectedItem = values[2].ToString();
                         }
@@ -192,7 +239,21 @@ namespace LeafSoft
             }
         }
 
-        private string GetFullValue(string s)
+        private string GetJyValue(string s)
+        {
+            string value = "";
+            switch (s)
+            {
+                case "None": value = "0"; break;
+                case "Odd": value = "1"; break;
+                case "Even": value = "2"; break;
+                default: value = "0"; break;
+
+            }
+            return value;
+        }
+
+        private string RevertJyValue(string s)
         {
             string value = "";
             switch (s)
@@ -200,8 +261,6 @@ namespace LeafSoft
                 case "N": value = "None"; break;
                 case "O": value = "Odd"; break;
                 case "E": value = "Even"; break;
-                case "M": value = "Mark"; break;
-                case "S": value = "Space"; break;
                 default: value = "None"; break;
 
             }
