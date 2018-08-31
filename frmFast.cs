@@ -75,6 +75,10 @@ namespace LeafSoft
                         {
                             commands.Add(combobox.Tag + GetJyValue(combobox.SelectedItem.ToString()));
                         }
+                        else if (combobox.Tag.ToString().StartsWith("AT+TYPE"))
+                        {
+                            commands.Add(combobox.Tag + GetDeviceValue(combobox.SelectedItem.ToString()));
+                        }
                         else
                         {
                             commands.Add(combobox.Tag + combobox.SelectedItem.ToString());
@@ -215,6 +219,10 @@ namespace LeafSoft
                     {
                         txtNetNumber.Text = ls.Split(':')[1].Trim();
                     }
+                    else if (ls.StartsWith("Device Type"))
+                    {
+                        this.comboBox5.SelectedItem = RevertDeviceValue(ls.Split(':')[1].Trim());
+                    }
                     else if (ls.StartsWith("Device ID"))
                     {
                         txtLocalId.Text = ls.Split(':')[1].Trim();
@@ -267,6 +275,34 @@ namespace LeafSoft
             return value;
         }
 
+        private string GetDeviceValue(string s)
+        {
+            string value = "";
+            switch (s)
+            {
+                case "网关": value = "0"; break;
+                case "中继器": value = "1"; break;
+                case "终端": value = "2"; break;
+                default: value = "2"; break;
+
+            }
+            return value;
+        }
+
+        private string RevertDeviceValue(string s)
+        {
+            string value = "";
+            switch (s)
+            {
+                case "gateway": value = "网关"; break;
+                case "relay": value = "中继器"; break;
+                case "node": value = "终端"; break;
+                default: value = "终端"; break;
+
+            }
+            return value;
+        }
+
         //保存配置
         private void button3_Click(object sender, EventArgs e)
         {
@@ -280,6 +316,7 @@ namespace LeafSoft
                 List<string> commands = GetCommand();
                 foreach (string cmd in commands)
                 {
+                    Thread.Sleep(TimeSpan.FromMilliseconds(500));
                     bool result = SendData(cmd);
                     if (!result)
                     {
