@@ -79,6 +79,10 @@ namespace LeafSoft
                         {
                             commands.Add(combobox.Tag + GetDeviceValue(combobox.SelectedItem.ToString()));
                         }
+                        else if (combobox.Tag.ToString().StartsWith("AT+STOP"))
+                        {
+                            commands.Add(combobox.Tag + changestop(combobox.SelectedItem.ToString()));
+                        }
                         else
                         {
                             commands.Add(combobox.Tag + combobox.SelectedItem.ToString());
@@ -128,7 +132,28 @@ namespace LeafSoft
             }
             return returnValue;
         }
-
+        private string changestop(string input)
+        {
+            string returnValue = "";
+            switch (input)
+            {
+                case "1": returnValue = "0"; break;
+                case "2": returnValue = "1"; break;
+                default: returnValue = "1"; break;
+            }
+            return returnValue;
+        }
+        private string Revertstop(string input)
+        {
+            string returnValue = "";
+            switch (input)
+            {
+                case "0": returnValue = "1"; break;
+                case "1": returnValue = "2"; break;
+                default: returnValue = "0"; break;
+            }
+            return returnValue;
+        }
 
         private void ValidateNumber(TextBox textbox,int type=0)
         {
@@ -221,7 +246,7 @@ namespace LeafSoft
                     }
                     else if (ls.StartsWith("Device Type"))
                     {
-                        this.comboBox5.SelectedItem = RevertDeviceValue(ls.Split(':')[1].Trim());
+                        this.comboBox1.SelectedItem = RevertDeviceValue(ls.Split(':')[1].Trim());
                     }
                     else if (ls.StartsWith("Device ID"))
                     {
@@ -316,7 +341,6 @@ namespace LeafSoft
                 List<string> commands = GetCommand();
                 foreach (string cmd in commands)
                 {
-                    Thread.Sleep(TimeSpan.FromMilliseconds(500));
                     bool result = SendData(cmd);
                     if (!result)
                     {
@@ -335,7 +359,7 @@ namespace LeafSoft
         private void button4_Click(object sender, EventArgs e)
         {
             SendData("AT+RSET");
-            
+            this.cbLine.Checked = false;
 
         }
 
@@ -343,6 +367,7 @@ namespace LeafSoft
         private void button5_Click(object sender, EventArgs e)
         {
             SendData("AT+FACT");
+            SendData("AT+SHOW");
         }
 
         private void frmFast_FormClosing(object sender, FormClosingEventArgs e)
