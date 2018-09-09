@@ -34,16 +34,32 @@ namespace LeafSoft
 
         private bool SendData(string cmd)
         {
-           
             if (cbLine.Checked)
             {
-                cmd= cmd + "\r\n"; //增加换行
+                cmd = cmd + "\r\n"; //增加换行
             }
-            byte[] data = new ASCIIEncoding().GetBytes(cmd);
+            byte[] data = new ASCIIEncoding().GetBytes(cmd.ToString());
             DataReceiver.AddData(data, true);
-            bool result= Configer.SendData(data);
+            bool result = Configer.SendData(data);
             Thread.Sleep(TimeSpan.FromMilliseconds(500));
             return result;
+            //Thread thread = new Thread(new ParameterizedThreadStart(SendData2));
+            //thread.Start(cmd);
+            //return true;
+        }
+
+
+        private void SendData2(object cmd)
+        {
+            if (cbLine.Checked)
+            {
+                cmd = cmd + "\r\n"; //增加换行
+            }
+            byte[] data = new ASCIIEncoding().GetBytes(cmd.ToString());
+            DataReceiver.AddData(data, true);
+            bool result = Configer.SendData(data);
+            Thread.Sleep(TimeSpan.FromMilliseconds(500));
+           
         }
 
 
@@ -201,7 +217,10 @@ namespace LeafSoft
             string receiveData = new ASCIIEncoding().GetString(data);
             if (receiveData != null && receiveData.StartsWith("Device"))
             {
-                setValue(receiveData);
+                this.BeginInvoke(new MethodInvoker(delegate
+                {
+                    setValue(receiveData);
+                }));
             }
             DataReceiver.AddData(data, false);
         }
@@ -209,6 +228,9 @@ namespace LeafSoft
 
         private void setValue(string input)
         {
+
+           
+
             string[] list = input.Split(new char[] { '\r', '\n' });
             if (list != null && list.Length > 0)
             {
