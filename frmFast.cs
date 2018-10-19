@@ -363,6 +363,7 @@ namespace LeafSoft
                 foreach (string cmd in commands)
                 {
                     bool result = SendData(cmd);
+                    Thread.Sleep(TimeSpan.FromMilliseconds(500));
                     if (!result)
                     {
                         break;
