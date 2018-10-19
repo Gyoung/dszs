@@ -246,8 +246,7 @@ namespace LeafSoft
                         string values = ls.Split(':')[1].Trim();
                         if (values.Length == 3)
                         {
-                            //数据位
-                            comboBox11.SelectedItem = values[0].ToString();
+                           
                             //检验位
                             comboBox3.SelectedItem = RevertJyValue(values[1].ToString());
                             //停止位

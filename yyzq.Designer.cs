@@ -303,8 +303,8 @@
             // FaxtToolStripMenuItem
             // 
             this.FaxtToolStripMenuItem.Name = "FaxtToolStripMenuItem";
-            this.FaxtToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
-            this.FaxtToolStripMenuItem.Text = "串口快速配置";
+            this.FaxtToolStripMenuItem.Size = new System.Drawing.Size(97, 21);
+            this.FaxtToolStripMenuItem.Text = "LoRa快速配置";
             this.FaxtToolStripMenuItem.Click += new System.EventHandler(this.FaxtToolStripMenuItem_Click);
             // 
             // lklQQ

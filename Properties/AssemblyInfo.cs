@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
     "3.接收数据可通过右键菜单一键计算Hex对应的数值；\r\n" +
     "4.字节计算器/检验值计算器（CRC16,自定义多项式CRC16，XOR)。\r\n")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("请发market@zonewu.com")]
+[assembly: AssemblyCompany("邮箱：market@zonewu.com 电话：0592-3564802")]
 [assembly: AssemblyProduct("厦门众物智联通讯调试工具")]
 [assembly: AssemblyCopyright("www.zonewu.com")]
 [assembly: AssemblyTrademark("")]
@@ -36,6 +36,6 @@ using System.Runtime.InteropServices;
 //
 // 可以指定所有这些值，也可以使用“内部版本号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1")]
-[assembly: AssemblyFileVersion("1.1")]
+//[assembly: AssemblyVersion("1.2")]
+[assembly: AssemblyVersion("1.2.1")]
+[assembly: AssemblyFileVersion("0.0.0")]

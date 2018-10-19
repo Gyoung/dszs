@@ -33,8 +33,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbLine = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -63,7 +61,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.Configer = new LeafSoft.Units.NetRs232();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -92,8 +89,6 @@
             // 
             this.groupBox3.Controls.Add(this.cbLine);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.comboBox11);
-            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.comboBox5);
             this.groupBox3.Controls.Add(this.comboBox4);
             this.groupBox3.Controls.Add(this.comboBox3);
@@ -137,29 +132,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(153, 76);
+            this.label9.Location = new System.Drawing.Point(142, 76);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 32;
             this.label9.Text = "设备类型";
-            // 
-            // comboBox11
-            // 
-            this.comboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(200, 163);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(81, 20);
-            this.comboBox11.TabIndex = 31;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(153, 168);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 12);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "数据位";
             // 
             // comboBox5
             // 
@@ -169,7 +146,7 @@
             "0",
             "1",
             "2"});
-            this.comboBox5.Location = new System.Drawing.Point(200, 224);
+            this.comboBox5.Location = new System.Drawing.Point(200, 198);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(81, 20);
             this.comboBox5.TabIndex = 29;
@@ -182,7 +159,7 @@
             this.comboBox4.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.comboBox4.Location = new System.Drawing.Point(200, 195);
+            this.comboBox4.Location = new System.Drawing.Point(200, 165);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(81, 20);
             this.comboBox4.TabIndex = 28;
@@ -229,7 +206,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(141, 230);
+            this.label15.Location = new System.Drawing.Point(142, 204);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 12);
             this.label15.TabIndex = 24;
@@ -238,7 +215,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(153, 198);
+            this.label14.Location = new System.Drawing.Point(153, 168);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(41, 12);
             this.label14.TabIndex = 23;
@@ -271,7 +248,7 @@
             "中继器",
             "终端",
             "网关"});
-            this.comboBox1.Location = new System.Drawing.Point(212, 73);
+            this.comboBox1.Location = new System.Drawing.Point(212, 72);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(69, 20);
             this.comboBox1.TabIndex = 25;
@@ -298,7 +275,7 @@
             // 
             this.txtNetNumber.Location = new System.Drawing.Point(58, 17);
             this.txtNetNumber.Name = "txtNetNumber";
-            this.txtNetNumber.Size = new System.Drawing.Size(55, 21);
+            this.txtNetNumber.Size = new System.Drawing.Size(53, 21);
             this.txtNetNumber.TabIndex = 16;
             this.txtNetNumber.Tag = "AT+NSID=";
             // 
@@ -330,31 +307,31 @@
             // 
             // txtZJId
             // 
-            this.txtZJId.Location = new System.Drawing.Point(55, 125);
+            this.txtZJId.Location = new System.Drawing.Point(58, 123);
             this.txtZJId.Name = "txtZJId";
-            this.txtZJId.Size = new System.Drawing.Size(56, 21);
+            this.txtZJId.Size = new System.Drawing.Size(53, 21);
             this.txtZJId.TabIndex = 11;
             this.txtZJId.Tag = "AT+RYID=";
             // 
             // txtPl
             // 
-            this.txtPl.Location = new System.Drawing.Point(54, 163);
+            this.txtPl.Location = new System.Drawing.Point(58, 163);
             this.txtPl.Name = "txtPl";
-            this.txtPl.Size = new System.Drawing.Size(57, 21);
+            this.txtPl.Size = new System.Drawing.Size(53, 21);
             this.txtPl.TabIndex = 10;
             this.txtPl.Tag = "AT+FREQ=";
             // 
             // txtTCId
             // 
-            this.txtTCId.Location = new System.Drawing.Point(54, 86);
+            this.txtTCId.Location = new System.Drawing.Point(58, 86);
             this.txtTCId.Name = "txtTCId";
-            this.txtTCId.Size = new System.Drawing.Size(57, 21);
+            this.txtTCId.Size = new System.Drawing.Size(53, 21);
             this.txtTCId.TabIndex = 9;
             this.txtTCId.Tag = "AT+TSID=";
             // 
             // txtLocalId
             // 
-            this.txtLocalId.Location = new System.Drawing.Point(58, 48);
+            this.txtLocalId.Location = new System.Drawing.Point(58, 50);
             this.txtLocalId.Name = "txtLocalId";
             this.txtLocalId.Size = new System.Drawing.Size(53, 21);
             this.txtLocalId.TabIndex = 8;
@@ -372,7 +349,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 128);
+            this.label5.Location = new System.Drawing.Point(12, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 4;
@@ -381,7 +358,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 86);
+            this.label4.Location = new System.Drawing.Point(11, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 3;
@@ -390,7 +367,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 57);
+            this.label3.Location = new System.Drawing.Point(9, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 2;
@@ -399,7 +376,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 166);
+            this.label2.Location = new System.Drawing.Point(16, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 1;
@@ -407,7 +384,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(195, 134);
+            this.button5.Location = new System.Drawing.Point(195, 157);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(86, 25);
             this.button5.TabIndex = 3;
@@ -417,7 +394,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(195, 105);
+            this.button4.Location = new System.Drawing.Point(195, 120);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(86, 25);
             this.button4.TabIndex = 2;
@@ -427,7 +404,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(195, 43);
+            this.button1.Location = new System.Drawing.Point(195, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 25);
             this.button1.TabIndex = 0;
@@ -437,7 +414,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(195, 74);
+            this.button3.Location = new System.Drawing.Point(195, 83);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(86, 25);
             this.button3.TabIndex = 1;
@@ -447,7 +424,6 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button6);
             this.groupBox5.Controls.Add(this.Configer);
             this.groupBox5.Controls.Add(this.button5);
             this.groupBox5.Controls.Add(this.button4);
@@ -460,16 +436,6 @@
             this.groupBox5.TabIndex = 54;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "操作";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(195, 165);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(86, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "设备参数展示";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Configer
             // 
@@ -499,7 +465,7 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "frmFast";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "          ";
+            this.Text = "LoRa快速配置窗口";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFast_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -533,8 +499,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbSpeed;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox11;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox3;
@@ -548,6 +512,5 @@
         private Units.DataReceive DataReceiver;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox cbLine;
-        private System.Windows.Forms.Button button6;
     }
 }

@@ -121,6 +121,8 @@
             // ckTimestamp
             // 
             this.ckTimestamp.AutoSize = true;
+            this.ckTimestamp.Checked = true;
+            this.ckTimestamp.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckTimestamp.Location = new System.Drawing.Point(3, 0);
             this.ckTimestamp.Name = "ckTimestamp";
             this.ckTimestamp.Size = new System.Drawing.Size(60, 16);
