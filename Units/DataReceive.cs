@@ -6,6 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.IO;
 /*---------------作者：叶知秋----------------------*/
 /*---------------时间：2013年8月16日---------------*/
 /*---------------邮箱：yq@yyzq.net---------*/
@@ -213,6 +214,24 @@ namespace LeafSoft.Units
             return BToInt32;
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtData.Text.Length > 0)
+            {
+                string dir = AppDomain.CurrentDomain.BaseDirectory + "ReceiveData";
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+                string filePath = dir +"\\"+ DateTime.Now.ToString("yyyyMMddhhssmm") + ".txt";
+                using (StreamWriter sw = new StreamWriter(filePath,false))
+                {
+                    sw.Write(txtData.Text);
+                    
+                }
+            }
+        }
         
     }
 }

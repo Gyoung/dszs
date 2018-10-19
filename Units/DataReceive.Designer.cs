@@ -38,22 +38,23 @@
             this.rbtnHex = new System.Windows.Forms.RadioButton();
             this.rbtnASCII = new System.Windows.Forms.RadioButton();
             this.ckTimestamp = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.CMS_Main.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtData
             // 
-            this.txtData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtData.ContextMenuStrip = this.CMS_Main;
-            this.txtData.Location = new System.Drawing.Point(0, 16);
+            this.txtData.Location = new System.Drawing.Point(0, 24);
             this.txtData.MaxLength = 1;
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
             this.txtData.ReadOnly = true;
             this.txtData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtData.Size = new System.Drawing.Size(523, 190);
+            this.txtData.Size = new System.Drawing.Size(523, 182);
             this.txtData.TabIndex = 1;
             // 
             // CMS_Main
@@ -99,7 +100,7 @@
             // rbtnHex
             // 
             this.rbtnHex.AutoSize = true;
-            this.rbtnHex.Location = new System.Drawing.Point(70, 0);
+            this.rbtnHex.Location = new System.Drawing.Point(70, 4);
             this.rbtnHex.Name = "rbtnHex";
             this.rbtnHex.Size = new System.Drawing.Size(41, 16);
             this.rbtnHex.TabIndex = 3;
@@ -110,7 +111,7 @@
             // 
             this.rbtnASCII.AutoSize = true;
             this.rbtnASCII.Checked = true;
-            this.rbtnASCII.Location = new System.Drawing.Point(116, 0);
+            this.rbtnASCII.Location = new System.Drawing.Point(116, 4);
             this.rbtnASCII.Name = "rbtnASCII";
             this.rbtnASCII.Size = new System.Drawing.Size(53, 16);
             this.rbtnASCII.TabIndex = 4;
@@ -123,17 +124,28 @@
             this.ckTimestamp.AutoSize = true;
             this.ckTimestamp.Checked = true;
             this.ckTimestamp.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckTimestamp.Location = new System.Drawing.Point(3, 0);
+            this.ckTimestamp.Location = new System.Drawing.Point(3, 4);
             this.ckTimestamp.Name = "ckTimestamp";
             this.ckTimestamp.Size = new System.Drawing.Size(60, 16);
             this.ckTimestamp.TabIndex = 2;
             this.ckTimestamp.Text = "时间戳";
             this.ckTimestamp.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(176, -1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "保存";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // DataReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.rbtnASCII);
             this.Controls.Add(this.rbtnHex);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.ToolStripMenuItem MS_ToFloat;
         private System.Windows.Forms.ToolStripMenuItem MS_ToDouble;
         private System.Windows.Forms.CheckBox ckTimestamp;
+        private System.Windows.Forms.Button button1;
     }
 }
