@@ -39,12 +39,6 @@
             this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataReceiver = new LeafSoft.Units.DataReceive();
             this.Configer = new LeafSoft.Units.NetUDPServer();
-            this.basePanel1 = new LeafSoft.PartPanel.BasePanel();
-            this.ckLine = new System.Windows.Forms.CheckBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.bytesBox1 = new LeafSoft.LeafControl.BytesBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -70,9 +64,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(249, 4);
+            this.groupBox1.Location = new System.Drawing.Point(283, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(733, 192);
+            this.groupBox1.Size = new System.Drawing.Size(699, 189);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "温湿度展示";
@@ -88,10 +82,11 @@
             this.温度,
             this.湿度,
             this.状态});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 20);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(733, 162);
+            this.dataGridView1.Size = new System.Drawing.Size(693, 169);
             this.dataGridView1.TabIndex = 0;
             // 
             // 时间
@@ -135,9 +130,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataReceiver.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DataReceiver.Location = new System.Drawing.Point(23, 286);
+            this.DataReceiver.Location = new System.Drawing.Point(23, 204);
             this.DataReceiver.Name = "DataReceiver";
-            this.DataReceiver.Size = new System.Drawing.Size(327, 156);
+            this.DataReceiver.Size = new System.Drawing.Size(254, 238);
             this.DataReceiver.TabIndex = 5;
             // 
             // Configer
@@ -146,82 +141,24 @@
             this.Configer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Configer.Location = new System.Drawing.Point(12, 3);
             this.Configer.Name = "Configer";
-            this.Configer.Size = new System.Drawing.Size(196, 179);
+            this.Configer.Size = new System.Drawing.Size(242, 179);
             this.Configer.TabIndex = 8;
             this.Configer.DataReceived += new LeafSoft.Lib.LeafEvent.DataReceivedHandler(this.Configer_DataReceived);
-            // 
-            // basePanel1
-            // 
-            this.basePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.basePanel1.Location = new System.Drawing.Point(23, 202);
-            this.basePanel1.Name = "basePanel1";
-            this.basePanel1.Size = new System.Drawing.Size(327, 78);
-            this.basePanel1.TabIndex = 21;
-            // 
-            // ckLine
-            // 
-            this.ckLine.AutoSize = true;
-            this.ckLine.Location = new System.Drawing.Point(35, 230);
-            this.ckLine.Name = "ckLine";
-            this.ckLine.Size = new System.Drawing.Size(72, 16);
-            this.ckLine.TabIndex = 22;
-            this.ckLine.Text = "自动换行";
-            this.ckLine.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(101, 218);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(53, 16);
-            this.radioButton2.TabIndex = 23;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "ASCII";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(160, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 37);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "发送";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(101, 242);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(41, 16);
-            this.radioButton1.TabIndex = 25;
-            this.radioButton1.Text = "Hex";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // bytesBox1
-            // 
-            this.bytesBox1.IsHex = LeafSoft.Lib.EnumType.CMDType.Hex;
-            this.bytesBox1.Location = new System.Drawing.Point(258, 217);
-            this.bytesBox1.Multiline = true;
-            this.bytesBox1.Name = "bytesBox1";
-            this.bytesBox1.Size = new System.Drawing.Size(91, 37);
-            this.bytesBox1.TabIndex = 26;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.Configer);
             this.panel1.Location = new System.Drawing.Point(23, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 192);
+            this.panel1.Size = new System.Drawing.Size(254, 192);
             this.panel1.TabIndex = 27;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView3);
-            this.groupBox3.Location = new System.Drawing.Point(356, 219);
+            this.groupBox3.Location = new System.Drawing.Point(302, 217);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(626, 223);
+            this.groupBox3.Size = new System.Drawing.Size(680, 225);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "水浸采集展示";
@@ -236,10 +173,11 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.Column1});
-            this.dataGridView3.Location = new System.Drawing.Point(-1, 14);
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(3, 17);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.Size = new System.Drawing.Size(621, 209);
+            this.dataGridView3.Size = new System.Drawing.Size(674, 205);
             this.dataGridView3.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn6
@@ -333,12 +271,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.bytesBox1);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.ckLine);
-            this.Controls.Add(this.basePanel1);
             this.Controls.Add(this.DataReceiver);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmShow";
@@ -360,12 +292,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Units.DataReceive DataReceiver;
         private Units.NetUDPServer Configer;
-        private PartPanel.BasePanel basePanel1;
-        private System.Windows.Forms.CheckBox ckLine;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private LeafControl.BytesBox bytesBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
