@@ -55,6 +55,7 @@
             this.加载ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFile = new System.Windows.Forms.ToolStripMenuItem();
             this.FaxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据展示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lklQQ = new System.Windows.Forms.LinkLabel();
             this.lklEmail = new System.Windows.Forms.LinkLabel();
             this.tabPage4.SuspendLayout();
@@ -124,9 +125,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -184,7 +185,8 @@
             this.MS_AboutMe,
             this.toolStripMenuItem1,
             this.loadFile,
-            this.FaxtToolStripMenuItem});
+            this.FaxtToolStripMenuItem,
+            this.数据展示ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(718, 25);
@@ -307,6 +309,13 @@
             this.FaxtToolStripMenuItem.Text = "LoRa快速配置";
             this.FaxtToolStripMenuItem.Click += new System.EventHandler(this.FaxtToolStripMenuItem_Click);
             // 
+            // 数据展示ToolStripMenuItem
+            // 
+            this.数据展示ToolStripMenuItem.Name = "数据展示ToolStripMenuItem";
+            this.数据展示ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.数据展示ToolStripMenuItem.Text = "数据展示";
+            this.数据展示ToolStripMenuItem.Click += new System.EventHandler(this.数据展示ToolStripMenuItem_Click);
+            // 
             // lklQQ
             // 
             this.lklQQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -391,6 +400,7 @@
         private System.Windows.Forms.ToolStripMenuItem 加载ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFile;
         private System.Windows.Forms.ToolStripMenuItem FaxtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 数据展示ToolStripMenuItem;
 
 
 

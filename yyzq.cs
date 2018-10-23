@@ -335,6 +335,12 @@ namespace LeafSoft
             tp.Show();
         }
 
+        private void 数据展示ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmShow Fs = new FrmShow();
+            Fs.Show();
+        }
+
         
 
 

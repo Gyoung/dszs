@@ -80,6 +80,12 @@
     <Compile Include="frmPoly.Designer.cs">
       <DependentUpon>frmPoly.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShow.Designer.cs">
+      <DependentUpon>FrmShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lib\BytesCheck.cs" />
     <Compile Include="Lib\HotKey.cs" />
     <Compile Include="Model\Command.cs" />
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPoly.resx">
       <DependentUpon>frmPoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShow.resx">
+      <DependentUpon>FrmShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PartPanel\TCPClientPanel.resx">
       <DependentUpon>TCPClientPanel.cs</DependentUpon>
