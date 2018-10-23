@@ -59,9 +59,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.MDataCounter = new LeafSoft.Units.DataCounter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -150,6 +148,7 @@
             this.Configer.Name = "Configer";
             this.Configer.Size = new System.Drawing.Size(196, 179);
             this.Configer.TabIndex = 8;
+            this.Configer.DataReceived += new LeafSoft.Lib.LeafEvent.DataReceivedHandler(this.Configer_DataReceived);
             // 
             // basePanel1
             // 
@@ -314,41 +313,19 @@
             this.label3.TabIndex = 33;
             this.label3.Text = "℃";
             // 
-            // btnClear
+            // MDataCounter
             // 
-            this.btnClear.Location = new System.Drawing.Point(23, 448);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 34;
-            this.btnClear.Text = "计数清零";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(104, 453);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 12);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "发送字节数：";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(227, 453);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 12);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "接收字节数：";
+            this.MDataCounter.Location = new System.Drawing.Point(23, 449);
+            this.MDataCounter.Name = "MDataCounter";
+            this.MDataCounter.Size = new System.Drawing.Size(953, 24);
+            this.MDataCounter.TabIndex = 37;
             // 
             // FrmShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 485);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.MDataCounter);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -366,6 +343,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmShow";
             this.Text = "数据展示";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmShow_FormClosing);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -410,8 +388,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private Units.DataCounter MDataCounter;
     }
 }

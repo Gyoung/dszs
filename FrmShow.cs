@@ -14,5 +14,16 @@ namespace LeafSoft
         {
             InitializeComponent();
         }
+
+        private void Configer_DataReceived(object sender, byte[] data)
+        {
+            DataReceiver.AddData(data, false);
+            MDataCounter.PlusReceive(data.Length);
+        }
+
+        private void FrmShow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Configer.ClearSelf();
+        }
     }
 }
