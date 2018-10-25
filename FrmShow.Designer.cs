@@ -30,13 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.区域地质 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.设备ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.设备类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.温度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.湿度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataReceiver = new LeafSoft.Units.DataReceive();
             this.Configer = new LeafSoft.Units.NetUDPServer();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,6 +47,13 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.MDataCounter = new LeafSoft.Units.DataCounter();
+            this.时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.区域地质 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.设备ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.设备类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.温度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.湿度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -88,41 +88,6 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(693, 169);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // 时间
-            // 
-            this.时间.HeaderText = "时间";
-            this.时间.Name = "时间";
-            // 
-            // 区域地质
-            // 
-            this.区域地质.HeaderText = "区域地址";
-            this.区域地质.Name = "区域地质";
-            // 
-            // 设备ID
-            // 
-            this.设备ID.HeaderText = "设备ID";
-            this.设备ID.Name = "设备ID";
-            // 
-            // 设备类型
-            // 
-            this.设备类型.HeaderText = "设备类型";
-            this.设备类型.Name = "设备类型";
-            // 
-            // 温度
-            // 
-            this.温度.HeaderText = "温度";
-            this.温度.Name = "温度";
-            // 
-            // 湿度
-            // 
-            this.湿度.HeaderText = "湿度";
-            this.湿度.Name = "湿度";
-            // 
-            // 状态
-            // 
-            this.状态.HeaderText = "状态";
-            this.状态.Name = "状态";
             // 
             // DataReceiver
             // 
@@ -258,6 +223,48 @@
             this.MDataCounter.Size = new System.Drawing.Size(953, 24);
             this.MDataCounter.TabIndex = 37;
             // 
+            // 时间
+            // 
+            this.时间.DataPropertyName = "CreateTime";
+            this.时间.HeaderText = "时间";
+            this.时间.Name = "时间";
+            // 
+            // 区域地质
+            // 
+            this.区域地质.DataPropertyName = "ZoneId";
+            this.区域地质.HeaderText = "区域地址";
+            this.区域地质.Name = "区域地质";
+            // 
+            // 设备ID
+            // 
+            this.设备ID.DataPropertyName = "DeviceId";
+            this.设备ID.HeaderText = "设备ID";
+            this.设备ID.Name = "设备ID";
+            // 
+            // 设备类型
+            // 
+            this.设备类型.DataPropertyName = "Type";
+            this.设备类型.HeaderText = "设备类型";
+            this.设备类型.Name = "设备类型";
+            // 
+            // 温度
+            // 
+            this.温度.DataPropertyName = "Value1";
+            this.温度.HeaderText = "温度";
+            this.温度.Name = "温度";
+            // 
+            // 湿度
+            // 
+            this.湿度.DataPropertyName = "Value2";
+            this.湿度.HeaderText = "湿度";
+            this.湿度.Name = "湿度";
+            // 
+            // 状态
+            // 
+            this.状态.DataPropertyName = "Status";
+            this.状态.HeaderText = "状态";
+            this.状态.Name = "状态";
+            // 
             // FrmShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -296,13 +303,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 时间;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 区域地质;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 设备ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 设备类型;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 温度;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 湿度;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
@@ -315,5 +315,12 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private Units.DataCounter MDataCounter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 区域地质;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 设备ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 设备类型;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 温度;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 湿度;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
     }
 }
