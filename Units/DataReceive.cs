@@ -219,17 +219,25 @@ namespace LeafSoft.Units
         {
             if (txtData.Text.Length > 0)
             {
-                string dir = AppDomain.CurrentDomain.BaseDirectory + "ReceiveData";
-                if (!Directory.Exists(dir))
+                try
                 {
-                    Directory.CreateDirectory(dir);
+                    string dir = AppDomain.CurrentDomain.BaseDirectory + "ReceiveData";
+                    if (!Directory.Exists(dir))
+                    {
+                        Directory.CreateDirectory(dir);
+                    }
+                    string filePath = dir + "\\" + DateTime.Now.ToString("yyyyMMddhhssmm") + ".txt";
+                    using (StreamWriter sw = new StreamWriter(filePath, false))
+                    {
+                        sw.Write(txtData.Text);
+                    }
+                    MessageBox.Show("文件保存成功，目录:"+filePath);
                 }
-                string filePath = dir +"\\"+ DateTime.Now.ToString("yyyyMMddhhssmm") + ".txt";
-                using (StreamWriter sw = new StreamWriter(filePath,false))
+                catch (Exception ex)
                 {
-                    sw.Write(txtData.Text);
-                    
+                    MessageBox.Show(ex.Message);
                 }
+
             }
         }
         

@@ -20,6 +20,7 @@ namespace LeafSoft
 
         private void Configer_DataReceived(object sender, byte[] data)
         {
+           
             string receiveData=new ASCIIEncoding().GetString(data);
             if (receiveData != null)
             {
@@ -48,15 +49,44 @@ namespace LeafSoft
                     this.BeginInvoke(new MethodInvoker(delegate
                     {
                         //this.dataGridView1.DataSource = waterTemperature;
-                        int index = this.dataGridView1.Rows.Add();
-                        this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
-                        this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
-                        this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
-                        this.dataGridView1.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
-                        this.dataGridView1.Rows[index].Cells[4].Value = showData.Value1;
-                        this.dataGridView1.Rows[index].Cells[5].Value = showData.Value2;
-                        this.dataGridView1.Rows[index].Cells[6].Value = showData.Status;
-                        
+                        this.tmpHigh.ReadOnly = true;
+                        this.tmpLow.ReadOnly = true;
+                        DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
+                        if (showData.Type == "17")
+                        {
+                            int index = this.dataGridView1.Rows.Add();
+                            this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
+                            this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
+                            this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
+                            this.dataGridView1.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
+                            this.dataGridView1.Rows[index].Cells[4].Value = showData.Value1;
+                            this.dataGridView1.Rows[index].Cells[5].Value = showData.Value2;
+                            if (double.Parse(showData.Value1) < double.Parse(tmpLow.Text) || double.Parse(showData.Value1) > double.Parse(tmpHigh.Text))
+                            {
+                                showData.Status = "异常";
+                                cellStyle.ForeColor=Color.Red;
+                            }
+                            else
+                            {
+                                showData.Status = "正常";
+                                cellStyle.ForeColor = Color.Green;
+                            }
+                            this.dataGridView1.Rows[index].Cells[6].Value = showData.Status;
+                            this.dataGridView1.Rows[index].Cells[6].Style = cellStyle;
+                            this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                        }
+                        else if (showData.Type == "32")
+                        {
+                            int index = this.dataGridView3.Rows.Add();
+                            this.dataGridView3.Rows[index].Cells[0].Value = showData.CreateTime;
+                            this.dataGridView3.Rows[index].Cells[1].Value = showData.ZoneId;
+                            this.dataGridView3.Rows[index].Cells[2].Value = showData.DeviceId;
+                            this.dataGridView3.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
+                            this.dataGridView3.Rows[index].Cells[4].Value = showData.Value1;
+                            this.dataGridView3.Rows[index].Cells[5].Value = showData.Status;
+                            this.dataGridView3.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                        }
+                       
 
                     }));
                    
@@ -79,8 +109,10 @@ namespace LeafSoft
         /// <returns></returns>
         private string GetTypeName(string type)
         {
-            if (type == "11")
+            if (type == "17")
                 return "温湿度采集器";
+            if (type == "32")
+                return "水浸采集器";
             return type;
         }
 
