@@ -54,6 +54,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.MDataCounter = new LeafSoft.Units.DataCounter();
             this.DataReceiver = new LeafSoft.Units.DataReceive();
+            this.exportTem = new System.Windows.Forms.Button();
+            this.exportWater = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -134,9 +136,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.Configer);
-            this.panel1.Location = new System.Drawing.Point(23, 4);
+            this.panel1.Location = new System.Drawing.Point(0, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(254, 192);
+            this.panel1.Size = new System.Drawing.Size(277, 189);
             this.panel1.TabIndex = 27;
             // 
             // Configer
@@ -145,16 +147,16 @@
             this.Configer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Configer.Location = new System.Drawing.Point(12, 3);
             this.Configer.Name = "Configer";
-            this.Configer.Size = new System.Drawing.Size(242, 179);
+            this.Configer.Size = new System.Drawing.Size(251, 179);
             this.Configer.TabIndex = 8;
             this.Configer.DataReceived += new LeafSoft.Lib.LeafEvent.DataReceivedHandler(this.Configer_DataReceived);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView3);
-            this.groupBox3.Location = new System.Drawing.Point(302, 217);
+            this.groupBox3.Location = new System.Drawing.Point(390, 226);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(680, 225);
+            this.groupBox3.Size = new System.Drawing.Size(592, 217);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "水浸采集展示";
@@ -173,7 +175,7 @@
             this.dataGridView3.Location = new System.Drawing.Point(3, 17);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.Size = new System.Drawing.Size(674, 205);
+            this.dataGridView3.Size = new System.Drawing.Size(586, 197);
             this.dataGridView3.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn6
@@ -262,16 +264,38 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataReceiver.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DataReceiver.Location = new System.Drawing.Point(23, 204);
+            this.DataReceiver.Location = new System.Drawing.Point(0, 202);
             this.DataReceiver.Name = "DataReceiver";
-            this.DataReceiver.Size = new System.Drawing.Size(254, 238);
+            this.DataReceiver.Size = new System.Drawing.Size(387, 241);
             this.DataReceiver.TabIndex = 5;
+            // 
+            // exportTem
+            // 
+            this.exportTem.Location = new System.Drawing.Point(684, 197);
+            this.exportTem.Name = "exportTem";
+            this.exportTem.Size = new System.Drawing.Size(75, 23);
+            this.exportTem.TabIndex = 38;
+            this.exportTem.Text = "导出温湿度";
+            this.exportTem.UseVisualStyleBackColor = true;
+            this.exportTem.Click += new System.EventHandler(this.exportTem_Click);
+            // 
+            // exportWater
+            // 
+            this.exportWater.Location = new System.Drawing.Point(786, 197);
+            this.exportWater.Name = "exportWater";
+            this.exportWater.Size = new System.Drawing.Size(75, 23);
+            this.exportWater.TabIndex = 38;
+            this.exportWater.Text = "导出水浸";
+            this.exportWater.UseVisualStyleBackColor = true;
+            this.exportWater.Click += new System.EventHandler(this.exportWater_Click);
             // 
             // FrmShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 485);
+            this.Controls.Add(this.exportWater);
+            this.Controls.Add(this.exportTem);
             this.Controls.Add(this.MDataCounter);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tmpHigh);
@@ -324,5 +348,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 温度;
         private System.Windows.Forms.DataGridViewTextBoxColumn 湿度;
         private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
+        private System.Windows.Forms.Button exportTem;
+        private System.Windows.Forms.Button exportWater;
     }
 }

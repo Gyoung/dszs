@@ -36,6 +36,10 @@
     <ApplicationIcon>leafsoft.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NPOI, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -87,6 +91,7 @@
       <DependentUpon>FrmShow.cs</DependentUpon>
     </Compile>
     <Compile Include="Lib\BytesCheck.cs" />
+    <Compile Include="Lib\ExportExcel.cs" />
     <Compile Include="Lib\HotKey.cs" />
     <Compile Include="Model\Command.cs" />
     <Compile Include="Model\LeafUDPClient.cs" />
@@ -303,6 +308,7 @@
     <None Include="Resources\redlight.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dll\NPOI.dll" />
     <Content Include="File\data.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
