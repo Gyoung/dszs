@@ -53,7 +53,6 @@
             // 
             // cbxLocalIP
             // 
-            this.cbxLocalIP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxLocalIP.FormattingEnabled = true;
             this.cbxLocalIP.Items.AddRange(new object[] {
             "Any"});
@@ -116,12 +115,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MS_Delete});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 26);
             // 
             // MS_Delete
             // 
             this.MS_Delete.Name = "MS_Delete";
-            this.MS_Delete.Size = new System.Drawing.Size(100, 22);
+            this.MS_Delete.Size = new System.Drawing.Size(98, 22);
             this.MS_Delete.Text = "删除";
             this.MS_Delete.Click += new System.EventHandler(this.MS_Delete_Click);
             // 

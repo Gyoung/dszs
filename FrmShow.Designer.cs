@@ -34,44 +34,37 @@
             this.区域地质 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.设备ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.设备类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.温度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.湿度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.数据 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Configer = new LeafSoft.Units.NetUDPServer();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tmpLow = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tmpHigh = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.exportTem = new System.Windows.Forms.Button();
+            this.ckLine = new System.Windows.Forms.CheckBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.bytesBox1 = new LeafSoft.LeafControl.BytesBox();
+            this.basePanel1 = new LeafSoft.PartPanel.BasePanel();
+            this.Configer = new LeafSoft.Units.NetUDPServer();
             this.MDataCounter = new LeafSoft.Units.DataCounter();
             this.DataReceiver = new LeafSoft.Units.DataReceive();
-            this.exportTem = new System.Windows.Forms.Button();
-            this.exportWater = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(283, 4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 312);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(699, 189);
+            this.groupBox1.Size = new System.Drawing.Size(642, 175);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "温湿度展示";
+            this.groupBox1.Text = "展示区域";
             // 
             // dataGridView1
             // 
@@ -81,14 +74,13 @@
             this.区域地质,
             this.设备ID,
             this.设备类型,
-            this.温度,
-            this.湿度,
+            this.数据,
             this.状态});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(693, 169);
+            this.dataGridView1.Size = new System.Drawing.Size(636, 155);
             this.dataGridView1.TabIndex = 0;
             // 
             // 时间
@@ -96,18 +88,21 @@
             this.时间.DataPropertyName = "CreateTime";
             this.时间.HeaderText = "时间";
             this.时间.Name = "时间";
+            this.时间.Width = 120;
             // 
             // 区域地质
             // 
             this.区域地质.DataPropertyName = "ZoneId";
             this.区域地质.HeaderText = "区域地址";
             this.区域地质.Name = "区域地质";
+            this.区域地质.Width = 80;
             // 
             // 设备ID
             // 
             this.设备ID.DataPropertyName = "DeviceId";
             this.设备ID.HeaderText = "设备ID";
             this.设备ID.Name = "设备ID";
+            this.设备ID.Width = 80;
             // 
             // 设备类型
             // 
@@ -115,103 +110,24 @@
             this.设备类型.HeaderText = "设备类型";
             this.设备类型.Name = "设备类型";
             // 
-            // 温度
+            // 数据
             // 
-            this.温度.DataPropertyName = "Value1";
-            this.温度.HeaderText = "温度";
-            this.温度.Name = "温度";
-            // 
-            // 湿度
-            // 
-            this.湿度.DataPropertyName = "Value2";
-            this.湿度.HeaderText = "湿度";
-            this.湿度.Name = "湿度";
+            this.数据.DataPropertyName = "Value1";
+            this.数据.HeaderText = "数据";
+            this.数据.Name = "数据";
+            this.数据.Width = 160;
             // 
             // 状态
             // 
             this.状态.DataPropertyName = "Status";
             this.状态.HeaderText = "状态";
             this.状态.Name = "状态";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.Configer);
-            this.panel1.Location = new System.Drawing.Point(0, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(277, 189);
-            this.panel1.TabIndex = 27;
-            // 
-            // Configer
-            // 
-            this.Configer.AutoSize = true;
-            this.Configer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Configer.Location = new System.Drawing.Point(12, 3);
-            this.Configer.Name = "Configer";
-            this.Configer.Size = new System.Drawing.Size(251, 179);
-            this.Configer.TabIndex = 8;
-            this.Configer.DataReceived += new LeafSoft.Lib.LeafEvent.DataReceivedHandler(this.Configer_DataReceived);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridView3);
-            this.groupBox3.Location = new System.Drawing.Point(390, 226);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(592, 217);
-            this.groupBox3.TabIndex = 28;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "水浸采集展示";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.Column1});
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 17);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.Size = new System.Drawing.Size(586, 197);
-            this.dataGridView3.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "时间";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "区域地址";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "设备ID";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "设备类型";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "水浸";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "状态";
-            this.Column1.Name = "Column1";
+            this.状态.Width = 60;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(458, 202);
+            this.label1.Location = new System.Drawing.Point(22, 498);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 29;
@@ -219,16 +135,16 @@
             // 
             // tmpLow
             // 
-            this.tmpLow.Location = new System.Drawing.Point(541, 199);
+            this.tmpLow.Location = new System.Drawing.Point(120, 495);
             this.tmpLow.Name = "tmpLow";
-            this.tmpLow.Size = new System.Drawing.Size(44, 21);
+            this.tmpLow.Size = new System.Drawing.Size(41, 21);
             this.tmpLow.TabIndex = 30;
             this.tmpLow.Text = "-10";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(591, 202);
+            this.label2.Location = new System.Drawing.Point(167, 498);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(11, 12);
             this.label2.TabIndex = 31;
@@ -236,26 +152,115 @@
             // 
             // tmpHigh
             // 
-            this.tmpHigh.Location = new System.Drawing.Point(608, 199);
+            this.tmpHigh.Location = new System.Drawing.Point(187, 495);
             this.tmpHigh.Name = "tmpHigh";
-            this.tmpHigh.Size = new System.Drawing.Size(45, 21);
+            this.tmpHigh.Size = new System.Drawing.Size(42, 21);
             this.tmpHigh.TabIndex = 32;
             this.tmpHigh.Text = "50";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(660, 204);
+            this.label3.Location = new System.Drawing.Point(236, 500);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 12);
             this.label3.TabIndex = 33;
             this.label3.Text = "℃";
             // 
+            // exportTem
+            // 
+            this.exportTem.Location = new System.Drawing.Point(372, 489);
+            this.exportTem.Name = "exportTem";
+            this.exportTem.Size = new System.Drawing.Size(72, 23);
+            this.exportTem.TabIndex = 38;
+            this.exportTem.Text = "导出数据";
+            this.exportTem.UseVisualStyleBackColor = true;
+            this.exportTem.Click += new System.EventHandler(this.exportTem_Click);
+            // 
+            // ckLine
+            // 
+            this.ckLine.AutoSize = true;
+            this.ckLine.Location = new System.Drawing.Point(238, 50);
+            this.ckLine.Name = "ckLine";
+            this.ckLine.Size = new System.Drawing.Size(72, 16);
+            this.ckLine.TabIndex = 41;
+            this.ckLine.Text = "自动换行";
+            this.ckLine.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(300, 30);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(53, 16);
+            this.radioButton2.TabIndex = 42;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "ASCII";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(300, 63);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(41, 16);
+            this.radioButton1.TabIndex = 43;
+            this.radioButton1.Text = "Hex";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // btnSend
+            // 
+            this.btnSend.Location = new System.Drawing.Point(359, 29);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(62, 50);
+            this.btnSend.TabIndex = 44;
+            this.btnSend.Text = "发送";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(268, 489);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 23);
+            this.button2.TabIndex = 57;
+            this.button2.Text = "清除展示数据";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // bytesBox1
+            // 
+            this.bytesBox1.IsHex = LeafSoft.Lib.EnumType.CMDType.Hex;
+            this.bytesBox1.Location = new System.Drawing.Point(427, 18);
+            this.bytesBox1.Multiline = true;
+            this.bytesBox1.Name = "bytesBox1";
+            this.bytesBox1.Size = new System.Drawing.Size(224, 61);
+            this.bytesBox1.TabIndex = 40;
+            // 
+            // basePanel1
+            // 
+            this.basePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.basePanel1.Location = new System.Drawing.Point(232, 12);
+            this.basePanel1.Name = "basePanel1";
+            this.basePanel1.Size = new System.Drawing.Size(431, 78);
+            this.basePanel1.TabIndex = 39;
+            // 
+            // Configer
+            // 
+            this.Configer.AutoSize = true;
+            this.Configer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Configer.Location = new System.Drawing.Point(2, 175);
+            this.Configer.Name = "Configer";
+            this.Configer.Size = new System.Drawing.Size(214, 131);
+            this.Configer.TabIndex = 8;
+            this.Configer.DataReceived += new LeafSoft.Lib.LeafEvent.DataReceivedHandler(this.Configer_DataReceived);
+            // 
             // MDataCounter
             // 
-            this.MDataCounter.Location = new System.Drawing.Point(23, 449);
+            this.MDataCounter.Location = new System.Drawing.Point(263, 282);
             this.MDataCounter.Name = "MDataCounter";
-            this.MDataCounter.Size = new System.Drawing.Size(953, 24);
+            this.MDataCounter.Size = new System.Drawing.Size(292, 24);
             this.MDataCounter.TabIndex = 37;
             // 
             // DataReceiver
@@ -264,46 +269,31 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataReceiver.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DataReceiver.Location = new System.Drawing.Point(0, 202);
+            this.DataReceiver.Location = new System.Drawing.Point(232, 96);
             this.DataReceiver.Name = "DataReceiver";
-            this.DataReceiver.Size = new System.Drawing.Size(387, 241);
+            this.DataReceiver.Size = new System.Drawing.Size(431, 180);
             this.DataReceiver.TabIndex = 5;
-            // 
-            // exportTem
-            // 
-            this.exportTem.Location = new System.Drawing.Point(684, 197);
-            this.exportTem.Name = "exportTem";
-            this.exportTem.Size = new System.Drawing.Size(75, 23);
-            this.exportTem.TabIndex = 38;
-            this.exportTem.Text = "导出温湿度";
-            this.exportTem.UseVisualStyleBackColor = true;
-            this.exportTem.Click += new System.EventHandler(this.exportTem_Click);
-            // 
-            // exportWater
-            // 
-            this.exportWater.Location = new System.Drawing.Point(786, 197);
-            this.exportWater.Name = "exportWater";
-            this.exportWater.Size = new System.Drawing.Size(75, 23);
-            this.exportWater.TabIndex = 38;
-            this.exportWater.Text = "导出水浸";
-            this.exportWater.UseVisualStyleBackColor = true;
-            this.exportWater.Click += new System.EventHandler(this.exportWater_Click);
             // 
             // FrmShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 485);
-            this.Controls.Add(this.exportWater);
-            this.Controls.Add(this.exportTem);
+            this.ClientSize = new System.Drawing.Size(681, 519);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnSend);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.ckLine);
+            this.Controls.Add(this.bytesBox1);
+            this.Controls.Add(this.basePanel1);
+            this.Controls.Add(this.Configer);
             this.Controls.Add(this.MDataCounter);
+            this.Controls.Add(this.exportTem);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tmpHigh);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tmpLow);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.DataReceiver);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmShow";
@@ -311,10 +301,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmShow_FormClosing);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,30 +311,26 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Units.DataReceive DataReceiver;
         private Units.NetUDPServer Configer;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tmpLow;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tmpHigh;
         private System.Windows.Forms.Label label3;
-        private Units.DataCounter MDataCounter;
+        private System.Windows.Forms.Button exportTem;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 时间;
         private System.Windows.Forms.DataGridViewTextBoxColumn 区域地质;
         private System.Windows.Forms.DataGridViewTextBoxColumn 设备ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn 设备类型;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 温度;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 湿度;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 数据;
         private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
-        private System.Windows.Forms.Button exportTem;
-        private System.Windows.Forms.Button exportWater;
+        private Units.DataCounter MDataCounter;
+        private PartPanel.BasePanel basePanel1;
+        private LeafControl.BytesBox bytesBox1;
+        private System.Windows.Forms.CheckBox ckLine;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.Button button2;
     }
 }
