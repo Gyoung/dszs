@@ -47,6 +47,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnSend = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.udpClient = new LeafSoft.Units.NetUDPClient();
             this.bytesBox1 = new LeafSoft.LeafControl.BytesBox();
             this.basePanel1 = new LeafSoft.PartPanel.BasePanel();
             this.Configer = new LeafSoft.Units.NetUDPServer();
@@ -228,6 +229,14 @@
             this.button2.TabIndex = 57;
             this.button2.Text = "清除展示数据";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // udpClient
+            // 
+            this.udpClient.Location = new System.Drawing.Point(12, 3);
+            this.udpClient.Name = "udpClient";
+            this.udpClient.Size = new System.Drawing.Size(204, 166);
+            this.udpClient.TabIndex = 58;
             // 
             // bytesBox1
             // 
@@ -250,7 +259,7 @@
             // 
             this.Configer.AutoSize = true;
             this.Configer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Configer.Location = new System.Drawing.Point(2, 175);
+            this.Configer.Location = new System.Drawing.Point(10, 175);
             this.Configer.Name = "Configer";
             this.Configer.Size = new System.Drawing.Size(214, 131);
             this.Configer.TabIndex = 8;
@@ -279,6 +288,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 519);
+            this.Controls.Add(this.udpClient);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.radioButton1);
@@ -332,5 +342,6 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Button button2;
+        private Units.NetUDPClient udpClient;
     }
 }

@@ -178,15 +178,10 @@ namespace LeafSoft
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-
-            LeafUDPClient client = GetUdpClient();
-            if (client == null)
-            {
-                return;
-            }
             try
             {
                 byte[] data = bytesBox1.GetCMD().Bytes;
+                DataReceiver.AddData(data, true);
                 if (this.ckLine.Checked)
                 {
                     byte[] bytes = { 0x0d, 0x0a };
@@ -198,13 +193,18 @@ namespace LeafSoft
                     }
                     bs[length - 2] = 0x0d;
                     bs[length - 1] = 0x0a;
-                    client.NetWork.Send(data, data.Length);
+                    if (udpClient.SendData(bs) == true)
+                    {
+                        MDataCounter.PlusSend(bs.Length);
+                    }
                 }
                 else
                 {
-                    client.NetWork.Send(data, data.Length);
+                    if (udpClient.SendData(data) == true)
+                    {
+                        MDataCounter.PlusSend(data.Length);
+                    }
                 }
-                DataReceiver.AddData(data, true);
                
             }
             catch (Exception ex)
@@ -213,25 +213,6 @@ namespace LeafSoft
             }
         }
 
-        private LeafUDPClient GetUdpClient()
-        {
-            try
-            {
-                LeafUDPClient client = new LeafUDPClient();
-                client.NetWork = new UdpClient();
-                string ip = (Configer.Controls.Find("cbxLocalIP",false)[0] as ComboBox).Text;
-                decimal port = (Configer.Controls.Find("nmLocalPort", false)[0] as NumericUpDown).Value;
-                client.NetWork.Connect(ip, (int)port);
-                client.ipLocalEndPoint = (IPEndPoint)client.NetWork.Client.LocalEndPoint;
-                client.Name = client.ipLocalEndPoint.Port + "->" + client.NetWork.Client.RemoteEndPoint.ToString();
-                return client;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return null;
-        }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -243,6 +224,11 @@ namespace LeafSoft
             {
                 bytesBox1.IsHex = EnumType.CMDType.ASCII;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
         }
 
       
