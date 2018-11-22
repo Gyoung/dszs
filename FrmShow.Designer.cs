@@ -53,16 +53,22 @@
             this.Configer = new LeafSoft.Units.NetUDPServer();
             this.MDataCounter = new LeafSoft.Units.DataCounter();
             this.DataReceiver = new LeafSoft.Units.DataReceive();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 312);
+            this.groupBox1.Location = new System.Drawing.Point(10, 312);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(642, 175);
+            this.groupBox1.Size = new System.Drawing.Size(883, 228);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "展示区域";
@@ -77,11 +83,10 @@
             this.设备类型,
             this.数据,
             this.状态});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView1.Location = new System.Drawing.Point(241, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(636, 155);
+            this.dataGridView1.Size = new System.Drawing.Size(636, 206);
             this.dataGridView1.TabIndex = 0;
             // 
             // 时间
@@ -128,7 +133,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 498);
+            this.label1.Location = new System.Drawing.Point(22, 549);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 29;
@@ -136,7 +141,7 @@
             // 
             // tmpLow
             // 
-            this.tmpLow.Location = new System.Drawing.Point(120, 495);
+            this.tmpLow.Location = new System.Drawing.Point(120, 546);
             this.tmpLow.Name = "tmpLow";
             this.tmpLow.Size = new System.Drawing.Size(41, 21);
             this.tmpLow.TabIndex = 30;
@@ -145,7 +150,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(167, 498);
+            this.label2.Location = new System.Drawing.Point(167, 549);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(11, 12);
             this.label2.TabIndex = 31;
@@ -153,7 +158,7 @@
             // 
             // tmpHigh
             // 
-            this.tmpHigh.Location = new System.Drawing.Point(187, 495);
+            this.tmpHigh.Location = new System.Drawing.Point(187, 546);
             this.tmpHigh.Name = "tmpHigh";
             this.tmpHigh.Size = new System.Drawing.Size(42, 21);
             this.tmpHigh.TabIndex = 32;
@@ -162,7 +167,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(236, 500);
+            this.label3.Location = new System.Drawing.Point(236, 551);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 12);
             this.label3.TabIndex = 33;
@@ -170,7 +175,7 @@
             // 
             // exportTem
             // 
-            this.exportTem.Location = new System.Drawing.Point(372, 489);
+            this.exportTem.Location = new System.Drawing.Point(372, 540);
             this.exportTem.Name = "exportTem";
             this.exportTem.Size = new System.Drawing.Size(72, 23);
             this.exportTem.TabIndex = 38;
@@ -223,7 +228,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(268, 489);
+            this.button2.Location = new System.Drawing.Point(268, 540);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 23);
             this.button2.TabIndex = 57;
@@ -233,7 +238,7 @@
             // 
             // udpClient
             // 
-            this.udpClient.Location = new System.Drawing.Point(12, 3);
+            this.udpClient.Location = new System.Drawing.Point(10, 12);
             this.udpClient.Name = "udpClient";
             this.udpClient.Size = new System.Drawing.Size(204, 166);
             this.udpClient.TabIndex = 58;
@@ -244,7 +249,7 @@
             this.bytesBox1.Location = new System.Drawing.Point(427, 18);
             this.bytesBox1.Multiline = true;
             this.bytesBox1.Name = "bytesBox1";
-            this.bytesBox1.Size = new System.Drawing.Size(224, 61);
+            this.bytesBox1.Size = new System.Drawing.Size(460, 61);
             this.bytesBox1.TabIndex = 40;
             // 
             // basePanel1
@@ -252,7 +257,7 @@
             this.basePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.basePanel1.Location = new System.Drawing.Point(232, 12);
             this.basePanel1.Name = "basePanel1";
-            this.basePanel1.Size = new System.Drawing.Size(431, 78);
+            this.basePanel1.Size = new System.Drawing.Size(661, 78);
             this.basePanel1.TabIndex = 39;
             // 
             // Configer
@@ -274,20 +279,46 @@
             // 
             // DataReceiver
             // 
-            this.DataReceiver.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataReceiver.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.DataReceiver.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DataReceiver.Location = new System.Drawing.Point(232, 96);
             this.DataReceiver.Name = "DataReceiver";
-            this.DataReceiver.Size = new System.Drawing.Size(431, 180);
+            this.DataReceiver.Size = new System.Drawing.Size(661, 180);
             this.DataReceiver.TabIndex = 5;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Location = new System.Drawing.Point(7, 21);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(212, 201);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "显示设备类型区域";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.dataGridView2.Location = new System.Drawing.Point(7, 20);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.Size = new System.Drawing.Size(190, 175);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "设备类型";
+            this.Column1.Name = "Column1";
             // 
             // FrmShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 519);
+            this.ClientSize = new System.Drawing.Size(911, 576);
             this.Controls.Add(this.udpClient);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnSend);
@@ -306,11 +337,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DataReceiver);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "FrmShow";
             this.Text = "数据展示";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmShow_FormClosing);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,5 +377,8 @@
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Button button2;
         private Units.NetUDPClient udpClient;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

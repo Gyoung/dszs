@@ -463,6 +463,7 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
+            this.MaximizeBox = false;
             this.Name = "frmFast";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoRa快速配置窗口";

@@ -85,7 +85,34 @@ namespace LeafSoft
                             this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
                             this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
                             this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
                         }
+                        if (showData.Type == "32")
+                        {
+                            int index = this.dataGridView1.Rows.Add();
+                            this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
+                            this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
+                            this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
+                            this.dataGridView1.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
+                            this.dataGridView1.Rows[index].Cells[4].Value = "IO：" + showData.Value1;
+                            if (double.Parse(showData.Value1) == 0)
+                            {
+                                showData.Status = "正常";
+                                cellStyle.ForeColor = Color.Green;
+                            }
+
+                            else
+                            {
+                                showData.Status = "异常";
+                                cellStyle.ForeColor = Color.Red;
+                            }
+                            this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
+                            this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
+                            this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
+                        }
+
+
                         else if (showData.Type == "33")
                         {
                             int index = this.dataGridView1.Rows.Add();
@@ -108,6 +135,36 @@ namespace LeafSoft
                             this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
                             this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
                             this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
+                        }
+                        if (showData.Type == "34")
+                        {
+                            int index = this.dataGridView1.Rows.Add();
+                            this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
+                            this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
+                            this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
+                            this.dataGridView1.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
+                            this.dataGridView1.Rows[index].Cells[4].Value = "水位：" + showData.Value1 + "CM";
+
+
+                            this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
+                            this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
+                            this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
+                        }
+                        if (showData.Type == "35")
+                        {
+                            int index = this.dataGridView1.Rows.Add();
+                            this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
+                            this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
+                            this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
+                            this.dataGridView1.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
+                            this.dataGridView1.Rows[index].Cells[4].Value = "压力：" + showData.Value1 + "MPa";
+
+                            this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
+                            this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
+                            this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
                         }
 
 
@@ -132,10 +189,18 @@ namespace LeafSoft
         /// <returns></returns>
         private string GetTypeName(string type)
         {
+            if (type == "16")
+                return "温度采集器";
             if (type == "17")
                 return "温湿度采集器";
+            if (type == "32")
+                return "高压监控";
             if (type == "33")
                 return "水浸采集器";
+            if (type == "34")
+                return "液位采集器";
+            if (type == "35")
+                return "压力采集器";
             return type;
         }
 
@@ -205,7 +270,7 @@ namespace LeafSoft
                         MDataCounter.PlusSend(data.Length);
                     }
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -229,19 +294,12 @@ namespace LeafSoft
         private void button2_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
+            this.tmpHigh.ReadOnly = false;
+            this.tmpLow.ReadOnly = false;
+
         }
 
-      
-        //以下代码为我复制的代码
-        //以下代码为我复制的代码
-        //以下代码为我复制的代码
-        //以下代码为我复制的代码
 
-        //
 
-        //以上代码为我复制的代码
-        //以上代码为我复制的代码
-        //以上代码为我复制的代码
-        //以上代码为我复制的代码
     }
 }
