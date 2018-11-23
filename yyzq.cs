@@ -26,6 +26,7 @@ namespace LeafSoft
     {
         frmCheck fc = new frmCheck();
         frmBytes fb = new frmBytes();
+        List<TypeData> typeList = new List<TypeData>();
 
         public yyzq()
         {
@@ -46,9 +47,19 @@ namespace LeafSoft
             {
                 (controls1[0] as RadioButton).Checked = true;
             }
+            loadDataType();
 
         }
 
+        private void loadDataType()
+        {
+            typeList = XmlUnits.getTypeData();
+            foreach (TypeData item in typeList)
+            {
+                int rowIndex = this.dataGridView2.Rows.Add();
+                this.dataGridView2.Rows[rowIndex].Cells[0].Value = item.Name;
+            }
+        }
         private void CreateNewTest(object p, string title, Icon icon)
         {
             Form frm = new Form();
@@ -267,52 +278,7 @@ namespace LeafSoft
 
         private void yyzq_Load(object sender, EventArgs e)
         {
-            TabPage tabPage = this.tabControl1.SelectedTab;
-            //tabPage.Controls.Count;
-            Control dataGrid = findDataReciver(tabPage);
-            if (dataGrid != null)
-            {
-                DataGridView gv = (DataGridView)dataGrid;
-                gv.DataSource = XmlUnits.getXmlData(tabPage.Name);
-                for (int i = 0; i < gv.Rows.Count; i++)
-                {
-                    gv.Rows[i].Cells[4].Value = "发送";
-                }
-            }
-            Control netRs = findNetRs(tabPage);
-            if (netRs != null)
-            {
-                NetRs232 netRs32 = (NetRs232)netRs;
-                Command command = XmlUnits.getCommandData(tabPage.Name);
-                for (int i = 0; i < netRs32.Controls.Count; i++)
-                {
-                    Control cl = netRs32.Controls[i];
-                    if (cl is ComboBox)
-                    {
-                        ComboBox cb = (ComboBox)cl;
-                        if (cb.Name == "drpComList")
-                        {
-                            cb.Text = command.Com;
-                        }
-                        else if (cb.Name == "drpBaudRate")
-                        {
-                            cb.Text = command.Ptl;
-                        }
-                        else if (cb.Name == "drpParity")
-                        {
-                            cb.Text = command.Xjw;
-                        }
-                        else if (cb.Name == "drpDataBits")
-                        {
-                            cb.Text = command.Sjw;
-                        }
-                        else if (cb.Name == "drpStopBits")
-                        {
-                            cb.Text = command.Tzw;
-                        }
-                    }
-                }
-            }
+            
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -423,17 +389,34 @@ namespace LeafSoft
                     showData.ZoneId = Convert.ToInt32(datas[1], 16).ToString();
                     showData.DeviceId = Convert.ToInt32(datas[2], 16).ToString();
                     showData.Type = Convert.ToInt32(datas[5], 16).ToString();
-                    showData.Value1 = Convert.ToInt32(datas[6] + datas[7], 16).ToString();
-                    if (showData.Value1 != null && showData.Value1.Length > 2)
+
+                    TypeData typeData = GetType(showData.Type);
+
+                    double val1 = (double)Convert.ToInt32(datas[6] + datas[7], 16);
+                    int n = 0;
+                    if (typeData.DropType != "" && typeData.DropType.Split(':').Length>1)
                     {
-                        showData.Value1 = showData.Value1.Insert(2, "."); //增加小数点
+                        n = int.Parse(typeData.DropType.Split(':')[1]);
                     }
+                    if (n > 0)
+                    {
+                        showData.Value1 = ((double)(val1 / n)).ToString();
+                    }
+                    else
+                    {
+                        showData.Value1 = Convert.ToInt32(datas[6] + datas[7], 16).ToString();
+                    }
+                   
                     if (datas.Length > 10)
                     {
-                        showData.Value2 = Convert.ToInt32(datas[8] + datas[9], 16).ToString();
-                        if (showData.Value2 != null && showData.Value2.Length > 2)
+                        double val2 = (double)Convert.ToInt32(datas[8] + datas[9], 16);
+                        if (n > 0)
                         {
-                            showData.Value2 = showData.Value2.Insert(2, "."); //增加小数点
+                            showData.Value2 = ((double)(val2 / n)).ToString();
+                        }
+                        else
+                        {
+                            showData.Value2 = Convert.ToInt32(datas[8] + datas[9], 16).ToString();
                         }
                     }
                     waterTemperature.Add(showData);
@@ -443,39 +426,32 @@ namespace LeafSoft
                         //this.tmpHigh.ReadOnly = true;
                         //this.tmpLow.ReadOnly = true;
                         DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
-                        if (showData.Type == "17")
+                     
+                        int index = this.dataGridView1.Rows.Add();
+                        this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
+                        this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
+                        this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
+                        this.dataGridView1.Rows[index].Cells[3].Value = typeData.Name;
+                        string text = "";
+                        if (!string.IsNullOrEmpty(showData.Value1))
                         {
-                            int index = this.dataGridView1.Rows.Add();
-                            this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
-                            this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
-                            this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
-                            this.dataGridView1.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
-                            this.dataGridView1.Rows[index].Cells[4].Value = "温度：" + showData.Value2 + "℃" + " " + "湿度:" + showData.Value1 + "%";
-                            //if (double.Parse(showData.Value2) < double.Parse(tmpLow.Text) || double.Parse(showData.Value2) > double.Parse(tmpHigh.Text))
-                            //{
-                            //    showData.Status = "异常";
-                            //    cellStyle.ForeColor = Color.Red;
-                            //}
-
-                            //else
-                            //{
-                            //    showData.Status = "正常";
-                            //    cellStyle.ForeColor = Color.Green;
-                            //}
-                            this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
-                            this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
-                            this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
-                            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
+                            text += showData.Value1 + typeData.Value1+" ";
                         }
-                        if (showData.Type == "32")
+                        if (!string.IsNullOrEmpty(showData.Value2))
                         {
-                            int index = this.dataGridView1.Rows.Add();
-                            this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
-                            this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
-                            this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
-                            this.dataGridView1.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
-                            this.dataGridView1.Rows[index].Cells[4].Value = "IO：" + showData.Value1;
-                            if (double.Parse(showData.Value1) == 0)
+                            text += showData.Value2 + typeData.Value2;
+                        }
+
+                        this.dataGridView1.Rows[index].Cells[4].Value = text;
+                     
+                        this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                        dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
+                        if (!string.IsNullOrEmpty(typeData.MinValue) && !string.IsNullOrEmpty(typeData.MaxValue))
+                        {
+                            double minValue = double.Parse(typeData.MinValue);
+                            double maxValue = double.Parse(typeData.MaxValue);
+                            double value=double.Parse(showData.Value1);
+                            if (value >= minValue && value <= maxValue)
                             {
                                 showData.Status = "正常";
                                 cellStyle.ForeColor = Color.Green;
@@ -486,68 +462,9 @@ namespace LeafSoft
                                 showData.Status = "异常";
                                 cellStyle.ForeColor = Color.Red;
                             }
-                            this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
-                            this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
-                            this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
-                            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
                         }
-
-
-                        else if (showData.Type == "33")
-                        {
-                            int index = this.dataGridView1.Rows.Add();
-                            this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
-                            this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
-                            this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
-                            this.dataGridView1.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
-                            this.dataGridView1.Rows[index].Cells[4].Value = showData.Value1;
-                            if (double.Parse(showData.Value1) == 0)
-                            {
-                                showData.Status = "正常";
-                                cellStyle.ForeColor = Color.Green;
-                            }
-
-                            else
-                            {
-                                showData.Status = "异常";
-                                cellStyle.ForeColor = Color.Red;
-                            }
-                            this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
-                            this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
-                            this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
-                            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
-                        }
-                        if (showData.Type == "34")
-                        {
-                            int index = this.dataGridView1.Rows.Add();
-                            this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
-                            this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
-                            this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
-                            this.dataGridView1.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
-                            this.dataGridView1.Rows[index].Cells[4].Value = "水位：" + showData.Value1 + "CM";
-
-
-                            this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
-                            this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
-                            this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
-                            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
-                        }
-                        if (showData.Type == "35")
-                        {
-                            int index = this.dataGridView1.Rows.Add();
-                            this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
-                            this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
-                            this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
-                            this.dataGridView1.Rows[index].Cells[3].Value = GetTypeName(showData.Type);
-                            this.dataGridView1.Rows[index].Cells[4].Value = "压力：" + showData.Value1 + "MPa";
-
-                            this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
-                            this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
-                            this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
-                            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
-                        }
-
-
+                        this.dataGridView1.Rows[index].Cells[5].Value = showData.Status;
+                        this.dataGridView1.Rows[index].Cells[5].Style = cellStyle;
                     }));
 
                 }
@@ -559,25 +476,18 @@ namespace LeafSoft
 
 
         /// <summary>
-        /// 获取设备中文名
+        /// 获取设备类型
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        private string GetTypeName(string type)
+        private TypeData GetType(string type)
         {
-            if (type == "16")
-                return "温度采集器";
-            if (type == "17")
-                return "温湿度采集器";
-            if (type == "32")
-                return "高压监控";
-            if (type == "33")
-                return "水浸采集器";
-            if (type == "34")
-                return "液位采集器";
-            if (type == "35")
-                return "压力采集器";
-            return type;
+            foreach (TypeData item in typeList)
+            {
+                if (item.Type == type)
+                    return item;
+            }
+            return new TypeData();
         }
 
         class ShowData
@@ -594,6 +504,12 @@ namespace LeafSoft
             public string Value2 { get; set; }
 
             public string Status { get; set; }
+        }
+
+        private void devType_Click(object sender, EventArgs e)
+        {
+            frmType frm = new frmType();
+            frm.Show();
         }
 
         //博客

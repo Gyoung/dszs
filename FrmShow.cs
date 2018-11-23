@@ -8,6 +8,7 @@ using LeafSoft.PartPanel;
 using LeafSoft.Model;
 using System.Net.Sockets;
 using System.Net;
+using LeafSoft.Units;
 namespace LeafSoft
 {
     public partial class FrmShow : Form
@@ -21,6 +22,17 @@ namespace LeafSoft
                 (controls[0] as RadioButton).Checked = true;
             }
             //dataGridView1.DataSource = new List<ShowData>();
+            loadDataType();
+        }
+
+        private void loadDataType()
+        {
+            List<TypeData> data = XmlUnits.getTypeData();
+            foreach (TypeData item in data)
+            {
+                int rowIndex = this.dataGridView2.Rows.Add();
+                this.dataGridView2.Rows[rowIndex].Cells[0].Value = item.Name;
+            }
         }
 
         List<ShowData> waterTemperature = new List<ShowData>();

@@ -34,20 +34,12 @@
             this.MS_Check = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Bytes = new System.Windows.Forms.ToolStripMenuItem();
             this.数据展示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devType = new System.Windows.Forms.ToolStripMenuItem();
             this.lklQQ = new System.Windows.Forms.LinkLabel();
             this.lklEmail = new System.Windows.Forms.LinkLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabSender = new System.Windows.Forms.TabPage();
-            this.udpClient = new LeafSoft.Units.NetUDPClient();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.ckLine = new System.Windows.Forms.CheckBox();
-            this.bytesBox1 = new LeafSoft.LeafControl.BytesBox();
-            this.basePanel1 = new LeafSoft.PartPanel.BasePanel();
-            this.MDataCounter = new LeafSoft.Units.DataCounter();
-            this.DataReceiver = new LeafSoft.Units.DataReceive();
             this.tabReceive = new System.Windows.Forms.TabPage();
+            this.Configer = new LeafSoft.Units.NetUDPServer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.区域地质 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,13 +52,22 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exportTem = new System.Windows.Forms.Button();
-            this.Configer = new LeafSoft.Units.NetUDPServer();
+            this.tabSender = new System.Windows.Forms.TabPage();
+            this.udpClient = new LeafSoft.Units.NetUDPClient();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.ckLine = new System.Windows.Forms.CheckBox();
+            this.bytesBox1 = new LeafSoft.LeafControl.BytesBox();
+            this.basePanel1 = new LeafSoft.PartPanel.BasePanel();
+            this.MDataCounter = new LeafSoft.Units.DataCounter();
+            this.DataReceiver = new LeafSoft.Units.DataReceive();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabSender.SuspendLayout();
             this.tabReceive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabSender.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -74,7 +75,8 @@
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.计算器ToolStripMenuItem,
-            this.数据展示ToolStripMenuItem});
+            this.数据展示ToolStripMenuItem,
+            this.devType});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(844, 25);
@@ -114,6 +116,13 @@
             this.数据展示ToolStripMenuItem.Text = "数据展示";
             this.数据展示ToolStripMenuItem.Click += new System.EventHandler(this.数据展示ToolStripMenuItem_Click);
             // 
+            // devType
+            // 
+            this.devType.Name = "devType";
+            this.devType.Size = new System.Drawing.Size(68, 21);
+            this.devType.Text = "设备类型";
+            this.devType.Click += new System.EventHandler(this.devType_Click);
+            // 
             // lklQQ
             // 
             this.lklQQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -150,6 +159,132 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(844, 527);
             this.tabControl1.TabIndex = 4;
+            // 
+            // tabReceive
+            // 
+            this.tabReceive.Controls.Add(this.Configer);
+            this.tabReceive.Controls.Add(this.dataGridView1);
+            this.tabReceive.Controls.Add(this.dataCounter1);
+            this.tabReceive.Controls.Add(this.dataReceive1);
+            this.tabReceive.Controls.Add(this.dataGridView2);
+            this.tabReceive.Controls.Add(this.exportTem);
+            this.tabReceive.Location = new System.Drawing.Point(4, 22);
+            this.tabReceive.Name = "tabReceive";
+            this.tabReceive.Padding = new System.Windows.Forms.Padding(3);
+            this.tabReceive.Size = new System.Drawing.Size(836, 501);
+            this.tabReceive.TabIndex = 1;
+            this.tabReceive.Text = "接受端";
+            this.tabReceive.UseVisualStyleBackColor = true;
+            // 
+            // Configer
+            // 
+            this.Configer.AutoSize = true;
+            this.Configer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Configer.Location = new System.Drawing.Point(9, 6);
+            this.Configer.Name = "Configer";
+            this.Configer.Size = new System.Drawing.Size(214, 191);
+            this.Configer.TabIndex = 61;
+            this.Configer.DataReceived += new LeafSoft.Lib.LeafEvent.DataReceivedHandler(this.Configer_DataReceived);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.时间,
+            this.区域地质,
+            this.设备ID,
+            this.设备类型,
+            this.数据,
+            this.状态});
+            this.dataGridView1.Location = new System.Drawing.Point(229, 211);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(599, 233);
+            this.dataGridView1.TabIndex = 43;
+            // 
+            // 时间
+            // 
+            this.时间.DataPropertyName = "CreateTime";
+            this.时间.HeaderText = "时间";
+            this.时间.Name = "时间";
+            this.时间.Width = 120;
+            // 
+            // 区域地质
+            // 
+            this.区域地质.DataPropertyName = "ZoneId";
+            this.区域地质.HeaderText = "区域地址";
+            this.区域地质.Name = "区域地质";
+            this.区域地质.Width = 80;
+            // 
+            // 设备ID
+            // 
+            this.设备ID.DataPropertyName = "DeviceId";
+            this.设备ID.HeaderText = "设备ID";
+            this.设备ID.Name = "设备ID";
+            this.设备ID.Width = 80;
+            // 
+            // 设备类型
+            // 
+            this.设备类型.DataPropertyName = "Type";
+            this.设备类型.HeaderText = "设备类型";
+            this.设备类型.Name = "设备类型";
+            // 
+            // 数据
+            // 
+            this.数据.DataPropertyName = "Value1";
+            this.数据.HeaderText = "数据";
+            this.数据.Name = "数据";
+            this.数据.Width = 160;
+            // 
+            // 状态
+            // 
+            this.状态.DataPropertyName = "Status";
+            this.状态.HeaderText = "状态";
+            this.状态.Name = "状态";
+            this.状态.Width = 60;
+            // 
+            // dataCounter1
+            // 
+            this.dataCounter1.Location = new System.Drawing.Point(6, 450);
+            this.dataCounter1.Name = "dataCounter1";
+            this.dataCounter1.Size = new System.Drawing.Size(292, 24);
+            this.dataCounter1.TabIndex = 42;
+            // 
+            // dataReceive1
+            // 
+            this.dataReceive1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataReceive1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dataReceive1.Location = new System.Drawing.Point(229, 6);
+            this.dataReceive1.Name = "dataReceive1";
+            this.dataReceive1.Size = new System.Drawing.Size(599, 199);
+            this.dataReceive1.TabIndex = 41;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.dataGridView2.Location = new System.Drawing.Point(3, 211);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.Size = new System.Drawing.Size(220, 233);
+            this.dataGridView2.TabIndex = 40;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "设备类型";
+            this.Column1.Name = "Column1";
+            // 
+            // exportTem
+            // 
+            this.exportTem.Location = new System.Drawing.Point(403, 324);
+            this.exportTem.Name = "exportTem";
+            this.exportTem.Size = new System.Drawing.Size(72, 23);
+            this.exportTem.TabIndex = 39;
+            this.exportTem.Text = "导出数据";
+            this.exportTem.UseVisualStyleBackColor = true;
             // 
             // tabSender
             // 
@@ -255,132 +390,6 @@
             this.DataReceiver.Size = new System.Drawing.Size(596, 370);
             this.DataReceiver.TabIndex = 59;
             // 
-            // tabReceive
-            // 
-            this.tabReceive.Controls.Add(this.Configer);
-            this.tabReceive.Controls.Add(this.dataGridView1);
-            this.tabReceive.Controls.Add(this.dataCounter1);
-            this.tabReceive.Controls.Add(this.dataReceive1);
-            this.tabReceive.Controls.Add(this.dataGridView2);
-            this.tabReceive.Controls.Add(this.exportTem);
-            this.tabReceive.Location = new System.Drawing.Point(4, 22);
-            this.tabReceive.Name = "tabReceive";
-            this.tabReceive.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReceive.Size = new System.Drawing.Size(836, 501);
-            this.tabReceive.TabIndex = 1;
-            this.tabReceive.Text = "接受端";
-            this.tabReceive.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.时间,
-            this.区域地质,
-            this.设备ID,
-            this.设备类型,
-            this.数据,
-            this.状态});
-            this.dataGridView1.Location = new System.Drawing.Point(229, 211);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(599, 233);
-            this.dataGridView1.TabIndex = 43;
-            // 
-            // 时间
-            // 
-            this.时间.DataPropertyName = "CreateTime";
-            this.时间.HeaderText = "时间";
-            this.时间.Name = "时间";
-            this.时间.Width = 120;
-            // 
-            // 区域地质
-            // 
-            this.区域地质.DataPropertyName = "ZoneId";
-            this.区域地质.HeaderText = "区域地址";
-            this.区域地质.Name = "区域地质";
-            this.区域地质.Width = 80;
-            // 
-            // 设备ID
-            // 
-            this.设备ID.DataPropertyName = "DeviceId";
-            this.设备ID.HeaderText = "设备ID";
-            this.设备ID.Name = "设备ID";
-            this.设备ID.Width = 80;
-            // 
-            // 设备类型
-            // 
-            this.设备类型.DataPropertyName = "Type";
-            this.设备类型.HeaderText = "设备类型";
-            this.设备类型.Name = "设备类型";
-            // 
-            // 数据
-            // 
-            this.数据.DataPropertyName = "Value1";
-            this.数据.HeaderText = "数据";
-            this.数据.Name = "数据";
-            this.数据.Width = 160;
-            // 
-            // 状态
-            // 
-            this.状态.DataPropertyName = "Status";
-            this.状态.HeaderText = "状态";
-            this.状态.Name = "状态";
-            this.状态.Width = 60;
-            // 
-            // dataCounter1
-            // 
-            this.dataCounter1.Location = new System.Drawing.Point(6, 450);
-            this.dataCounter1.Name = "dataCounter1";
-            this.dataCounter1.Size = new System.Drawing.Size(292, 24);
-            this.dataCounter1.TabIndex = 42;
-            // 
-            // dataReceive1
-            // 
-            this.dataReceive1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataReceive1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dataReceive1.Location = new System.Drawing.Point(229, 6);
-            this.dataReceive1.Name = "dataReceive1";
-            this.dataReceive1.Size = new System.Drawing.Size(599, 199);
-            this.dataReceive1.TabIndex = 41;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            this.dataGridView2.Location = new System.Drawing.Point(3, 211);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(220, 233);
-            this.dataGridView2.TabIndex = 40;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "设备类型";
-            this.Column1.Name = "Column1";
-            // 
-            // exportTem
-            // 
-            this.exportTem.Location = new System.Drawing.Point(403, 324);
-            this.exportTem.Name = "exportTem";
-            this.exportTem.Size = new System.Drawing.Size(72, 23);
-            this.exportTem.TabIndex = 39;
-            this.exportTem.Text = "导出数据";
-            this.exportTem.UseVisualStyleBackColor = true;
-            // 
-            // Configer
-            // 
-            this.Configer.AutoSize = true;
-            this.Configer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Configer.Location = new System.Drawing.Point(9, 6);
-            this.Configer.Name = "Configer";
-            this.Configer.Size = new System.Drawing.Size(214, 191);
-            this.Configer.TabIndex = 61;
-            this.Configer.DataReceived += new LeafSoft.Lib.LeafEvent.DataReceivedHandler(this.Configer_DataReceived);
-            // 
             // yyzq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -399,12 +408,12 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabSender.ResumeLayout(false);
-            this.tabSender.PerformLayout();
             this.tabReceive.ResumeLayout(false);
             this.tabReceive.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabSender.ResumeLayout(false);
+            this.tabSender.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,6 +453,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 数据;
         private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
         private Units.NetUDPServer Configer;
+        private System.Windows.Forms.ToolStripMenuItem devType;
 
 
 

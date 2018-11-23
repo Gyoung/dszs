@@ -90,11 +90,18 @@
     <Compile Include="FrmShow.Designer.cs">
       <DependentUpon>FrmShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmType.Designer.cs">
+      <DependentUpon>frmType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lib\BytesCheck.cs" />
     <Compile Include="Lib\ExportExcel.cs" />
     <Compile Include="Lib\HotKey.cs" />
     <Compile Include="Model\Command.cs" />
     <Compile Include="Model\LeafUDPClient.cs" />
+    <Compile Include="Model\TypeData.cs" />
     <Compile Include="PartPanel\BasePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -223,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShow.resx">
       <DependentUpon>FrmShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmType.resx">
+      <DependentUpon>frmType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PartPanel\TCPClientPanel.resx">
       <DependentUpon>TCPClientPanel.cs</DependentUpon>

@@ -102,5 +102,56 @@ namespace LeafSoft.Units
         }
 
 
+
+        public static string saveType(List<TypeData> dataSource)
+        {
+            XmlDocument doc = new XmlDocument();
+            XmlElement root = doc.CreateElement("root");
+            doc.AppendChild(root);
+            for (int i = 0; i < dataSource.Count; i++)
+            {
+                XmlElement cmdEle = doc.CreateElement("type");
+                TypeData type = dataSource[i];
+                cmdEle.SetAttribute("type", type.Type);
+                cmdEle.SetAttribute("name", type.Name);
+                cmdEle.SetAttribute("value1", type.Value1);
+                cmdEle.SetAttribute("value2", type.Value2);
+                cmdEle.SetAttribute("dropType", type.DropType);
+                cmdEle.SetAttribute("minValue", type.MinValue);
+                cmdEle.SetAttribute("maxValue", type.MaxValue);
+                root.AppendChild(cmdEle);
+            }
+            string ffName = fileName + "type.xml";
+            doc.Save(ffName);
+            return ffName;
+        }
+
+        public static List<TypeData> getTypeData()
+        {
+            List<TypeData> dataSource = new List<TypeData>();
+            XmlDocument doc = new XmlDocument();
+            string fullName = fileName + "type.xml";
+            if (!File.Exists(fullName))
+            {
+                return dataSource;
+            }
+            doc.Load(fullName);
+            XmlElement root = doc.DocumentElement;
+            XmlNodeList nodeList = root.ChildNodes;
+            foreach (XmlElement node in nodeList)
+            {
+                TypeData type = new TypeData();
+                type.Type = node.GetAttribute("type");
+                type.Name = node.GetAttribute("name");
+                type.Value1 = node.GetAttribute("value1");
+                type.Value2 = node.GetAttribute("value2");
+                type.DropType = node.GetAttribute("dropType");
+                type.MinValue = node.GetAttribute("minValue");
+                type.MaxValue = node.GetAttribute("maxValue");
+                dataSource.Add(type);
+            }
+            return dataSource;
+        }
+
     }
 }
