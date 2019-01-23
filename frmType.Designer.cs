@@ -60,7 +60,7 @@
             this.gvType.Name = "gvType";
             this.gvType.RowTemplate.Height = 23;
             this.gvType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvType.Size = new System.Drawing.Size(763, 264);
+            this.gvType.Size = new System.Drawing.Size(745, 264);
             this.gvType.TabIndex = 0;
             // 
             // devType
@@ -148,9 +148,11 @@
             this.Controls.Add(this.gvType);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "frmType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmType";
+            this.Text = "新增设备类型";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmType_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.gvType)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

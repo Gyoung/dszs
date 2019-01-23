@@ -87,7 +87,14 @@ namespace LeafSoft
             if (fileName.Length > 0)
             {
                 MessageBox.Show("保存成功!");
+                //this.DialogResult = DialogResult.Yes;
             }
+        }
+
+        private void frmType_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.DialogResult = DialogResult.Yes;
+
         }
     }
 }

@@ -4,23 +4,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 using LeafSoft.Lib;
-/*---------------作者：叶知秋----------------------*/
-/*---------------时间：2013年8月16日---------------*/
-/*---------------邮箱：yq@yyzq.net---------*/
-/*---------------QQ：275623749---------*/
-/*本软件也耗费了我不少的时间和精力，希望各位同行们尊重个人劳动成果，
- * 如果在此版本的基础上修改发布新的版本，请包含原作者信息（包括代码和UI界面相关信息)，为中国的
- * 开源事业做出一点贡献。*/
 namespace LeafSoft.LeafControl
 {
-    /// <summary>
-    /// Hex/ASCII输入文本框
-    /// 作者：一叶知秋
-    /// 日期：2013年7月11日
-    /// 可输入Hex，ASCII
-    /// 可切换显示Hex与ASCII的输入文本框
-    /// Hex输入时可自动每2个字符之间添加空格
-    /// </summary>
+   
     public class BytesBox:TextBox
     {
         public BytesBox()

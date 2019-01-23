@@ -82,7 +82,7 @@ namespace LeafSoft.Lib
             }
             catch (Exception ex)
             {
-                return "";
+                return ex.Message;
             }
 
         }

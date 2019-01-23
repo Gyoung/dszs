@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net.Sockets;
 using LeafSoft.Model;
-/*---------------作者：叶知秋----------------------*/
+
 
 namespace LeafSoft.Lib
 {

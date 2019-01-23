@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LeafSoft</RootNamespace>
-    <AssemblyName>通讯调试工具V1.2%28支持串口、TCP、UDP%29</AssemblyName>
+    <AssemblyName>众物智联物联网数据管理综合平台</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -54,42 +54,6 @@
     <Compile Include="AboutMe.Designer.cs">
       <DependentUpon>AboutMe.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBytes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBytes.Designer.cs">
-      <DependentUpon>frmBytes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCheck.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCheck.Designer.cs">
-      <DependentUpon>frmCheck.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCMD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCMD.Designer.cs">
-      <DependentUpon>frmCMD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmFast.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFast.Designer.cs">
-      <DependentUpon>frmFast.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPoly.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPoly.Designer.cs">
-      <DependentUpon>frmPoly.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmShow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmShow.Designer.cs">
-      <DependentUpon>FrmShow.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,15 +66,6 @@
     <Compile Include="Model\Command.cs" />
     <Compile Include="Model\LeafUDPClient.cs" />
     <Compile Include="Model\TypeData.cs" />
-    <Compile Include="PartPanel\BasePanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Units\NetTCPServer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Units\NetTCPServer.Designer.cs">
-      <DependentUpon>NetTCPServer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Units\NetUDPClient.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,44 +96,8 @@
     <Compile Include="Lib\LeafEvent.cs" />
     <Compile Include="Model\CMD.cs" />
     <Compile Include="Model\LeafTCPClient.cs" />
-    <Compile Include="PartPanel\ComPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PartPanel\ComPanel.Designer.cs">
-      <DependentUpon>ComPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PartPanel\TCPClientPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PartPanel\TCPClientPanel.Designer.cs">
-      <DependentUpon>TCPClientPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PartPanel\TCPServerPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PartPanel\TCPServerPanel.Designer.cs">
-      <DependentUpon>TCPServerPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PartPanel\UDPClientPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PartPanel\UDPClientPanel.Designer.cs">
-      <DependentUpon>UDPClientPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PartPanel\UDPServerPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PartPanel\UDPServerPanel.Designer.cs">
-      <DependentUpon>UDPServerPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Units\NetRs232.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Units\NetRs232.Designer.cs">
-      <DependentUpon>NetRs232.cs</DependentUpon>
-    </Compile>
     <Compile Include="Units\DataCounter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,19 +110,7 @@
     <Compile Include="Units\DataReceive.Designer.cs">
       <DependentUpon>DataReceive.cs</DependentUpon>
     </Compile>
-    <Compile Include="Units\DataSend.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Units\DataSend.Designer.cs">
-      <DependentUpon>DataSend.cs</DependentUpon>
-    </Compile>
     <Compile Include="Units\ICommunication.cs" />
-    <Compile Include="Units\NetTCPClient.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Units\NetTCPClient.Designer.cs">
-      <DependentUpon>NetTCPClient.cs</DependentUpon>
-    </Compile>
     <Compile Include="Units\NetUDPServer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -213,38 +120,8 @@
     <EmbeddedResource Include="AboutMe.resx">
       <DependentUpon>AboutMe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBytes.resx">
-      <DependentUpon>frmBytes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCheck.resx">
-      <DependentUpon>frmCheck.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCMD.resx">
-      <DependentUpon>frmCMD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmFast.resx">
-      <DependentUpon>frmFast.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPoly.resx">
-      <DependentUpon>frmPoly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmShow.resx">
-      <DependentUpon>FrmShow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmType.resx">
       <DependentUpon>frmType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PartPanel\TCPClientPanel.resx">
-      <DependentUpon>TCPClientPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PartPanel\UDPClientPanel.resx">
-      <DependentUpon>UDPClientPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Units\NetTCPClient.resx">
-      <DependentUpon>NetTCPClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Units\NetTCPServer.resx">
-      <DependentUpon>NetTCPServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Units\NetUDPClient.resx">
       <DependentUpon>NetUDPClient.cs</DependentUpon>
@@ -254,15 +131,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="yyzq.resx">
       <DependentUpon>yyzq.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PartPanel\ComPanel.resx">
-      <DependentUpon>ComPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PartPanel\TCPServerPanel.resx">
-      <DependentUpon>TCPServerPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PartPanel\UDPServerPanel.resx">
-      <DependentUpon>UDPServerPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -274,17 +142,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Units\NetRs232.resx">
-      <DependentUpon>NetRs232.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Units\DataCounter.resx">
       <DependentUpon>DataCounter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Units\DataReceive.resx">
       <DependentUpon>DataReceive.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Units\DataSend.resx">
-      <DependentUpon>DataSend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Units\NetUDPServer.resx">
       <DependentUpon>NetUDPServer.cs</DependentUpon>
@@ -304,23 +166,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo.png" />
-    <None Include="Resources\calculator.png" />
-    <None Include="Resources\ucom.png" />
-    <None Include="Resources\ntcp.png" />
-    <None Include="Resources\nudp.png" />
-    <None Include="Resources\hex.png" />
-    <None Include="Resources\hex.ico" />
-    <None Include="Resources\tcp.ico" />
-    <None Include="Resources\udp.ico" />
-    <None Include="Resources\com.ico" />
-    <None Include="Resources\greenlight.png" />
-    <None Include="Resources\redlight.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="dll\NPOI.dll" />
     <Content Include="File\data.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="leafsoft.ico" />
   </ItemGroup>
