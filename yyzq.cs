@@ -11,20 +11,22 @@ using System.Threading;
 using LeafSoft.Model;
 using LeafSoft.Units;
 using LeafSoft.Lib;
+using System.Diagnostics;
+using System.IO;
 
 namespace LeafSoft
 {
     public partial class yyzq : Form
     {
-       
-     
+
+
         List<TypeData> typeList = new List<TypeData>();
 
         public yyzq()
         {
             InitializeComponent();
-           
-            
+
+
             this.Text = Lib.AppInfor.AssemblyTitle + "[V" + Lib.AppInfor.AssemblyVersion + "][" + Lib.AppInfor.AssemblyCopyright + "]";
 
             Control[] controls = DataReceiver.Controls.Find("rbtnHex", false);
@@ -65,10 +67,10 @@ namespace LeafSoft
             frm.Show();
         }
 
-       
-    
 
-       
+
+
+
         //qq
         private void lklQQ_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -129,8 +131,8 @@ namespace LeafSoft
                 Object gridView = ((DataGridView)dataGrid).DataSource;
                 dataSource = gridView as BindingList<Model.CMD>;
             }
-          
-         
+
+
             if (dataSource != null)
             {
                 string fileName = XmlUnits.saveXml(dataSource, command, tabPage.Name);
@@ -139,7 +141,7 @@ namespace LeafSoft
         }
 
 
-        
+
 
         private Control findDataReciver(Control control)
         {
@@ -163,7 +165,7 @@ namespace LeafSoft
 
         private void yyzq_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -194,8 +196,8 @@ namespace LeafSoft
             }
         }
 
-      
-        
+
+
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -249,7 +251,7 @@ namespace LeafSoft
 
         private void Configer_DataReceived(object sender, byte[] data)
         {
-            
+
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < data.Length; i++)
             {
@@ -271,7 +273,7 @@ namespace LeafSoft
 
                     double val1 = (double)Convert.ToInt32(datas[6] + datas[7], 16);
                     int n = 0;
-                    if (typeData.DropType != "" && typeData.DropType.Split(':').Length>1)
+                    if (typeData.DropType != "" && typeData.DropType.Split(':').Length > 1)
                     {
                         n = int.Parse(typeData.DropType.Split(':')[1]);
                     }
@@ -288,9 +290,9 @@ namespace LeafSoft
                         showData.Signal = Convert.ToInt32(datas[8], 16).ToString(); // 信号值
                         showData.Noise = Convert.ToInt32(datas[9], 16).ToString(); //信噪比
                     }
-                 
 
-                   
+
+
                     if (datas.Length > 12)
                     {
                         double val2 = (double)Convert.ToInt32(datas[8] + datas[9], 16);
@@ -309,12 +311,18 @@ namespace LeafSoft
                     waterTemperature.Add(showData);
                     this.BeginInvoke(new MethodInvoker(delegate
                     {
+                        //gridview数据大于10000条，则自动保存，再清空gridview数据
+                        if (this.dataGridView1.RowCount > 10)
+                        {
+                            exportData("数据展示", this.dataGridView1, "采集器结果", true);
+                            this.dataGridView1.Rows.Clear();
+                        }
                         devType.Enabled = false;
                         //this.dataGridView1.DataSource = waterTemperature;
                         //this.tmpHigh.ReadOnly = true;
                         //this.tmpLow.ReadOnly = true;
                         DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
-                     
+
                         int index = this.dataGridView1.Rows.Add();
                         this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
                         this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
@@ -326,7 +334,7 @@ namespace LeafSoft
                         string text = "";
                         if (!string.IsNullOrEmpty(showData.Value1))
                         {
-                            text += showData.Value1 + typeData.Value1+" ";
+                            text += showData.Value1 + typeData.Value1 + " ";
                         }
                         if (!string.IsNullOrEmpty(showData.Value2))
                         {
@@ -334,14 +342,14 @@ namespace LeafSoft
                         }
 
                         this.dataGridView1.Rows[index].Cells[4].Value = text;
-                     
+
                         this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
                         dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
                         if (!string.IsNullOrEmpty(typeData.MinValue) && !string.IsNullOrEmpty(typeData.MaxValue))
                         {
                             double minValue = double.Parse(typeData.MinValue);
                             double maxValue = double.Parse(typeData.MaxValue);
-                            double value=double.Parse(showData.Value1);
+                            double value = double.Parse(showData.Value1);
                             if (value >= minValue && value <= maxValue)
                             {
                                 showData.Status = "正常";
@@ -362,7 +370,8 @@ namespace LeafSoft
             }
 
             dataReceive1.AddData(data, false);
-            MDataCounter.PlusReceive(data.Length);
+
+            dataCounter1.PlusReceive(data.Length);
         }
 
 
@@ -417,25 +426,50 @@ namespace LeafSoft
 
         private void button1_Click(object sender, EventArgs e)
         {
-            exportData("数据展示", this.dataGridView1, "采集器结果");
+            exportData("数据展示", this.dataGridView1, "采集器结果", false);
         }
-        private void exportData(string fileName, DataGridView dv, string title)
+        private void exportData(string fileName, DataGridView dv, string title, bool isAuto)
         {
             string file = ExportExcel.ExportExcelData(fileName, dv, title);
-            if (file.Length > 0)
+            if (!isAuto)
             {
-                MessageBox.Show("导出成功，路径：" + file);
+                if (file.Length > 0)
+                {
+                    MessageBox.Show("导出成功，路径：" + file);
+                }
+                else
+                {
+                    MessageBox.Show("导出失败，路径：" + file);
+                }
             }
             else
             {
-                MessageBox.Show("导出失败，路径：" + file);
+                if (file.Length > 0)
+                {
+                    lblFile.Text = file;
+                }
+                else
+                {
+                    lblFile.Text = "自动保存失败，时间" + DateTime.Now;
+                }
             }
+
         }
 
         private void MS_AboutMe_Click_1(object sender, EventArgs e)
         {
             new AboutMe().ShowDialog();
         }
-        
+
+        private void lblFile_DoubleClick(object sender, EventArgs e)
+        {
+            if (lblFile.Text.Length > 0 && File.Exists(lblFile.Text))
+            {
+                Process m_Process = new Process();
+                m_Process.StartInfo.FileName = lblFile.Text;
+                m_Process.Start();
+            }
+        }
+
     }
 }

@@ -72,7 +72,7 @@ namespace LeafSoft.Lib
                 {
                     Directory.CreateDirectory(dir);
                 }
-                string saveFileName = dir + "/"+fileName + DateTime.Now.ToString("yyyyMMddHHssmm") + ".xls";
+                string saveFileName = dir + "\\"+fileName + DateTime.Now.ToString("yyyyMMddHHssmm") + ".xls";
                 using (FileStream file = new FileStream(saveFileName, FileMode.Create))
                 {
                     workbook.Write(file);

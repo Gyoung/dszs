@@ -90,7 +90,8 @@
             "A:0",
             "B:1",
             "C:10",
-            "D:100"});
+            "D:100",
+            "E:1000"});
             this.devDrop.Name = "devDrop";
             // 
             // devMin
