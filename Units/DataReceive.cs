@@ -97,6 +97,14 @@ namespace LeafSoft.Units
             txtData.Clear();
         }
 
+        public void CleanText()
+        {
+            txtData.Invoke(new MethodInvoker(delegate
+            {
+                txtData.Clear();
+            }));
+        }
+
         private void CMS_Main_VisibleChanged(object sender, EventArgs e)
         {
             if (CMS_Main.Visible == true)

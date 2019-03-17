@@ -68,7 +68,7 @@ namespace LeafSoft.Lib
                 }
                 //保存文件
                 string dir = AppDomain.CurrentDomain.BaseDirectory + "ReceiveData";
-                if (Directory.Exists(dir))
+                if (!Directory.Exists(dir))
                 {
                     Directory.CreateDirectory(dir);
                 }

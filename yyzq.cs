@@ -312,10 +312,11 @@ namespace LeafSoft
                     this.BeginInvoke(new MethodInvoker(delegate
                     {
                         //gridview数据大于10000条，则自动保存，再清空gridview数据
-                        if (this.dataGridView1.RowCount > 10)
+                        if (this.dataGridView1.RowCount > 10000)
                         {
                             exportData("数据展示", this.dataGridView1, "采集器结果", true);
                             this.dataGridView1.Rows.Clear();
+                            dataReceive1.CleanText();
                         }
                         devType.Enabled = false;
                         //this.dataGridView1.DataSource = waterTemperature;
