@@ -10,6 +10,8 @@ namespace LeafSoft.Model
 
         public string Name { get; set; }
 
+        public string Address { get; set; }
+
         public string Value1 { get; set; }
 
         public string Value2 { get; set; }

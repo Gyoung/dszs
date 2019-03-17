@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.gvType = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.addRow = new System.Windows.Forms.ToolStripMenuItem();
+            this.delRow = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveRow = new System.Windows.Forms.ToolStripMenuItem();
             this.devType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.devAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devUnit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devUnit2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devDrop = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.devMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.addRow = new System.Windows.Forms.ToolStripMenuItem();
-            this.delRow = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveRow = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gvType)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +51,7 @@
             this.gvType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.devType,
             this.devName,
+            this.devAddress,
             this.devUnit1,
             this.devUnit2,
             this.devDrop,
@@ -62,51 +64,6 @@
             this.gvType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvType.Size = new System.Drawing.Size(745, 264);
             this.gvType.TabIndex = 0;
-            // 
-            // devType
-            // 
-            this.devType.HeaderText = "设备系列";
-            this.devType.Name = "devType";
-            // 
-            // devName
-            // 
-            this.devName.HeaderText = "设备名称";
-            this.devName.Name = "devName";
-            // 
-            // devUnit1
-            // 
-            this.devUnit1.HeaderText = "单位1";
-            this.devUnit1.Name = "devUnit1";
-            // 
-            // devUnit2
-            // 
-            this.devUnit2.HeaderText = "单位2";
-            this.devUnit2.Name = "devUnit2";
-            // 
-            // devDrop
-            // 
-            this.devDrop.HeaderText = "下拉选择";
-            this.devDrop.Items.AddRange(new object[] {
-            "A:0",
-            "B:1",
-            "C:10",
-            "D:100",
-            "E:1000"});
-            this.devDrop.Name = "devDrop";
-            // 
-            // devMin
-            // 
-            this.devMin.HeaderText = "最小值";
-            this.devMin.Name = "devMin";
-            this.devMin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.devMin.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // devMax
-            // 
-            this.devMax.HeaderText = "最大值";
-            this.devMax.Name = "devMax";
-            this.devMax.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.devMax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // menuStrip1
             // 
@@ -141,6 +98,61 @@
             this.saveRow.Text = "保存";
             this.saveRow.Click += new System.EventHandler(this.saveRow_Click);
             // 
+            // devType
+            // 
+            this.devType.HeaderText = "设备系列";
+            this.devType.Name = "devType";
+            this.devType.Width = 80;
+            // 
+            // devName
+            // 
+            this.devName.HeaderText = "设备名称";
+            this.devName.Name = "devName";
+            // 
+            // devAddress
+            // 
+            this.devAddress.HeaderText = "设备地址";
+            this.devAddress.Name = "devAddress";
+            // 
+            // devUnit1
+            // 
+            this.devUnit1.HeaderText = "单位1";
+            this.devUnit1.Name = "devUnit1";
+            this.devUnit1.Width = 80;
+            // 
+            // devUnit2
+            // 
+            this.devUnit2.HeaderText = "单位2";
+            this.devUnit2.Name = "devUnit2";
+            this.devUnit2.Width = 80;
+            // 
+            // devDrop
+            // 
+            this.devDrop.HeaderText = "下拉选择";
+            this.devDrop.Items.AddRange(new object[] {
+            "A:0",
+            "B:1",
+            "C:10",
+            "D:100",
+            "E:1000"});
+            this.devDrop.Name = "devDrop";
+            // 
+            // devMin
+            // 
+            this.devMin.HeaderText = "最小值";
+            this.devMin.Name = "devMin";
+            this.devMin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.devMin.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.devMin.Width = 80;
+            // 
+            // devMax
+            // 
+            this.devMax.HeaderText = "最大值";
+            this.devMax.Name = "devMax";
+            this.devMax.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.devMax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.devMax.Width = 80;
+            // 
             // frmType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -171,6 +183,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn devType;
         private System.Windows.Forms.DataGridViewTextBoxColumn devName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn devAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn devUnit1;
         private System.Windows.Forms.DataGridViewTextBoxColumn devUnit2;
         private System.Windows.Forms.DataGridViewComboBoxColumn devDrop;

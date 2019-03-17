@@ -52,6 +52,8 @@ namespace LeafSoft
             {
                 int rowIndex = this.dataGridView2.Rows.Add();
                 this.dataGridView2.Rows[rowIndex].Cells[0].Value = item.Name;
+                this.dataGridView2.Rows[rowIndex].Cells[1].Value = item.Address;
+
             }
         }
         private void CreateNewTest(object p, string title, Icon icon)
@@ -325,12 +327,13 @@ namespace LeafSoft
                         DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
 
                         int index = this.dataGridView1.Rows.Add();
-                        this.dataGridView1.Rows[index].Cells[0].Value = showData.CreateTime;
-                        this.dataGridView1.Rows[index].Cells[1].Value = showData.ZoneId;
-                        this.dataGridView1.Rows[index].Cells[2].Value = showData.DeviceId;
-                        this.dataGridView1.Rows[index].Cells[3].Value = typeData.Name;
-                        this.dataGridView1.Rows[index].Cells[5].Value = showData.Signal;
-                        this.dataGridView1.Rows[index].Cells[6].Value = showData.Noise;
+                        this.dataGridView1.Rows[index].Cells["gvTime"].Value = showData.CreateTime;
+                        this.dataGridView1.Rows[index].Cells["gvZone"].Value = showData.ZoneId;
+                        this.dataGridView1.Rows[index].Cells["gvDevid"].Value = showData.DeviceId;
+                        this.dataGridView1.Rows[index].Cells["gvType"].Value = typeData.Name;
+                        this.dataGridView1.Rows[index].Cells["gvAddress"].Value = typeData.Address;
+                        this.dataGridView1.Rows[index].Cells["gvSignal"].Value = showData.Signal;
+                        this.dataGridView1.Rows[index].Cells["gvNoise"].Value = showData.Noise;
 
                         string text = "";
                         if (!string.IsNullOrEmpty(showData.Value1))
@@ -342,7 +345,7 @@ namespace LeafSoft
                             text += showData.Value2 + typeData.Value2;
                         }
 
-                        this.dataGridView1.Rows[index].Cells[4].Value = text;
+                        this.dataGridView1.Rows[index].Cells["gvValue1"].Value = text;
 
                         this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
                         dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
@@ -363,8 +366,8 @@ namespace LeafSoft
                                 cellStyle.ForeColor = Color.Red;
                             }
                         }
-                        this.dataGridView1.Rows[index].Cells[7].Value = showData.Status;
-                        this.dataGridView1.Rows[index].Cells[7].Style = cellStyle;
+                        this.dataGridView1.Rows[index].Cells["gvStatus"].Value = showData.Status;
+                        this.dataGridView1.Rows[index].Cells["gvStatus"].Style = cellStyle;
                     }));
 
                 }
@@ -390,6 +393,7 @@ namespace LeafSoft
             }
             return new TypeData();
         }
+
 
         class ShowData
         {

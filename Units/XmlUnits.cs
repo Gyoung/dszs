@@ -114,6 +114,7 @@ namespace LeafSoft.Units
                 TypeData type = dataSource[i];
                 cmdEle.SetAttribute("type", type.Type);
                 cmdEle.SetAttribute("name", type.Name);
+                cmdEle.SetAttribute("address", type.Address);
                 cmdEle.SetAttribute("value1", type.Value1);
                 cmdEle.SetAttribute("value2", type.Value2);
                 cmdEle.SetAttribute("dropType", type.DropType);
@@ -143,6 +144,7 @@ namespace LeafSoft.Units
                 TypeData type = new TypeData();
                 type.Type = node.GetAttribute("type");
                 type.Name = node.GetAttribute("name");
+                type.Address = node.GetAttribute("address");
                 type.Value1 = node.GetAttribute("value1");
                 type.Value2 = node.GetAttribute("value2");
                 type.DropType = node.GetAttribute("dropType");

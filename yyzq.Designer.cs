@@ -43,18 +43,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Configer = new LeafSoft.Units.NetUDPServer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.区域地质 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.设备ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.设备类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.数据 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataCounter1 = new LeafSoft.Units.DataCounter();
             this.dataReceive1 = new LeafSoft.Units.DataReceive();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.devName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.devAddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exportTem = new System.Windows.Forms.Button();
             this.tabSender = new System.Windows.Forms.TabPage();
             this.udpClient = new LeafSoft.Units.NetUDPClient();
@@ -65,6 +58,15 @@
             this.bytesBox1 = new LeafSoft.LeafControl.BytesBox();
             this.MDataCounter = new LeafSoft.Units.DataCounter();
             this.DataReceiver = new LeafSoft.Units.DataReceive();
+            this.gvTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvDevid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvValue1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvSignal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvNoise = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabReceive.SuspendLayout();
@@ -129,9 +131,11 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabReceive);
             this.tabControl1.Controls.Add(this.tabSender);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -224,83 +228,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.时间,
-            this.区域地质,
-            this.设备ID,
-            this.设备类型,
-            this.数据,
-            this.Column3,
-            this.Column2,
-            this.状态});
+            this.gvTime,
+            this.gvZone,
+            this.gvDevid,
+            this.gvType,
+            this.gvAddress,
+            this.gvValue1,
+            this.gvSignal,
+            this.gvNoise,
+            this.gvStatus});
             this.dataGridView1.Location = new System.Drawing.Point(229, 241);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(795, 235);
             this.dataGridView1.TabIndex = 43;
-            // 
-            // 时间
-            // 
-            this.时间.DataPropertyName = "CreateTime";
-            this.时间.HeaderText = "时间";
-            this.时间.Name = "时间";
-            this.时间.ReadOnly = true;
-            this.时间.Width = 120;
-            // 
-            // 区域地质
-            // 
-            this.区域地质.DataPropertyName = "ZoneId";
-            this.区域地质.HeaderText = "区域地址";
-            this.区域地质.Name = "区域地质";
-            this.区域地质.ReadOnly = true;
-            this.区域地质.Width = 80;
-            // 
-            // 设备ID
-            // 
-            this.设备ID.DataPropertyName = "DeviceId";
-            this.设备ID.HeaderText = "设备ID";
-            this.设备ID.Name = "设备ID";
-            this.设备ID.ReadOnly = true;
-            this.设备ID.Width = 80;
-            // 
-            // 设备类型
-            // 
-            this.设备类型.DataPropertyName = "Type";
-            this.设备类型.HeaderText = "设备类型";
-            this.设备类型.Name = "设备类型";
-            this.设备类型.ReadOnly = true;
-            // 
-            // 数据
-            // 
-            this.数据.DataPropertyName = "Value1";
-            this.数据.HeaderText = "数据";
-            this.数据.Name = "数据";
-            this.数据.ReadOnly = true;
-            this.数据.Width = 160;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Signal ";
-            this.Column3.HeaderText = "信号值";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 80;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Noise";
-            this.Column2.HeaderText = "信噪比";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 80;
-            // 
-            // 状态
-            // 
-            this.状态.DataPropertyName = "Status";
-            this.状态.HeaderText = "状态";
-            this.状态.Name = "状态";
-            this.状态.ReadOnly = true;
-            this.状态.Width = 60;
             // 
             // dataCounter1
             // 
@@ -328,7 +270,8 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
+            this.devName,
+            this.devAddr});
             this.dataGridView2.Location = new System.Drawing.Point(9, 241);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -336,12 +279,17 @@
             this.dataGridView2.Size = new System.Drawing.Size(214, 235);
             this.dataGridView2.TabIndex = 40;
             // 
-            // Column1
+            // devName
             // 
-            this.Column1.HeaderText = "设备类型";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 180;
+            this.devName.HeaderText = "设备类型";
+            this.devName.Name = "devName";
+            this.devName.ReadOnly = true;
+            // 
+            // devAddr
+            // 
+            this.devAddr.HeaderText = "设备地址";
+            this.devAddr.Name = "devAddr";
+            this.devAddr.ReadOnly = true;
             // 
             // exportTem
             // 
@@ -372,9 +320,11 @@
             // 
             // udpClient
             // 
+            this.udpClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.udpClient.Location = new System.Drawing.Point(6, 15);
             this.udpClient.Name = "udpClient";
-            this.udpClient.Size = new System.Drawing.Size(204, 166);
+            this.udpClient.Size = new System.Drawing.Size(203, 446);
             this.udpClient.TabIndex = 68;
             // 
             // btnSend
@@ -422,16 +372,20 @@
             // 
             // bytesBox1
             // 
+            this.bytesBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.bytesBox1.IsHex = LeafSoft.Lib.EnumType.CMDType.Hex;
             this.bytesBox1.Location = new System.Drawing.Point(423, 15);
             this.bytesBox1.Multiline = true;
             this.bytesBox1.Name = "bytesBox1";
-            this.bytesBox1.Size = new System.Drawing.Size(401, 61);
+            this.bytesBox1.Size = new System.Drawing.Size(580, 61);
             this.bytesBox1.TabIndex = 63;
             // 
             // MDataCounter
             // 
-            this.MDataCounter.Location = new System.Drawing.Point(228, 469);
+            this.MDataCounter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MDataCounter.Location = new System.Drawing.Point(445, 471);
             this.MDataCounter.Name = "MDataCounter";
             this.MDataCounter.Size = new System.Drawing.Size(292, 24);
             this.MDataCounter.TabIndex = 61;
@@ -442,10 +396,73 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataReceiver.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DataReceiver.Location = new System.Drawing.Point(228, 93);
+            this.DataReceiver.Location = new System.Drawing.Point(234, 93);
             this.DataReceiver.Name = "DataReceiver";
-            this.DataReceiver.Size = new System.Drawing.Size(742, 367);
+            this.DataReceiver.Size = new System.Drawing.Size(769, 359);
             this.DataReceiver.TabIndex = 59;
+            // 
+            // gvTime
+            // 
+            this.gvTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvTime.HeaderText = "时间";
+            this.gvTime.Name = "gvTime";
+            this.gvTime.ReadOnly = true;
+            // 
+            // gvZone
+            // 
+            this.gvZone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvZone.HeaderText = "区域地址";
+            this.gvZone.Name = "gvZone";
+            this.gvZone.ReadOnly = true;
+            // 
+            // gvDevid
+            // 
+            this.gvDevid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvDevid.HeaderText = "设备ID";
+            this.gvDevid.Name = "gvDevid";
+            this.gvDevid.ReadOnly = true;
+            // 
+            // gvType
+            // 
+            this.gvType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvType.HeaderText = "设备类型";
+            this.gvType.Name = "gvType";
+            this.gvType.ReadOnly = true;
+            // 
+            // gvAddress
+            // 
+            this.gvAddress.HeaderText = "设备地址";
+            this.gvAddress.Name = "gvAddress";
+            this.gvAddress.ReadOnly = true;
+            // 
+            // gvValue1
+            // 
+            this.gvValue1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvValue1.HeaderText = "数据";
+            this.gvValue1.Name = "gvValue1";
+            this.gvValue1.ReadOnly = true;
+            // 
+            // gvSignal
+            // 
+            this.gvSignal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvSignal.DataPropertyName = "Signal ";
+            this.gvSignal.HeaderText = "信号值";
+            this.gvSignal.Name = "gvSignal";
+            this.gvSignal.ReadOnly = true;
+            // 
+            // gvNoise
+            // 
+            this.gvNoise.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvNoise.HeaderText = "信噪比";
+            this.gvNoise.Name = "gvNoise";
+            this.gvNoise.ReadOnly = true;
+            // 
+            // gvStatus
+            // 
+            this.gvStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvStatus.HeaderText = "状态";
+            this.gvStatus.Name = "gvStatus";
+            this.gvStatus.ReadOnly = true;
             // 
             // yyzq
             // 
@@ -500,21 +517,23 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private Units.NetUDPServer Configer;
         private System.Windows.Forms.ToolStripMenuItem devType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem MS_AboutMe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 时间;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 区域地质;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 设备ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 设备类型;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 数据;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblFile;
         private System.Windows.Forms.Label lblTip;
+        private System.Windows.Forms.DataGridViewTextBoxColumn devName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn devAddr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvZone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvDevid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvValue1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvSignal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvNoise;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvStatus;
 
 
 
