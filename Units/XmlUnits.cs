@@ -153,5 +153,39 @@ namespace LeafSoft.Units
             return dataSource;
         }
 
+
+        public static List<Device> getDeviceData()
+        {
+            List<Device> dataSource = new List<Device>();
+            string fullName = fileName + "DeviceAddr.csv";
+            if (!File.Exists(fullName))
+            {
+                return dataSource;
+            }
+            using (StreamReader reader = new StreamReader(fullName))
+            {
+                while (reader.Peek() > -1)
+                {
+                    Device dv = new Device();
+                    string line = reader.ReadLine();
+                    string[] items = line.Split(',');
+                    if (items.Length > 0)
+                    {
+                        dv.Name = items[0];
+                    }
+                    if (items.Length > 1)
+                    {
+                        dv.Id = items[1];
+                    }
+                    if (items.Length > 2)
+                    {
+                        dv.Address = items[2];
+                    }
+                    dataSource.Add(dv);
+                }
+            }
+            return dataSource;
+        }
+
     }
 }

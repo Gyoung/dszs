@@ -21,6 +21,7 @@ namespace LeafSoft
 
 
         List<TypeData> typeList = new List<TypeData>();
+        List<Device> deviceList = new List<Device>();
 
         public yyzq()
         {
@@ -41,6 +42,7 @@ namespace LeafSoft
                 (controls1[0] as RadioButton).Checked = true;
             }
             loadDataType();
+            deviceList = XmlUnits.getDeviceData();
 
         }
 
@@ -329,6 +331,7 @@ namespace LeafSoft
                         this.dataGridView1.Rows[index].Cells["gvZone"].Value = showData.ZoneId;
                         this.dataGridView1.Rows[index].Cells["gvDevid"].Value = showData.DeviceId;
                         this.dataGridView1.Rows[index].Cells["gvType"].Value = typeData.Name;
+                        this.dataGridView1.Rows[index].Cells["gvAddress"].Value = GetDevice(showData.DeviceId);
                         this.dataGridView1.Rows[index].Cells["gvSignal"].Value = showData.Signal;
                         this.dataGridView1.Rows[index].Cells["gvNoise"].Value = showData.Noise;
 
@@ -389,6 +392,21 @@ namespace LeafSoft
                     return item;
             }
             return new TypeData();
+        }
+
+        /// <summary>
+        /// 获取设备地址
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        private string GetDevice(string id)
+        {
+            foreach (Device item in deviceList)
+            {
+                if (item.Id == id)
+                    return item.Address;
+            }
+            return "";
         }
 
 

@@ -64,6 +64,7 @@
     <Compile Include="Lib\ExportExcel.cs" />
     <Compile Include="Lib\HotKey.cs" />
     <Compile Include="Model\Command.cs" />
+    <Compile Include="Model\Device.cs" />
     <Compile Include="Model\LeafUDPClient.cs" />
     <Compile Include="Model\TypeData.cs" />
     <Compile Include="Units\NetUDPClient.cs">
@@ -172,6 +173,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="File\DeviceAddr.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="leafsoft.ico" />
   </ItemGroup>
   <ItemGroup />
