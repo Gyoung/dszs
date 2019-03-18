@@ -35,7 +35,6 @@
             this.saveRow = new System.Windows.Forms.ToolStripMenuItem();
             this.devType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.devAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devUnit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devUnit2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devDrop = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -51,7 +50,6 @@
             this.gvType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.devType,
             this.devName,
-            this.devAddress,
             this.devUnit1,
             this.devUnit2,
             this.devDrop,
@@ -102,29 +100,21 @@
             // 
             this.devType.HeaderText = "设备系列";
             this.devType.Name = "devType";
-            this.devType.Width = 80;
             // 
             // devName
             // 
             this.devName.HeaderText = "设备名称";
             this.devName.Name = "devName";
             // 
-            // devAddress
-            // 
-            this.devAddress.HeaderText = "设备地址";
-            this.devAddress.Name = "devAddress";
-            // 
             // devUnit1
             // 
             this.devUnit1.HeaderText = "单位1";
             this.devUnit1.Name = "devUnit1";
-            this.devUnit1.Width = 80;
             // 
             // devUnit2
             // 
             this.devUnit2.HeaderText = "单位2";
             this.devUnit2.Name = "devUnit2";
-            this.devUnit2.Width = 80;
             // 
             // devDrop
             // 
@@ -143,7 +133,6 @@
             this.devMin.Name = "devMin";
             this.devMin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.devMin.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.devMin.Width = 80;
             // 
             // devMax
             // 
@@ -151,7 +140,6 @@
             this.devMax.Name = "devMax";
             this.devMax.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.devMax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.devMax.Width = 80;
             // 
             // frmType
             // 
@@ -183,7 +171,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn devType;
         private System.Windows.Forms.DataGridViewTextBoxColumn devName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn devAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn devUnit1;
         private System.Windows.Forms.DataGridViewTextBoxColumn devUnit2;
         private System.Windows.Forms.DataGridViewComboBoxColumn devDrop;

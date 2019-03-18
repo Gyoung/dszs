@@ -26,7 +26,6 @@ namespace LeafSoft
                int rowIndex= this.gvType.Rows.Add();
                this.gvType.Rows[rowIndex].Cells["devType"].Value = item.Type;
                this.gvType.Rows[rowIndex].Cells["devName"].Value = item.Name;
-               this.gvType.Rows[rowIndex].Cells["devAddress"].Value = item.Address;
                this.gvType.Rows[rowIndex].Cells["devUnit1"].Value = item.Value1;
                this.gvType.Rows[rowIndex].Cells["devUnit2"].Value = item.Value2;
                this.gvType.Rows[rowIndex].Cells["devDrop"].Value = item.DropType;
@@ -73,7 +72,6 @@ namespace LeafSoft
                 TypeData type = new TypeData();
                 type.Type = row.Cells["devType"].Value == null ? "" : row.Cells["devType"].Value.ToString();
                 type.Name = row.Cells["devName"].Value == null ? "" : row.Cells["devName"].Value.ToString();
-                type.Address = row.Cells["devAddress"].Value == null ? "" : row.Cells["devAddress"].Value.ToString();
                 type.Value1 = row.Cells["devUnit1"].Value == null ? "" : row.Cells["devUnit1"].Value.ToString();
                 type.Value2 = row.Cells["devUnit2"].Value == null ? "" : row.Cells["devUnit2"].Value.ToString();
                 type.DropType = row.Cells["devDrop"].Value == null ? "" : row.Cells["devDrop"].Value.ToString();

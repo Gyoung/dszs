@@ -52,8 +52,6 @@ namespace LeafSoft
             {
                 int rowIndex = this.dataGridView2.Rows.Add();
                 this.dataGridView2.Rows[rowIndex].Cells[0].Value = item.Name;
-                this.dataGridView2.Rows[rowIndex].Cells[1].Value = item.Address;
-
             }
         }
         private void CreateNewTest(object p, string title, Icon icon)
@@ -331,7 +329,6 @@ namespace LeafSoft
                         this.dataGridView1.Rows[index].Cells["gvZone"].Value = showData.ZoneId;
                         this.dataGridView1.Rows[index].Cells["gvDevid"].Value = showData.DeviceId;
                         this.dataGridView1.Rows[index].Cells["gvType"].Value = typeData.Name;
-                        this.dataGridView1.Rows[index].Cells["gvAddress"].Value = typeData.Address;
                         this.dataGridView1.Rows[index].Cells["gvSignal"].Value = showData.Signal;
                         this.dataGridView1.Rows[index].Cells["gvNoise"].Value = showData.Noise;
 
