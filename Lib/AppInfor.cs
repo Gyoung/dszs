@@ -37,7 +37,7 @@ namespace LeafSoft.Lib
             get
             {
                 Version version= Assembly.GetExecutingAssembly().GetName().Version;
-                return  version.Major + "." + version.Minor+ "."  + "-2018";
+                return  version.Major + "." + version.Minor+ "."  + "-2019";
                
             }
         }

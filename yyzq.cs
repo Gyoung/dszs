@@ -442,6 +442,7 @@ namespace LeafSoft
         private void button2_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
+            devType.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
