@@ -117,6 +117,7 @@ namespace LeafSoft.Units
                 cmdEle.SetAttribute("value1", type.Value1);
                 cmdEle.SetAttribute("value2", type.Value2);
                 cmdEle.SetAttribute("dropType", type.DropType);
+                cmdEle.SetAttribute("dropType2", type.DropType2);
                 cmdEle.SetAttribute("minValue", type.MinValue);
                 cmdEle.SetAttribute("maxValue", type.MaxValue);
                 root.AppendChild(cmdEle);
@@ -146,6 +147,7 @@ namespace LeafSoft.Units
                 type.Value1 = node.GetAttribute("value1");
                 type.Value2 = node.GetAttribute("value2");
                 type.DropType = node.GetAttribute("dropType");
+                type.DropType2 = node.GetAttribute("dropType2");
                 type.MinValue = node.GetAttribute("minValue");
                 type.MaxValue = node.GetAttribute("maxValue");
                 dataSource.Add(type);

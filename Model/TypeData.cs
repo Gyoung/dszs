@@ -18,6 +18,8 @@ namespace LeafSoft.Model
 
         public string DropType { get; set; }
 
+        public string DropType2 { get; set; }
+
         public string MinValue { get; set; }
 
         public string MaxValue { get; set; }

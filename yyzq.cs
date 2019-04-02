@@ -274,14 +274,14 @@ namespace LeafSoft
                     TypeData typeData = GetType(showData.Type);
 
                     double val1 = (double)Convert.ToInt32(datas[6] + datas[7], 16);
-                    int n = 0;
+                    int n1 = 0;
                     if (typeData.DropType != "" && typeData.DropType.Split(':').Length > 1)
                     {
-                        n = int.Parse(typeData.DropType.Split(':')[1]);
+                        n1 = int.Parse(typeData.DropType.Split(':')[1]);
                     }
-                    if (n > 0)
+                    if (n1 > 0)
                     {
-                        showData.Value1 = ((double)(val1 / n)).ToString();//值1
+                        showData.Value1 = ((double)(val1 / n1)).ToString();//值1
                     }
                     else
                     {
@@ -293,14 +293,17 @@ namespace LeafSoft
                         showData.Noise = Convert.ToInt32(datas[9], 16).ToString(); //信噪比
                     }
 
-
-
                     if (datas.Length > 12)
                     {
-                        double val2 = (double)Convert.ToInt32(datas[8] + datas[9], 16);
-                        if (n > 0)
+                        int n2 = 0;
+                        if (typeData.DropType2 != "" && typeData.DropType2.Split(':').Length > 1)
                         {
-                            showData.Value2 = ((double)(val2 / n)).ToString(); //值1
+                            n2 = int.Parse(typeData.DropType2.Split(':')[1]);
+                        }
+                        double val2 = (double)Convert.ToInt32(datas[8] + datas[9], 16);
+                        if (n2 > 0)
+                        {
+                            showData.Value2 = ((double)(val2 / n2)).ToString(); //值1
                         }
                         else
                         {
@@ -335,34 +338,45 @@ namespace LeafSoft
                         this.dataGridView1.Rows[index].Cells["gvSignal"].Value = showData.Signal;
                         this.dataGridView1.Rows[index].Cells["gvNoise"].Value = showData.Noise;
 
-                        string text = "";
+                        string text = "",text2="";
                         if (!string.IsNullOrEmpty(showData.Value1))
                         {
                             text += showData.Value1 + typeData.Value1 + " ";
                         }
                         if (!string.IsNullOrEmpty(showData.Value2))
                         {
-                            text += showData.Value2 + typeData.Value2;
+                            text2 += showData.Value2 + typeData.Value2;
                         }
 
                         this.dataGridView1.Rows[index].Cells["gvValue1"].Value = text;
+                        this.dataGridView1.Rows[index].Cells["gvValue2"].Value = text2;
 
                         this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
                         dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[index].Index;
                         if (!string.IsNullOrEmpty(typeData.MinValue) && !string.IsNullOrEmpty(typeData.MaxValue))
                         {
-                            double minValue = double.Parse(typeData.MinValue);
-                            double maxValue = double.Parse(typeData.MaxValue);
-                            double value = double.Parse(showData.Value1);
-                            if (value >= minValue && value <= maxValue)
+                            //double minValue = double.Parse(typeData.MinValue);
+                            //double maxValue = double.Parse(typeData.MaxValue);
+                            //double value = double.Parse(showData.Value1);
+                            //if (value >= minValue && value <= maxValue)
+                            //{
+                            //    showData.Status = "正常";
+                            //    cellStyle.ForeColor = Color.Green;
+                            //}
+
+                            //else
+                            //{
+                            //    showData.Status = "异常";
+                            //    cellStyle.ForeColor = Color.Red;
+                            //}
+                            if (datas[4].Equals("1F",StringComparison.CurrentCultureIgnoreCase))
                             {
                                 showData.Status = "正常";
                                 cellStyle.ForeColor = Color.Green;
                             }
-
-                            else
+                            else if (datas[4].Equals("EE", StringComparison.CurrentCultureIgnoreCase))
                             {
-                                showData.Status = "异常";
+                                showData.Status = "掉电";
                                 cellStyle.ForeColor = Color.Red;
                             }
                         }

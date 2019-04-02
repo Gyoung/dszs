@@ -29,6 +29,7 @@ namespace LeafSoft
                this.gvType.Rows[rowIndex].Cells["devUnit1"].Value = item.Value1;
                this.gvType.Rows[rowIndex].Cells["devUnit2"].Value = item.Value2;
                this.gvType.Rows[rowIndex].Cells["devDrop"].Value = item.DropType;
+               this.gvType.Rows[rowIndex].Cells["devDrop2"].Value = item.DropType2;
                this.gvType.Rows[rowIndex].Cells["devMin"].Value = item.MinValue;
                this.gvType.Rows[rowIndex].Cells["devMax"].Value = item.MaxValue;
             }
@@ -75,6 +76,7 @@ namespace LeafSoft
                 type.Value1 = row.Cells["devUnit1"].Value == null ? "" : row.Cells["devUnit1"].Value.ToString();
                 type.Value2 = row.Cells["devUnit2"].Value == null ? "" : row.Cells["devUnit2"].Value.ToString();
                 type.DropType = row.Cells["devDrop"].Value == null ? "" : row.Cells["devDrop"].Value.ToString();
+                type.DropType2 = row.Cells["devDrop2"].Value == null ? "" : row.Cells["devDrop2"].Value.ToString();
                 type.MinValue = row.Cells["devMin"].Value == null ? "" : row.Cells["devMin"].Value.ToString();
                 type.MaxValue = row.Cells["devMax"].Value == null ? "" : row.Cells["devMax"].Value.ToString();
                 if (type.Name == "" && type.DropType == "")

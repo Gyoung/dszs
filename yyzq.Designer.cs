@@ -42,15 +42,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.gvTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvDevid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvValue1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvSignal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvNoise = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.devName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exportTem = new System.Windows.Forms.Button();
@@ -66,6 +57,16 @@
             this.bytesBox1 = new LeafSoft.LeafControl.BytesBox();
             this.MDataCounter = new LeafSoft.Units.DataCounter();
             this.DataReceiver = new LeafSoft.Units.DataReceive();
+            this.gvTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvDevid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvValue1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvValue2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvSignal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvNoise = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabReceive.SuspendLayout();
@@ -131,9 +132,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabReceive);
             this.tabControl1.Controls.Add(this.tabSender);
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
@@ -182,8 +183,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(377, 478);
@@ -213,9 +214,9 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.gvTime,
@@ -224,6 +225,7 @@
             this.gvType,
             this.gvAddress,
             this.gvValue1,
+            this.gvValue2,
             this.gvSignal,
             this.gvNoise,
             this.gvStatus});
@@ -234,73 +236,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(795, 235);
             this.dataGridView1.TabIndex = 43;
             // 
-            // gvTime
-            // 
-            this.gvTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gvTime.HeaderText = "时间";
-            this.gvTime.Name = "gvTime";
-            this.gvTime.ReadOnly = true;
-            // 
-            // gvZone
-            // 
-            this.gvZone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gvZone.HeaderText = "区域地址";
-            this.gvZone.Name = "gvZone";
-            this.gvZone.ReadOnly = true;
-            // 
-            // gvDevid
-            // 
-            this.gvDevid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gvDevid.HeaderText = "设备ID";
-            this.gvDevid.Name = "gvDevid";
-            this.gvDevid.ReadOnly = true;
-            // 
-            // gvType
-            // 
-            this.gvType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gvType.HeaderText = "设备类型";
-            this.gvType.Name = "gvType";
-            this.gvType.ReadOnly = true;
-            // 
-            // gvAddress
-            // 
-            this.gvAddress.HeaderText = "设备地址";
-            this.gvAddress.Name = "gvAddress";
-            this.gvAddress.ReadOnly = true;
-            // 
-            // gvValue1
-            // 
-            this.gvValue1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gvValue1.HeaderText = "数据";
-            this.gvValue1.Name = "gvValue1";
-            this.gvValue1.ReadOnly = true;
-            // 
-            // gvSignal
-            // 
-            this.gvSignal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gvSignal.DataPropertyName = "Signal ";
-            this.gvSignal.HeaderText = "信号值";
-            this.gvSignal.Name = "gvSignal";
-            this.gvSignal.ReadOnly = true;
-            // 
-            // gvNoise
-            // 
-            this.gvNoise.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gvNoise.HeaderText = "信噪比";
-            this.gvNoise.Name = "gvNoise";
-            this.gvNoise.ReadOnly = true;
-            // 
-            // gvStatus
-            // 
-            this.gvStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gvStatus.HeaderText = "状态";
-            this.gvStatus.Name = "gvStatus";
-            this.gvStatus.ReadOnly = true;
-            // 
             // dataGridView2
             // 
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.devName});
@@ -400,9 +339,9 @@
             // 
             // dataCounter1
             // 
-            this.dataCounter1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataCounter1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataCounter1.Location = new System.Drawing.Point(229, 213);
             this.dataCounter1.Name = "dataCounter1";
             this.dataCounter1.Size = new System.Drawing.Size(302, 22);
@@ -410,8 +349,8 @@
             // 
             // dataReceive1
             // 
-            this.dataReceive1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataReceive1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataReceive1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dataReceive1.Location = new System.Drawing.Point(229, 8);
             this.dataReceive1.Name = "dataReceive1";
@@ -420,8 +359,8 @@
             // 
             // udpClient
             // 
-            this.udpClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.udpClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.udpClient.Location = new System.Drawing.Point(6, 15);
             this.udpClient.Name = "udpClient";
             this.udpClient.Size = new System.Drawing.Size(203, 446);
@@ -429,8 +368,8 @@
             // 
             // bytesBox1
             // 
-            this.bytesBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.bytesBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.bytesBox1.IsHex = LeafSoft.Lib.EnumType.CMDType.Hex;
             this.bytesBox1.Location = new System.Drawing.Point(423, 15);
             this.bytesBox1.Multiline = true;
@@ -440,8 +379,8 @@
             // 
             // MDataCounter
             // 
-            this.MDataCounter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.MDataCounter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MDataCounter.Location = new System.Drawing.Point(445, 471);
             this.MDataCounter.Name = "MDataCounter";
             this.MDataCounter.Size = new System.Drawing.Size(292, 24);
@@ -449,14 +388,85 @@
             // 
             // DataReceiver
             // 
-            this.DataReceiver.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataReceiver.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DataReceiver.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DataReceiver.Location = new System.Drawing.Point(234, 93);
             this.DataReceiver.Name = "DataReceiver";
             this.DataReceiver.Size = new System.Drawing.Size(769, 359);
             this.DataReceiver.TabIndex = 59;
+            // 
+            // gvTime
+            // 
+            this.gvTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvTime.HeaderText = "时间";
+            this.gvTime.Name = "gvTime";
+            this.gvTime.ReadOnly = true;
+            // 
+            // gvZone
+            // 
+            this.gvZone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvZone.HeaderText = "区域地址";
+            this.gvZone.Name = "gvZone";
+            this.gvZone.ReadOnly = true;
+            // 
+            // gvDevid
+            // 
+            this.gvDevid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvDevid.HeaderText = "设备ID";
+            this.gvDevid.Name = "gvDevid";
+            this.gvDevid.ReadOnly = true;
+            // 
+            // gvType
+            // 
+            this.gvType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvType.HeaderText = "设备类型";
+            this.gvType.Name = "gvType";
+            this.gvType.ReadOnly = true;
+            // 
+            // gvAddress
+            // 
+            this.gvAddress.HeaderText = "设备地址";
+            this.gvAddress.Name = "gvAddress";
+            this.gvAddress.ReadOnly = true;
+            this.gvAddress.Width = 90;
+            // 
+            // gvValue1
+            // 
+            this.gvValue1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvValue1.HeaderText = "数据1";
+            this.gvValue1.Name = "gvValue1";
+            this.gvValue1.ReadOnly = true;
+            // 
+            // gvValue2
+            // 
+            this.gvValue2.HeaderText = "数据2";
+            this.gvValue2.Name = "gvValue2";
+            this.gvValue2.ReadOnly = true;
+            this.gvValue2.Width = 70;
+            // 
+            // gvSignal
+            // 
+            this.gvSignal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvSignal.DataPropertyName = "Signal ";
+            this.gvSignal.HeaderText = "信号值";
+            this.gvSignal.Name = "gvSignal";
+            this.gvSignal.ReadOnly = true;
+            // 
+            // gvNoise
+            // 
+            this.gvNoise.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvNoise.HeaderText = "信噪比";
+            this.gvNoise.Name = "gvNoise";
+            this.gvNoise.ReadOnly = true;
+            // 
+            // gvStatus
+            // 
+            this.gvStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gvStatus.HeaderText = "状态";
+            this.gvStatus.Name = "gvStatus";
+            this.gvStatus.ReadOnly = true;
             // 
             // yyzq
             // 
@@ -517,16 +527,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblFile;
         private System.Windows.Forms.Label lblTip;
+        private System.Windows.Forms.DataGridViewTextBoxColumn devName;
         private System.Windows.Forms.DataGridViewTextBoxColumn gvTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn gvZone;
         private System.Windows.Forms.DataGridViewTextBoxColumn gvDevid;
         private System.Windows.Forms.DataGridViewTextBoxColumn gvType;
         private System.Windows.Forms.DataGridViewTextBoxColumn gvAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn gvValue1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvValue2;
         private System.Windows.Forms.DataGridViewTextBoxColumn gvSignal;
         private System.Windows.Forms.DataGridViewTextBoxColumn gvNoise;
         private System.Windows.Forms.DataGridViewTextBoxColumn gvStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn devName;
 
 
 

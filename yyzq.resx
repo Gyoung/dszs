@@ -124,7 +124,7 @@
   <data name="devType.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAKgAAACuCAYAAACiEkapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAIuASURBVHhe7Z0HYBbXsba5SW7KTW56781JnLjFJe69dxsD
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAIuASURBVHhe7Z0HYBbXsba5SW7KTW56781JnLjFJe69dxsD
         NtiYZtx7iXvi3gsGA8bGppveO0igggQIEL0JSaii3nudf55ZjViEJJPYsfPnSvawu2f7nmffmTl7dr9u
         jc0N0rk1tZhP1wUmtWZNzcGwtbxluXpdB9u/3mdhoWNtPTY/n7AduF5w3J0v09R04PBA63i9LmvfOvr7
         CED1AutC9c0iNQ31Ut9YI01SpyXVapU6Xi4NDSXSLBVW1iz1WtZoFcwusc8UUgWzTo+tXo+zXsfr9Yga
@@ -738,6 +738,9 @@
     <value>True</value>
   </metadata>
   <metadata name="gvValue1.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="gvValue2.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="gvSignal.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

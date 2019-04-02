@@ -36,8 +36,9 @@
             this.devType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devUnit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.devUnit2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devDrop = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.devUnit2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.devDrop2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.devMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvType)).BeginInit();
@@ -51,8 +52,9 @@
             this.devType,
             this.devName,
             this.devUnit1,
-            this.devUnit2,
             this.devDrop,
+            this.devUnit2,
+            this.devDrop2,
             this.devMin,
             this.devMax});
             this.gvType.Location = new System.Drawing.Point(12, 30);
@@ -110,15 +112,11 @@
             // 
             this.devUnit1.HeaderText = "单位1";
             this.devUnit1.Name = "devUnit1";
-            // 
-            // devUnit2
-            // 
-            this.devUnit2.HeaderText = "单位2";
-            this.devUnit2.Name = "devUnit2";
+            this.devUnit1.Width = 80;
             // 
             // devDrop
             // 
-            this.devDrop.HeaderText = "下拉选择";
+            this.devDrop.HeaderText = "下拉1";
             this.devDrop.Items.AddRange(new object[] {
             "A:0",
             "B:1",
@@ -126,6 +124,25 @@
             "D:100",
             "E:1000"});
             this.devDrop.Name = "devDrop";
+            this.devDrop.Width = 80;
+            // 
+            // devUnit2
+            // 
+            this.devUnit2.HeaderText = "单位2";
+            this.devUnit2.Name = "devUnit2";
+            this.devUnit2.Width = 80;
+            // 
+            // devDrop2
+            // 
+            this.devDrop2.HeaderText = "下拉2";
+            this.devDrop2.Items.AddRange(new object[] {
+            "A:0",
+            "B:1",
+            "C:10",
+            "D:100",
+            "E:1000"});
+            this.devDrop2.Name = "devDrop2";
+            this.devDrop2.Width = 80;
             // 
             // devMin
             // 
@@ -133,6 +150,7 @@
             this.devMin.Name = "devMin";
             this.devMin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.devMin.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.devMin.Width = 90;
             // 
             // devMax
             // 
@@ -140,6 +158,7 @@
             this.devMax.Name = "devMax";
             this.devMax.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.devMax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.devMax.Width = 90;
             // 
             // frmType
             // 
@@ -172,8 +191,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn devType;
         private System.Windows.Forms.DataGridViewTextBoxColumn devName;
         private System.Windows.Forms.DataGridViewTextBoxColumn devUnit1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn devUnit2;
         private System.Windows.Forms.DataGridViewComboBoxColumn devDrop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn devUnit2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn devDrop2;
         private System.Windows.Forms.DataGridViewTextBoxColumn devMin;
         private System.Windows.Forms.DataGridViewTextBoxColumn devMax;
     }
