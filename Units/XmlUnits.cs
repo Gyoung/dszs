@@ -162,7 +162,7 @@ namespace LeafSoft.Units
             {
                 return dataSource;
             }
-            using (StreamReader reader = new StreamReader(fullName))
+            using (StreamReader reader = new StreamReader(fullName,Encoding.Default))
             {
                 while (reader.Peek() > -1)
                 {
