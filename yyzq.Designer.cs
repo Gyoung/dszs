@@ -41,7 +41,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.Configer = new LeafSoft.Units.NetUDPServer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gvTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gvZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,17 +52,18 @@
             this.gvSignal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gvNoise = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gvStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataCounter1 = new LeafSoft.Units.DataCounter();
-            this.dataReceive1 = new LeafSoft.Units.DataReceive();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.devName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exportTem = new System.Windows.Forms.Button();
             this.tabSender = new System.Windows.Forms.TabPage();
-            this.udpClient = new LeafSoft.Units.NetUDPClient();
             this.btnSend = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.ckLine = new System.Windows.Forms.CheckBox();
+            this.Configer = new LeafSoft.Units.NetUDPServer();
+            this.dataCounter1 = new LeafSoft.Units.DataCounter();
+            this.dataReceive1 = new LeafSoft.Units.DataReceive();
+            this.udpClient = new LeafSoft.Units.NetUDPClient();
             this.bytesBox1 = new LeafSoft.LeafControl.BytesBox();
             this.MDataCounter = new LeafSoft.Units.DataCounter();
             this.DataReceiver = new LeafSoft.Units.DataReceive();
@@ -212,16 +212,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Configer
-            // 
-            this.Configer.AutoSize = true;
-            this.Configer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Configer.Location = new System.Drawing.Point(9, 6);
-            this.Configer.Name = "Configer";
-            this.Configer.Size = new System.Drawing.Size(214, 203);
-            this.Configer.TabIndex = 61;
-            this.Configer.DataReceived += new LeafSoft.Lib.LeafEvent.DataReceivedHandler(this.Configer_DataReceived);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -317,26 +307,6 @@
             this.gvStatus.Name = "gvStatus";
             this.gvStatus.ReadOnly = true;
             // 
-            // dataCounter1
-            // 
-            this.dataCounter1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataCounter1.Location = new System.Drawing.Point(229, 213);
-            this.dataCounter1.Name = "dataCounter1";
-            this.dataCounter1.Size = new System.Drawing.Size(324, 22);
-            this.dataCounter1.TabIndex = 42;
-            // 
-            // dataReceive1
-            // 
-            this.dataReceive1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataReceive1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dataReceive1.Location = new System.Drawing.Point(229, 8);
-            this.dataReceive1.Name = "dataReceive1";
-            this.dataReceive1.Size = new System.Drawing.Size(812, 201);
-            this.dataReceive1.TabIndex = 41;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -380,19 +350,10 @@
             this.tabSender.Location = new System.Drawing.Point(4, 22);
             this.tabSender.Name = "tabSender";
             this.tabSender.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSender.Size = new System.Drawing.Size(1027, 501);
+            this.tabSender.Size = new System.Drawing.Size(1049, 501);
             this.tabSender.TabIndex = 0;
             this.tabSender.Text = "发送设置区域";
             this.tabSender.UseVisualStyleBackColor = true;
-            // 
-            // udpClient
-            // 
-            this.udpClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.udpClient.Location = new System.Drawing.Point(6, 15);
-            this.udpClient.Name = "udpClient";
-            this.udpClient.Size = new System.Drawing.Size(203, 446);
-            this.udpClient.TabIndex = 68;
             // 
             // btnSend
             // 
@@ -436,6 +397,45 @@
             this.ckLine.TabIndex = 64;
             this.ckLine.Text = "自动换行";
             this.ckLine.UseVisualStyleBackColor = true;
+            // 
+            // Configer
+            // 
+            this.Configer.AutoSize = true;
+            this.Configer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Configer.Location = new System.Drawing.Point(9, 6);
+            this.Configer.Name = "Configer";
+            this.Configer.Size = new System.Drawing.Size(214, 227);
+            this.Configer.TabIndex = 61;
+            this.Configer.DataReceived += new LeafSoft.Lib.LeafEvent.DataReceivedHandler(this.Configer_DataReceived);
+            // 
+            // dataCounter1
+            // 
+            this.dataCounter1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataCounter1.Location = new System.Drawing.Point(229, 213);
+            this.dataCounter1.Name = "dataCounter1";
+            this.dataCounter1.Size = new System.Drawing.Size(324, 22);
+            this.dataCounter1.TabIndex = 42;
+            // 
+            // dataReceive1
+            // 
+            this.dataReceive1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataReceive1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dataReceive1.Location = new System.Drawing.Point(229, 8);
+            this.dataReceive1.Name = "dataReceive1";
+            this.dataReceive1.Size = new System.Drawing.Size(812, 201);
+            this.dataReceive1.TabIndex = 41;
+            // 
+            // udpClient
+            // 
+            this.udpClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.udpClient.Location = new System.Drawing.Point(6, 15);
+            this.udpClient.Name = "udpClient";
+            this.udpClient.Size = new System.Drawing.Size(203, 446);
+            this.udpClient.TabIndex = 68;
             // 
             // bytesBox1
             // 

@@ -91,7 +91,7 @@
             this.lstConn.Location = new System.Drawing.Point(0, 91);
             this.lstConn.Name = "lstConn";
             this.lstConn.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstConn.Size = new System.Drawing.Size(160, 112);
+            this.lstConn.Size = new System.Drawing.Size(155, 88);
             this.lstConn.TabIndex = 11;
             // 
             // contextMenuStrip1

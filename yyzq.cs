@@ -461,7 +461,8 @@ namespace LeafSoft
 
         private void button1_Click(object sender, EventArgs e)
         {
-            exportData("数据展示", this.dataGridView1, "采集器结果", false);
+            string fileName = Configer.GetLocationText()+"数据展示";
+            exportData(fileName, this.dataGridView1, "采集器结果", false);
         }
         private void exportData(string fileName, DataGridView dv, string title, bool isAuto)
         {

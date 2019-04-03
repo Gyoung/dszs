@@ -244,5 +244,10 @@ namespace LeafSoft.Units
                 lbLocation.Text = dict[key];
             }
         }
+
+        public string GetLocationText()
+        {
+            return lbLocation.Text;
+        }
     }
 }
