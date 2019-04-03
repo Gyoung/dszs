@@ -189,5 +189,28 @@ namespace LeafSoft.Units
             return dataSource;
         }
 
+        public static Dictionary<string,string> getLocationData()
+        {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            string fullName = fileName + "Location.csv";
+            if (!File.Exists(fullName))
+            {
+                return dict;
+            }
+            using (StreamReader reader = new StreamReader(fullName, Encoding.Default))
+            {
+                while (reader.Peek() > -1)
+                {
+                    string line = reader.ReadLine();
+                    string[] items = line.Split(',');
+                    if (items.Length > 1)
+                    {
+                        dict.Add(items[0], items[1]);
+                    }
+                }
+            }
+            return dict;
+        }
+
     }
 }

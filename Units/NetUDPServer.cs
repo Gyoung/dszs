@@ -20,6 +20,8 @@ namespace LeafSoft.Units
         BindingList<string> lstClient = new BindingList<string>();
 
         public event Lib.LeafEvent.DataReceivedHandler DataReceived;
+
+        Dictionary<string, string> dict = null;
         
         /// <summary>
         /// 监听状态
@@ -40,6 +42,12 @@ namespace LeafSoft.Units
                 {//筛选IPV4
                     cbxLocalIP.Items.Add(ip.ToString());
                 }
+            }
+
+            dict= XmlUnits.getLocationData();
+            foreach (var item in dict)
+            {
+                nmLocalPort.Items.Add(item.Key);
             }
         }
 
@@ -93,11 +101,11 @@ namespace LeafSoft.Units
                 IPEndPoint ipLocalEndPoint;
                 if (cbxLocalIP.SelectedIndex == 0)
                 {
-                    ipLocalEndPoint = new IPEndPoint(IPAddress.Any, (int)nmLocalPort.Value);
+                    ipLocalEndPoint = new IPEndPoint(IPAddress.Any, int.Parse(nmLocalPort.Text));
                 }
                 else
                 {
-                    ipLocalEndPoint = new IPEndPoint(IPAddress.Parse(cbxLocalIP.SelectedItem.ToString()), (int)nmLocalPort.Value);
+                    ipLocalEndPoint = new IPEndPoint(IPAddress.Parse(cbxLocalIP.SelectedItem.ToString()), int.Parse(nmLocalPort.Text));
                 }
                 udpserver.NetWork = new UdpClient(ipLocalEndPoint);
                 udpserver.ipLocalEndPoint = ipLocalEndPoint;
@@ -225,6 +233,15 @@ namespace LeafSoft.Units
             if (udpserver.NetWork != null)
             {
                 udpserver.NetWork.Close();
+            }
+        }
+
+        private void nmLocalPort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string key = nmLocalPort.Text;
+            if (dict != null)
+            {
+                lbLocation.Text = dict[key];
             }
         }
     }
